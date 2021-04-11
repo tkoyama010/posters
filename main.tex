@@ -59,6 +59,7 @@
 
 \usepackage{booktabs} % Top and bottom rules for tables
 
+\usepackage{pythonhighlight}
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION 
 %----------------------------------------------------------------------------------------
@@ -78,8 +79,6 @@
 
 \setlength{\belowcaptionskip}{2ex} % White space under figures
 \setlength\belowdisplayshortskip{2ex} % White space under equations
-
-\begin{frame}[t] % The whole poster is enclosed in one beamer frame
 
 \begin{columns}[t] % The whole poster consists of three major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
 
@@ -138,6 +137,13 @@
 %----------------------------------------------------------------------------------------
 
 \begin{block}{Direct access to common VTK filters}
+These classes hold methods to apply general filters to any data type.
+By inheriting these classes into the wrapped VTK data structures, a user can easily apply common filters in an intuitive manner.
+\inputpython{shrunk_mesh.py}{1}{100}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{shrink.png}
+\caption{Shrink filter}
+\end{figure}
 \end{block}
 
 %----------------------------------------------------------------------------------------
@@ -238,8 +244,6 @@
 \end{column} % End of the third column
 
 \end{columns} % End of all the columns in the poster
-
-\end{frame} % End of the enclosing frame
 
 \end{document}
 
