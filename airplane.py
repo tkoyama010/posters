@@ -1,6 +1,18 @@
 import pyvista as pv
-from pyvista import examples
+
 
 pv.set_plot_theme("document")
-mesh = examples.load_airplane()
-mesh.plot(screenshot="airplane.png")
+
+cyl = pv.Cylinder()
+arrow = pv.Arrow()
+sphere = pv.Sphere()
+
+p = pv.Plotter(shape=(1, 3))
+p.subplot(0, 0)
+p.add_mesh(cyl, color="tan", show_edges=True)
+p.subplot(0, 1)
+p.add_mesh(arrow, color="tan", show_edges=True)
+p.subplot(0, 2)
+p.add_mesh(sphere, color="tan", show_edges=True)
+
+p.show(screenshot="airplane.png")
