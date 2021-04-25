@@ -97,14 +97,18 @@
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Pythonic interface to VTK's Python-C++ bindings}
+\begin{block}{Pythonic interface to 3D visualization}
+The same stl can be loaded and plotted using pyvista with:
+\inputpython{airplane.py}{1}{100}
+The mesh object is more pythonic and the code is much more straightforward.
+Garbage collection is taken care of automatically and the renderer is cleaned up after the user closes the VTK plotting window.
 \end{block}
 
 %------------------------------------------------
 
 \begin{figure}
-\includegraphics[width=0.8\linewidth]{step0002.jpg}
-\caption{Architecture of Ping}
+\includegraphics[width=1.0\linewidth]{airplane.png}
+\caption{Airplane}
 \end{figure}
 
 %----------------------------------------------------------------------------------------
