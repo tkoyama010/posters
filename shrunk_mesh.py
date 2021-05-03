@@ -10,6 +10,8 @@ p.add_mesh(mesh, color="tan", show_edges=True)
 p.subplot(0, 1)
 p.add_text("After Shrink")
 p.add_mesh(
-    shrunk_mesh, color="tan", show_edges=True,
+    shrunk_mesh,
+    color="tan",
+    show_edges=True,
 )
 p.show(screenshot="shrink.png")
