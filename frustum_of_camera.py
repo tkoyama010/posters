@@ -48,4 +48,4 @@ p.camera.focal_point = (0.2, 0.3, 0.3)
 p.camera.up = (0.0, 1.0, 0.0)
 p.camera.zoom(1.1)
 
-p.show(screenshot="camera.png")
+p.show(screenshot="frustum_of_camera.png")
