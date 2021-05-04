@@ -3,7 +3,7 @@ import pyvista as pv
 pv.set_plot_theme("document")
 mesh = pv.Sphere()
 shrunk_mesh = mesh.shrink(shrink_factor=0.8)
-p = pv.Plotter(off_screen=True, shape=(1, 2))
+p = pv.Plotter(shape=(1, 2), window_size=[1024, 384])
 p.subplot(0, 0)
 p.add_text("Before Shrink")
 p.add_mesh(mesh, color="tan", show_edges=True)
