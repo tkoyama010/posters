@@ -5,7 +5,7 @@
 
 \usepackage[orientation=landscape,size=a0]{beamerposter}
 \usepackage{lipsum}
-% \usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
+\usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{pythonhighlight}
 \usepackage[absolute,overlay]{textpos}
@@ -84,14 +84,17 @@ Create a frustum of camera, then create a scene of inside frustum.
 \begin{textblock*}{800pt}(1750pt, 1000pt)
 \begin{block}{Plot data over circular arc}
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{kitchen.png}
-\caption{kitchen}
-\end{figure}
-\begin{figure}
 \includegraphics[width=1.0\linewidth]{velocity.png}
 \caption{Plot over line}
 \end{figure}
 \end{block}
+\end{textblock*}
+
+\begin{textblock*}{800pt}(2570pt, 1000pt)
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{kitchen.png}
+\caption{kitchen}
+\end{figure}
 \end{textblock*}
 
 \begin{textblock*}{800pt}(2570pt, 1750pt)
