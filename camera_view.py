@@ -23,7 +23,9 @@ bunny = examples.download_bunny()
 xyz = camera.position + unit_vector * 0.6 - np.mean(bunny.points, axis=0)
 bunny.translate(xyz)
 
-p = pv.Plotter()
+p = pv.Plotter(shape=(2, 1))
+p.subplot(0, 0)
+p.add_text("Camera Position")
 p.add_mesh(bunny)
 p.add_mesh(frustum, style="wireframe")
 p.add_mesh(bunny)
@@ -38,7 +40,7 @@ p.add_point_labels(
     ["Camera Position", "Near Clipping Plane", "Far Clipping Plane", "Focal Point"],
     margin=0,
     fill_shape=False,
-    font_size=24,
+    font_size=14,
     shape_color="white",
     point_color="red",
     text_color="black",
@@ -46,6 +48,10 @@ p.add_point_labels(
 p.camera.position = (1.1, 1.5, 0.0)
 p.camera.focal_point = (0.2, 0.3, 0.3)
 p.camera.up = (0.0, 1.0, 0.0)
-p.camera.zoom(1.1)
+p.camera.zoom(1.4)
 
+p.subplot(1, 0)
+p.add_text("Camera View")
+p.add_mesh(bunny)
+p.camera = camera
 p.show(screenshot="camera.png")
