@@ -1,93 +1,29 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Jacobs Landscape Poster
-% LaTeX Template
-% Version 1.0 (29/03/13)
-%
-% Created by:
-% Computational Physics and Biophysics Group, Jacobs University
-% https://teamwork.jacobs-university.de:8443/confluence/display/CoPandBiG/LaTeX+Poster
-% 
-% Further modified by:
-% Nathaniel Johnston (nathaniel@njohnston.ca)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
-
 \documentclass[final]{beamer}
+\mode<presentation> {
+  \usetheme{metropolis}
+}
 
-\usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
-\usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
+\usepackage[orientation=landscape,size=a0]{beamerposter}
+\usepackage{lipsum}
+% \usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{pythonhighlight}
 \usepackage[absolute,overlay]{textpos}
 
-\usetheme{confposter} % Use the confposter theme supplied with this template
-
-\setbeamercolor{block title}{fg=ngreen,bg=white} % Colors of the block titles
-\setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
-\setbeamercolor{block alerted title}{fg=white,bg=dblue!70} % Colors of the highlighted block titles
-\setbeamercolor{block alerted body}{fg=black,bg=dblue!10} % Colors of the body of highlighted blocks
-% Many more colors are available for use in beamerthemeconfposter.sty
-
-%-----------------------------------------------------------
-% Define the column widths and overall poster size
-% To set effective sepwid, onecolwid and twocolwid values, first choose how many columns you want and how much separation you want between columns
-% In this template, the separation width chosen is 0.024 of the paper width and a 4-column layout
-% onecolwid should therefore be (1-(# of columns+1)*sepwid)/# of columns e.g. (1-(4+1)*0.024)/4 = 0.22
-% Set twocolwid to be (2*onecolwid)+sepwid = 0.464
-% Set threecolwid to be (3*onecolwid)+2*sepwid = 0.708
-
-\newlength{\sepwid}
-\newlength{\onecolwid}
-\newlength{\twocolwid}
-\newlength{\threecolwid}
-\setlength{\paperwidth}{48in} % A0 width: 46.8in
-\setlength{\paperheight}{36in} % A0 height: 33.1in
-\setlength{\sepwid}{0.024\paperwidth} % Separation width (white space) between columns
-\setlength{\onecolwid}{0.22\paperwidth} % Width of one column
-\setlength{\twocolwid}{0.464\paperwidth} % Width of two columns
-\setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
-\setlength{\topmargin}{-0.5in} % Reduce the top margin size
-%-----------------------------------------------------------
-
-\usepackage{graphicx}  % Required for including images
-
-\usepackage{booktabs} % Top and bottom rules for tables
-
-\usepackage{pythonhighlight}
-%----------------------------------------------------------------------------------------
-%	TITLE SECTION 
-%----------------------------------------------------------------------------------------
-
-\title{Visualize 3D scientific data in a Pythonic way like matplotlib} % Poster title
-
-\author{Tetsuo Koyama} % Author(s)
-
-\institute{PyVista developers team} % Institution(s)
-
-%----------------------------------------------------------------------------------------
-
 \begin{document}
+\begin{textblock*}{3450pt}(50pt, 50pt)
+\Huge Visualize 3D scientific data in a Pythonic way like matplotlib
 
-\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
-\addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
-
-\setlength{\belowcaptionskip}{2ex} % White space under figures
-\setlength\belowdisplayshortskip{2ex} % White space under equations
-
-\begin{textblock*}{800pt}(100pt, 450pt)
-\begin{alertblock}{Abstract}
-\end{alertblock}
+\Large Tetsuo Koyama
 \end{textblock*}
 
-\begin{textblock*}{800pt}(100pt, 700pt)
+\begin{textblock*}{800pt}(50pt, 250pt)
+\begin{block}{Abstract}
+Abstract
+\end{block}
+\end{textblock*}
+
+\begin{textblock*}{800pt}(50pt, 700pt)
 \begin{block}{Pythonic interface to 3D visualization}
 The same stl can be loaded and plotted using pyvista with:
 The mesh object is more pythonic and the code is much more straightforward.
@@ -100,7 +36,7 @@ Garbage collection is taken care of automatically and the renderer is cleaned up
 \end{block}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(950pt, 450pt)
+\begin{textblock*}{800pt}(900pt, 450pt)
 \begin{block}{General filters to any data type}
 These classes hold methods to apply general filters to any data type.
 By inheriting these classes into the wrapped VTK data structures, a user can easily apply common filters in an intuitive manner.
@@ -112,7 +48,7 @@ By inheriting these classes into the wrapped VTK data structures, a user can eas
 \end{block}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(1800pt, 450pt)
+\begin{textblock*}{800pt}(1750pt, 450pt)
 \begin{block}{About Camera object}
 The pyvista.Camera class adds additional functionality and a pythonic API to the vtk.vtkCamera class.
 pyvista.Camera objects come with a default set of cameras that work well in most cases,
@@ -127,7 +63,7 @@ Create a frustum of camera, then create a scene of inside frustum.
 \end{block}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(2650pt, 475pt)
+\begin{textblock*}{800pt}(2570pt, 475pt)
 \inputpython{camera_view.py}{1}{100}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{camera_view.png}
@@ -135,22 +71,19 @@ Create a frustum of camera, then create a scene of inside frustum.
 \end{figure}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(1800pt, 1600pt)
+\begin{textblock*}{800pt}(900pt, 1750pt)
 \begin{block}{Plot data over line and circular arc}
 \end{block}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(2650pt, 1600pt)
+\begin{textblock*}{800pt}(2570pt, 1750pt)
 \begin{block}{References}
 \end{block}
 \end{textblock*}
 
-\setbeamercolor{block alerted title}{fg=black,bg=norange} % Change the alert block title colors
-\setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
-
-\begin{textblock*}{800pt}(2650pt, 2000pt)
-\begin{alertblock}{Contact Information}
-\end{alertblock}
+\begin{textblock*}{800pt}(2570pt, 2200pt)
+\begin{block}{Contact Information}
+\end{block}
 \end{textblock*}
 
 \end{document}
