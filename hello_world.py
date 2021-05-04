@@ -15,4 +15,4 @@ p.add_mesh(arrow, color="tan", show_edges=True)
 p.subplot(0, 2)
 p.add_mesh(sphere, color="tan", show_edges=True)
 
-p.show(screenshot="airplane.png")
+p.show(screenshot="hello_world.png")
