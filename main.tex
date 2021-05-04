@@ -147,8 +147,20 @@ By inheriting these classes into the wrapped VTK data structures, a user can eas
 %	METHODS
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Plot data over line and circular arc}
+\begin{block}{About Camera object}
+The pyvista.Camera class adds additional functionality and a pythonic API to the vtk.vtkCamera class.
+pyvista.Camera objects come with a default set of cameras that work well in most cases,
+but in many situations a more hands-on access to camera is necessary.
+
+Create a frustum of camera, then create a scene of inside frustum.
 \end{block}
+
+%------------------------------------------------
+
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{camera.png}
+\caption{frustum of camera}
+\end{figure}
 
 %----------------------------------------------------------------------------------------
 
@@ -172,7 +184,7 @@ By inheriting these classes into the wrapped VTK data structures, a user can eas
 %	MATHEMATICAL SECTION
 %----------------------------------------------------------------------------------------
 
-\begin{block}{About Camera object}
+\begin{block}{Plot data over line and circular arc}
 \end{block}
 
 %----------------------------------------------------------------------------------------
