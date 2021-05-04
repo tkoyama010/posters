@@ -1,4 +1,4 @@
-main.pdf: main.tex shrink.png airplane.png frustum_of_camera.png
+main.pdf: main.tex shrink.png airplane.png frustum_of_camera.png camera_view.png
 	pdflatex $<
 shrink.png: shrunk_mesh.py
 	python shrunk_mesh.py
