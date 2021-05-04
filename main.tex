@@ -5,7 +5,7 @@
 
 \usepackage[orientation=landscape,size=a0]{beamerposter}
 \usepackage{lipsum}
-\usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
+% \usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{pythonhighlight}
 \usepackage[absolute,overlay]{textpos}
@@ -17,7 +17,7 @@
 \Large Tetsuo Koyama
 \end{textblock*}
 
-\begin{textblock*}{800pt}(50pt, 250pt)
+\begin{textblock*}{800pt}(50pt, 200pt)
 \begin{block}{Abstract}
 Abstract
 \end{block}
@@ -36,7 +36,12 @@ Garbage collection is taken care of automatically and the renderer is cleaned up
 \end{block}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(900pt, 250pt)
+\begin{textblock*}{800pt}(50pt, 1700pt)
+\begin{block}{Read stl data}
+\end{block}
+\end{textblock*}
+
+\begin{textblock*}{800pt}(900pt, 200pt)
 \begin{block}{General filters to any data type}
 These classes hold methods to apply general filters to any data type.
 By inheriting these classes into the wrapped VTK data structures, a user can easily apply common filters in an intuitive manner.
@@ -48,7 +53,7 @@ By inheriting these classes into the wrapped VTK data structures, a user can eas
 \end{block}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(1750pt, 250pt)
+\begin{textblock*}{800pt}(1750pt, 50pt)
 \begin{block}{Camera class}
 The pyvista.Camera class adds additional functionality and a pythonic API to the vtk.vtkCamera class.
 pyvista.Camera objects come with a default set of cameras that work well in most cases,
@@ -63,7 +68,7 @@ Create a frustum of camera, then create a scene of inside frustum.
 \end{block}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(2570pt, 250pt)
+\begin{textblock*}{800pt}(2570pt, 50pt)
 \inputpython{camera_view.py}{1}{100}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{camera_view.png}
@@ -71,8 +76,21 @@ Create a frustum of camera, then create a scene of inside frustum.
 \end{figure}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(900pt, 1200pt)
-\begin{block}{Plot data over line and circular arc}
+\begin{textblock*}{800pt}(900pt, 1150pt)
+\begin{block}{Extract filter}
+\end{block}
+\end{textblock*}
+
+\begin{textblock*}{800pt}(1750pt, 1000pt)
+\begin{block}{Plot data over circular arc}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{kitchen.png}
+\caption{kitchen}
+\end{figure}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{velocity.png}
+\caption{Plot over line}
+\end{figure}
 \end{block}
 \end{textblock*}
 
