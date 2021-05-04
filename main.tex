@@ -127,7 +127,14 @@ Garbage collection is taken care of automatically and the renderer is cleaned up
 %	MATERIALS
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Filtering/plotting tools built for interactivity}
+\begin{block}{General filters to any data type}
+These classes hold methods to apply general filters to any data type.
+By inheriting these classes into the wrapped VTK data structures, a user can easily apply common filters in an intuitive manner.
+\inputpython{shrunk_mesh.py}{1}{100}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{shrink.png}
+\caption{Shrink filter}
+\end{figure}
 \end{block}
 
 %----------------------------------------------------------------------------------------
@@ -140,14 +147,7 @@ Garbage collection is taken care of automatically and the renderer is cleaned up
 %	METHODS
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Direct access to common VTK filters}
-These classes hold methods to apply general filters to any data type.
-By inheriting these classes into the wrapped VTK data structures, a user can easily apply common filters in an intuitive manner.
-\inputpython{shrunk_mesh.py}{1}{100}
-\begin{figure}
-\includegraphics[width=1.0\linewidth]{shrink.png}
-\caption{Shrink filter}
-\end{figure}
+\begin{block}{Plot data over line and circular arc}
 \end{block}
 
 %----------------------------------------------------------------------------------------
@@ -172,7 +172,7 @@ By inheriting these classes into the wrapped VTK data structures, a user can eas
 %	MATHEMATICAL SECTION
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Intuitive plotting routines with matplotlib similar syntax}
+\begin{block}{About Camera object}
 \end{block}
 
 %----------------------------------------------------------------------------------------
