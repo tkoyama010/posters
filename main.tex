@@ -25,6 +25,8 @@
 \documentclass[final]{beamer}
 
 \usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
+\usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
+\usepackage[absolute,overlay]{textpos}
 
 \usetheme{confposter} % Use the confposter theme supplied with this template
 
@@ -90,19 +92,24 @@
 %	OBJECTIVES
 %----------------------------------------------------------------------------------------
 
+\begin{textblock*}{1100pt}(100pt, 450pt)
 \begin{alertblock}{Abstract}
 \end{alertblock}
+\end{textblock*}
+
 
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
 
+\begin{textblock*}{1100pt}(100pt, 700pt)
 \begin{block}{Pythonic interface to 3D visualization}
 The same stl can be loaded and plotted using pyvista with:
 \inputpython{airplane.py}{1}{100}
 The mesh object is more pythonic and the code is much more straightforward.
 Garbage collection is taken care of automatically and the renderer is cleaned up after the user closes the VTK plotting window.
 \end{block}
+\end{textblock*}
 
 %------------------------------------------------
 
