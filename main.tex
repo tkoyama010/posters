@@ -5,7 +5,7 @@
 
 \usepackage[orientation=landscape,size=a0]{beamerposter}
 \usepackage{lipsum}
-\usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
+% \usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{pythonhighlight}
 \usepackage[absolute,overlay]{textpos}
@@ -45,7 +45,7 @@ Garbage collection is taken care of automatically and the renderer is cleaned up
 \begin{block}{General filters to any data type}
 These classes hold methods to apply general filters to any data type.
 By inheriting these classes into the wrapped VTK data structures, a user can easily apply common filters in an intuitive manner.
-\inputpython{shrunk_mesh.py}{1}{100}
+\inputpython{shrunk_mesh.py}{4}{5}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{shrink.png}
 \caption{Shrink filter}
@@ -76,15 +76,18 @@ Create a frustum of camera, then create a scene of inside frustum.
 \end{figure}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(900pt, 1150pt)
-\begin{block}{Extract filter}
+\begin{textblock*}{800pt}(900pt, 750pt)
+\begin{block}{Extrude Rotation}
+AAAAAAAAAAA
+\inputpython{extrude_rotate.py}{7}{9}
+\includegraphics[width=1.0\linewidth]{extrude_rotate.png}
 \end{block}
 \end{textblock*}
 
 \begin{textblock*}{800pt}(1750pt, 1000pt)
 \begin{block}{Plot data over circular arc}
 Plot data over circular arc
-\inputpython{kitchen.py}{1}{100}
+\inputpython{kitchen.py}{6}{18}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{velocity.png}
 \caption{Plot over line}

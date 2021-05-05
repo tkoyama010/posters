@@ -1,4 +1,4 @@
-main.pdf: main.tex shrink.png hello_world.png frustum_of_camera.png camera_view.png kitchen.png
+main.pdf: main.tex shrink.png hello_world.png frustum_of_camera.png camera_view.png kitchen.png extrude_rotate.png
 	pdflatex $<
 shrink.png: shrunk_mesh.py
 	python shrunk_mesh.py
@@ -10,3 +10,5 @@ camera_view.png: camera_view.py
 	python camera_view.py
 kitchen.png: kitchen.py
 	python kitchen.py
+extrude_rotate.png: extrude_rotate.py
+	python extrude_rotate.py
