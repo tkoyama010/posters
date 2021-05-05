@@ -1,6 +1,5 @@
 import pyvista as pv
 import numpy as np
-import vtk
 from pyvista import examples
 
 pv.set_plot_theme("document")
