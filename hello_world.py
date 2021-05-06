@@ -1,6 +1,5 @@
 import pyvista as pv
 
-
 pv.set_plot_theme("document")
 
 cyl = pv.Cylinder()

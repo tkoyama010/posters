@@ -17,7 +17,6 @@ xyz = camera.position + unit_vector * 0.6 - np.mean(bunny.points, axis=0)
 bunny.translate(xyz)
 
 p = pv.Plotter(window_size=[1024, 384])
-p.add_text("Camera View")
 p.add_mesh(bunny)
 p.camera = camera
 p.show(screenshot="camera_view.png")
