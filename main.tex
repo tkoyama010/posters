@@ -5,12 +5,33 @@
 
 \usepackage[orientation=landscape,size=a0]{beamerposter}
 \usepackage{lipsum}
-\usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
+% \usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{pythonhighlight}
 \usepackage[absolute,overlay]{textpos}
+\usepackage{url}
+\usepackage{caption}
+
+\lstset{
+language = Python,
+backgroundcolor={\color[gray]{1.00}},
+breaklines = true,
+breakindent = 10pt,
+basicstyle=\fontsize{18}{20}\selectfont\ttfamily,
+commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+classoffset = 0,
+keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+stringstyle = {\ttfamily \color[rgb]{1,0,0}},
+frame = single,
+framesep = 5pt,
+stepnumber = 1,
+numberstyle = \tiny,
+tabsize = 4,
+captionpos = t
+}
 
 \begin{document}
+\begin{frame}
 \begin{textblock*}{3450pt}(50pt, 50pt)
 \Huge Visualize 3D scientific data in a Pythonic way like matplotlib
 
@@ -19,22 +40,30 @@
 
 \begin{textblock*}{800pt}(50pt, 200pt)
 \begin{block}{Abstract}
-Abstract
+Do you want to visualize 3D scientific data in a Pythonic way like matplotlib?
+If you want, this poster is for you.
+This poster is the introduction of PyVista (\url{https://www.pyvista.org/}).
+It is ...
+\begin{itemize}
+\item "VTK for humans"\: a high-level API to the Visualization Toolkit (VTK)
+\item 3D plotting made simple and built for large/complex data geometries
+\item mesh data structures and filtering methods for spatial datasets
+\end{itemize}
+
 \end{block}
-\begin{block}{Pythonic interface to 3D visualization}
-The same stl can be loaded and plotted using pyvista with:
-The mesh object is more pythonic and the code is much more straightforward.
-Garbage collection is taken care of automatically and the renderer is cleaned up after the user closes the VTK plotting window.
-\inputpython{hello_world.py}{1}{100}
+\begin{block}{Hello World!}
+In this code we demonstrate the "Hello World!" of PyVista.
+
+\lstinputlisting[caption=Hello World!, label=hello_world, firstline=1, lastline=100]{hello_world.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{hello_world.png}
-\caption{Hello World}
+\caption{Hello World!}
 \end{figure}
 \end{block}
 \begin{block}{General filters to any data type}
 These classes hold methods to apply general filters to any data type.
 By inheriting these classes into the wrapped VTK data structures, a user can easily apply common filters in an intuitive manner.
-\inputpython{shrunk_mesh.py}{4}{5}
+\lstinputlisting[caption=Shrink Mesh, label=shrunk_mesh, firstline=4, lastline=5]{shrunk_mesh.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{shrink.png}
 \caption{Shrink filter}
@@ -42,7 +71,7 @@ By inheriting these classes into the wrapped VTK data structures, a user can eas
 \end{block}
 \begin{block}{Extrude Rotation}
 AAAAAAAAAAA
-\inputpython{extrude_rotate.py}{7}{9}
+\lstinputlisting[caption=Extrude Rotate, label=extrude_rotate, firstline=7, lastline=9]{extrude_rotate.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{extrude_rotate.png}
 \caption{Extrude Rotation}
@@ -52,17 +81,24 @@ AAAAAAAAAAA
 
 \begin{textblock*}{800pt}(900pt, 200pt)
 \begin{block}{Load and Plot from a File}
-AAAAA
-\inputpython{read_file.py}{1}{100}
+The same stl can be loaded and plotted using pyvista with:
+The mesh object is more pythonic and the code is much more straightforward.
+Garbage collection is taken care of automatically and the renderer is cleaned up after the user closes the VTK plotting window.
+\lstinputlisting[caption=Load stanford bunny from file, label=read_file, firstline=6, lastline=6]{read_file.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{read_file.png}
-\caption{Hello World}
+\caption{Stanford bunny (Load from file)}
 \end{figure}
 \end{block}
 \end{textblock*}
 
 \begin{textblock*}{800pt}(1750pt, 50pt)
 \begin{block}{Camera class}
+Camera class is a virtual camera for 3D rendering.
+It provides methods to position and orient the view point and focal point.
+Convenience methods for moving about the focal point also are provided.
+More complex methods allow the manipulation of the computer graphics model including view up vector, clipping planes, and camera perspective.
+
 The pyvista.Camera class adds additional functionality and a pythonic API to the vtk.vtkCamera class.
 pyvista.Camera objects come with a default set of cameras that work well in most cases,
 but in many situations a more hands-on access to camera is necessary.
@@ -77,7 +113,7 @@ Create a frustum of camera, then create a scene of inside frustum.
 \end{textblock*}
 
 \begin{textblock*}{800pt}(2570pt, 50pt)
-\inputpython{camera_view.py}{1}{100}
+\lstinputlisting[caption=Camera View, label=camera_view, firstline=1, lastline=100]{camera_view.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{camera_view.png}
 \caption{Camera View}
@@ -87,7 +123,7 @@ Create a frustum of camera, then create a scene of inside frustum.
 \begin{textblock*}{800pt}(900pt, 1200pt)
 \begin{block}{Contouring}
 AAAAAAAAAAA
-\inputpython{contour.py}{13}{19}
+\lstinputlisting[caption=Plotting contour, label=Contour, firstline=12, lastline=21]{contour.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{contour.png}
 \caption{Contouring}
@@ -106,7 +142,7 @@ Plot data over circular arc
 \end{textblock*}
 
 \begin{textblock*}{800pt}(2570pt, 1200pt)
-\inputpython{kitchen.py}{11}{18}
+\lstinputlisting[caption=Plotting over line, label=kitchen, firstline=11, lastline=18]{kitchen.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{velocity.png}
 \caption{Plot over line}
@@ -123,5 +159,6 @@ Plot data over circular arc
 \end{block}
 \end{textblock*}
 
+\end{frame}
 \end{document}
 

@@ -1,7 +1,7 @@
 import pyvista as pv
 
 pv.set_plot_theme("document")
-mesh = pv.Sphere()
+mesh = pv.Box()
 shrunk_mesh = mesh.shrink(shrink_factor=0.8)
 p = pv.Plotter(shape=(1, 2), window_size=[1024, 384])
 p.subplot(0, 0)
