@@ -6,7 +6,7 @@ cyl = pv.Cylinder()
 arrow = pv.Arrow()
 sphere = pv.Sphere()
 
-p = pv.Plotter(shape=(1, 3), window_size=[1024, 384])
+p = pv.Plotter(shape=(1, 3), window_size=[1000, 300])
 p.subplot(0, 0)
 p.add_mesh(cyl, color="tan", show_edges=True)
 p.subplot(0, 1)

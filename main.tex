@@ -53,12 +53,12 @@ It is
 
 \end{block}
 \begin{block}{Hello World!}
-In code \ref{hello_world_code}, we demonstrate the "Hello World!" of PyVista.
-Basic step of PyVista script is the following.
+In Code Listing \ref{hello_world_code}, we demonstrate the "Hello World!" of \href{https://pypi.org/project/pyvista/}{PyVista}.
+Basic step of \href{https://pypi.org/project/pyvista/}{PyVista} script is the following.
 First, import \href{https://pypi.org/project/pyvista/}{PyVista}.
 Then generate \href{https://docs.pyvista.org/getting-started/what-is-a-mesh.html}{Mesh} and add it to
 \href{https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter}{Plotter} object using \href{https://docs.pyvista.org/plotting/plotting.html#pyvista.BasePlotter.add\_mesh}{add\_mesh} method.
-And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of PyVista using \href{https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter.show}{\texttt{show}} method.
+And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of \href{https://pypi.org/project/pyvista/}{PyVista} using \href{https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter.show}{\texttt{show}} method.
 
 \lstinputlisting[caption=Hello World!, label=hello_world_code, firstline=1, lastline=100]{hello_world.py}
 \begin{figure}
@@ -67,27 +67,30 @@ And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of PyV
 \end{figure}
 \end{block}
 \begin{block}{General filters to any data type}
-These classes hold methods to apply general filters to any data type.
-By inheriting these classes into the wrapped VTK data structures, a user can easily apply common filters in an intuitive manner.
-\lstinputlisting[caption=Shrink Mesh, label=shrunk_mesh, firstline=4, lastline=5]{shrunk_mesh.py}
+
+\href{https://docs.pyvista.org/core/filters.html}{PyVista classes} hold methods to apply general filters to any data type.
+A user can easily apply common filters in an intuitive manner.
+For example,
+Code Listing \ref{ShrinkFilterCode} shrink the individual faces of a mesh
+using \href{https://docs.pyvista.org/core/filters.html#pyvista.DataSetFilters.shrink}{shrink} method (Figure \ref{ShrinkFilterFigure}), and
+Code Listing \ref{ExtrudeRotateCode} sweep polygonal data creating "skirt" from line
+using \href{https://docs.pyvista.org/core/filters.html#pyvista.PolyDataFilters.extrude_rotate}{extrude\_rotate} method (Figure \ref{ExtrudeRotateFigure}).
+\lstinputlisting[caption=Shrink Mesh, label=ShrinkFilterCode, firstline=4, lastline=5]{shrunk_mesh.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{shrink.png}
-\caption{Shrink filter}
+\caption{Shrink filter}\label{ShrinkFilterFigure}
 \end{figure}
-\end{block}
-\begin{block}{Extrude Rotation}
-AAAAAAAAAAA
-\lstinputlisting[caption=Extrude Rotate, label=extrude_rotate, firstline=7, lastline=9]{extrude_rotate.py}
+\lstinputlisting[caption=Extrude Rotate, label=ExtrudeRotateCode, firstline=7, lastline=9]{extrude_rotate.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{extrude_rotate.png}
-\caption{Extrude Rotation}
+\caption{Extrude Rotation}\label{ExtrudeRotateFigure}
 \end{figure}
 \end{block}
 \end{textblock*}
 
 \begin{textblock*}{800pt}(900pt, 200pt)
 \begin{block}{Load and Plot from a File}
-The same stl can be loaded and plotted using PyVista with:
+The same stl can be loaded and plotted using \href{https://pypi.org/project/pyvista/}{PyVista} with:
 The mesh object is more pythonic and the code is much more straightforward.
 Garbage collection is taken care of automatically and the renderer is cleaned up after the user closes the VTK plotting window.
 \lstinputlisting[caption=Load stanford bunny from file, label=read_file, firstline=6, lastline=6]{read_file.py}
