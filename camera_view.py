@@ -9,7 +9,7 @@ near_range = 0.3
 far_range = 0.8
 camera.clipping_range = (near_range, far_range)
 
-p = pv.Plotter(window_size=[1024, 384])
+p = pv.Plotter(window_size=[1000, 300])
 p.camera = camera
 
 unit_vector = np.array(camera.direction) / np.linalg.norm(
