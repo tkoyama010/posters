@@ -11,27 +11,28 @@
 \usepackage[absolute,overlay]{textpos}
 \usepackage{url}
 \usepackage{caption}
+\usepackage{hyperref}
+\usepackage[
+    type={CC},
+    modifier={by},
+    version={3.0},
+]{doclicense}
 
 \lstset{
 language = Python,
-backgroundcolor={\color[gray]{1.00}},
 breaklines = true,
-breakindent = 10pt,
 basicstyle=\fontsize{18}{20}\selectfont\ttfamily,
 commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
-classoffset = 0,
 keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
 stringstyle = {\ttfamily \color[rgb]{1,0,0}},
 frame = single,
-framesep = 5pt,
-stepnumber = 1,
-numberstyle = \tiny,
-tabsize = 4,
-captionpos = t
+}
+\hypersetup{
+colorlinks=true,
 }
 
 \begin{document}
-\begin{frame}
+\begin{frame}[fragile]
 \begin{textblock*}{3450pt}(50pt, 50pt)
 \Huge Visualize 3D scientific data in a Pythonic way like matplotlib
 
@@ -42,8 +43,8 @@ captionpos = t
 \begin{block}{Abstract}
 Do you want to visualize 3D scientific data in a Pythonic way like matplotlib?
 If you want, this poster is for you.
-This poster is the introduction of PyVista (\url{https://www.pyvista.org/}).
-It is ...
+This poster is the introduction of \href{https://pypi.org/project/pyvista/}{PyVista}.
+It is
 \begin{itemize}
 \item "VTK for humans"\: a high-level API to the Visualization Toolkit (VTK)
 \item 3D plotting made simple and built for large/complex data geometries
@@ -52,12 +53,17 @@ It is ...
 
 \end{block}
 \begin{block}{Hello World!}
-In this code we demonstrate the "Hello World!" of PyVista.
+In code \ref{hello_world_code}, we demonstrate the "Hello World!" of PyVista.
+Basic step of PyVista script is the following.
+First, import \href{https://pypi.org/project/pyvista/}{PyVista}.
+Then generate \href{https://docs.pyvista.org/getting-started/what-is-a-mesh.html}{Mesh} and add it to
+\href{https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter}{Plotter} object using \href{https://docs.pyvista.org/plotting/plotting.html#pyvista.BasePlotter.add\_mesh}{add\_mesh} method.
+And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of PyVista using \href{https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter.show}{\texttt{show}} method.
 
-\lstinputlisting[caption=Hello World!, label=hello_world, firstline=1, lastline=100]{hello_world.py}
+\lstinputlisting[caption=Hello World!, label=hello_world_code, firstline=1, lastline=100]{hello_world.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{hello_world.png}
-\caption{Hello World!}
+\caption{Hello World!}\label{HelloWorldFigure}
 \end{figure}
 \end{block}
 \begin{block}{General filters to any data type}
@@ -81,7 +87,7 @@ AAAAAAAAAAA
 
 \begin{textblock*}{800pt}(900pt, 200pt)
 \begin{block}{Load and Plot from a File}
-The same stl can be loaded and plotted using pyvista with:
+The same stl can be loaded and plotted using PyVista with:
 The mesh object is more pythonic and the code is much more straightforward.
 Garbage collection is taken care of automatically and the renderer is cleaned up after the user closes the VTK plotting window.
 \lstinputlisting[caption=Load stanford bunny from file, label=read_file, firstline=6, lastline=6]{read_file.py}
@@ -113,11 +119,15 @@ Create a frustum of camera, then create a scene of inside frustum.
 \end{textblock*}
 
 \begin{textblock*}{800pt}(2570pt, 50pt)
-\lstinputlisting[caption=Camera View, label=camera_view, firstline=1, lastline=100]{camera_view.py}
+\begin{block}{Controlling Camera Rotation}
+In addition to directly controlling the camera position by setting it via the pyvista.
+Camera.position property, you can also directly control the pyvista.Camera.roll, pyvista.Camera.elevation, and pyvista.Camera.azimuth of the camera.
+\lstinputlisting[caption=Camera View, label=camera_view, firstline=7, lastline=13]{camera_view.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{camera_view.png}
 \caption{Camera View}
 \end{figure}
+\end{block}
 \end{textblock*}
 
 \begin{textblock*}{800pt}(900pt, 1200pt)
@@ -149,14 +159,16 @@ Plot data over circular arc
 \end{figure}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(2570pt, 2150pt)
+\begin{textblock*}{800pt}(2570pt, 2100pt)
 \begin{block}{References}
+Sullivan et al., (2019). PyVista: 3D plotting and mesh analysis through a streamlined interface for the Visualization Toolkit (VTK). Journal of Open Source Software, 4(37), 1450, \url{https://doi.org/10.21105/joss.01450}
 \end{block}
 \end{textblock*}
 
 \begin{textblock*}{800pt}(2570pt, 2250pt)
 \begin{block}{Contact Information}
 \end{block}
+\doclicenseThis
 \end{textblock*}
 
 \end{frame}
