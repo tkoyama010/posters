@@ -95,13 +95,13 @@ simply use \href{https://docs.pyvista.org/utilities/utilities.html#pyvista.read}
 to load your spatially referenced dataset into a \href{https://pypi.org/project/pyvista/}{PyVista} \href{https://docs.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} object
 (Code Listing \ref{ReadFileCode}, Figure \ref{ReadFileFigure}).
 Also note that we can export any PyVista mesh to any file format supported by \href{https://pypi.org/project/meshio/}{meshio}.
-To save a PyVista mesh using meshio, use \href{https://docs.pyvista.org/utilities/utilities.html#pyvista.save_meshio}{pyvista.save\_meshio()}(Code Listing \ref{ReadFileFigure}):
+To save a PyVista mesh using meshio, use \href{https://docs.pyvista.org/utilities/utilities.html#pyvista.save_meshio}{pyvista.save\_meshio()}(Code Listing \ref{SaveFileCode}):
 \lstinputlisting[caption=Load meshs from the many supported file formats, label=ReadFileCode, firstline=5, lastline=8]{read_file.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{read_file.png}
 \caption{Meshs from the many supported file formats}\label{ReadFileFigure}
 \end{figure}
-\lstinputlisting[caption=Save meshs to the many supported file formats, label=ReadFileCode, firstline=26, lastline=29]{read_file.py}
+\lstinputlisting[caption=Save meshs to the many supported file formats, label=SaveFileCode, firstline=26, lastline=29]{read_file.py}
 \end{block}
 \end{textblock*}
 
@@ -138,17 +138,30 @@ Camera.position property, you can also directly control the pyvista.Camera.roll,
 \end{textblock*}
 
 \begin{textblock*}{800pt}(900pt, 1200pt)
-\begin{block}{Contouring}
-AAAAAAAAAAA
-\lstinputlisting[caption=Plotting contour, label=Contour, firstline=12, lastline=21]{contour.py}
+\begin{block}{Extracting and Contouring}
+Meshes can have a scalar field extracted
+using \href{https://pyvista-doc.readthedocs.io/en/latest/core/filters.html#pyvista.DataSetFilters.warp_by_scalar}{warp\_by\_scalar()} method
+(Code List \ref{WarpScalarCode}, Figure \ref{WarpScalarFigure}).
+Also can have a vector filed extracted
+using \href{https://pyvista-doc.readthedocs.io/en/latest/core/filters.html#pyvista.DataSetFilters.warp_by_vector}{warp\_by\_vector()} method
+(Code List \ref{WarpVectorCode}, Figure \ref{WarpVectorFigure}).
+\href{https://docs.pyvista.org/plotting/plotting.html#pyvista.BasePlotter.add\_mesh}{add\_mesh()} method can use a Matplotlib, Colorcet, cmocean, or custom colormap when plotting scalar values
+(Code List \ref{ContouringScalarCode}, Figure \ref{WarpVectorFigure}).
+\lstinputlisting[caption=Extracted by scalar, label=WarpScalarCode, firstline=9, lastline=9]{contour.py}
+\lstinputlisting[caption=Contouring by scalar, label=ContouringScalarCode, firstline=17, lastline=19]{contour.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{contour.png}
-\caption{Contouring}
+\caption{Contouring}\label{WarpScalarFigure}
 \end{figure}
+\lstinputlisting[caption=Extracted by vector, label=WarpVectorCode, firstline=44, lastline=44]{contour.py}
 \end{block}
 \end{textblock*}
 
 \begin{textblock*}{800pt}(1750pt, 1200pt)
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{warped_vector.png}
+\caption{Warped sphere by vector}\label{WarpVectorFigure}
+\end{figure}
 \begin{block}{Plot data over circular arc}
 Plot data over circular arc
 \begin{figure}
@@ -166,16 +179,14 @@ Plot data over circular arc
 \end{figure}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(2570pt, 2100pt)
+\begin{textblock*}{800pt}(2570pt, 2050pt)
 \begin{block}{References}
-Sullivan et al., (2019). PyVista: 3D plotting and mesh analysis through a streamlined interface for the Visualization Toolkit (VTK). Journal of Open Source Software, 4(37), 1450, \url{https://doi.org/10.21105/joss.01450}
+C. Bane Sullivan and Alexander Kaszynski, (2019). PyVista: 3D plotting and mesh analysis through a streamlined interface for the Visualization Toolkit (VTK). Journal of Open Source Software, 4(37), 1450, \url{https://doi.org/10.21105/joss.01450}
 \end{block}
-\end{textblock*}
-
-\begin{textblock*}{800pt}(2570pt, 2250pt)
 \begin{block}{Contact Information}
-\end{block}
+\copyright Python developer team
 \doclicenseThis
+\end{block}
 \end{textblock*}
 
 \end{frame}
