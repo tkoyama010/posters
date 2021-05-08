@@ -56,9 +56,9 @@ It is
 In Code Listing \ref{hello_world_code}, we demonstrate the "Hello World!" of \href{https://pypi.org/project/pyvista/}{PyVista}.
 Basic step of \href{https://pypi.org/project/pyvista/}{PyVista} script is the following.
 First, import \href{https://pypi.org/project/pyvista/}{PyVista}.
-Then generate \href{https://docs.pyvista.org/getting-started/what-is-a-mesh.html}{Mesh} and add it to
-\href{https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter}{Plotter} object using \href{https://docs.pyvista.org/plotting/plotting.html#pyvista.BasePlotter.add\_mesh}{add\_mesh} method.
-And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of \href{https://pypi.org/project/pyvista/}{PyVista} using \href{https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter.show}{\texttt{show}} method.
+Then generate \href{https://docs.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} and add it to
+\href{https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter}{Plotter} object using \href{https://docs.pyvista.org/plotting/plotting.html#pyvista.BasePlotter.add\_mesh}{add\_mesh()} method.
+And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of \href{https://pypi.org/project/pyvista/}{PyVista} using \href{https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter.show}{\texttt{show()}} method.
 
 \lstinputlisting[caption=Hello World!, label=hello_world_code, firstline=1, lastline=100]{hello_world.py}
 \begin{figure}
@@ -72,9 +72,9 @@ And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of \hr
 A user can easily apply common filters in an intuitive manner.
 For example,
 Code Listing \ref{ShrinkFilterCode} shrink the individual faces of a mesh
-using \href{https://docs.pyvista.org/core/filters.html#pyvista.DataSetFilters.shrink}{shrink} method (Figure \ref{ShrinkFilterFigure}), and
+using \href{https://docs.pyvista.org/core/filters.html#pyvista.DataSetFilters.shrink}{shrink()} method (Figure \ref{ShrinkFilterFigure}), and
 Code Listing \ref{ExtrudeRotateCode} sweep polygonal data creating "skirt" from line
-using \href{https://docs.pyvista.org/core/filters.html#pyvista.PolyDataFilters.extrude_rotate}{extrude\_rotate} method (Figure \ref{ExtrudeRotateFigure}).
+using \href{https://docs.pyvista.org/core/filters.html#pyvista.PolyDataFilters.extrude_rotate}{extrude\_rotate()} method (Figure \ref{ExtrudeRotateFigure}).
 \lstinputlisting[caption=Shrink Mesh, label=ShrinkFilterCode, firstline=4, lastline=5]{shrunk_mesh.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{shrink.png}
@@ -89,15 +89,19 @@ using \href{https://docs.pyvista.org/core/filters.html#pyvista.PolyDataFilters.e
 \end{textblock*}
 
 \begin{textblock*}{800pt}(900pt, 200pt)
-\begin{block}{Load and Plot from a File}
-The same stl can be loaded and plotted using \href{https://pypi.org/project/pyvista/}{PyVista} with:
-The mesh object is more pythonic and the code is much more straightforward.
-Garbage collection is taken care of automatically and the renderer is cleaned up after the user closes the VTK plotting window.
-\lstinputlisting[caption=Load stanford bunny from file, label=read_file, firstline=6, lastline=6]{read_file.py}
+\begin{block}{Load and plot from a files}
+Loading a \href{https://docs.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} is trivial - if your data is in one of the many supported file formats,
+simply use \href{https://docs.pyvista.org/utilities/utilities.html#pyvista.read}{pyvista.read()}
+to load your spatially referenced dataset into a \href{https://pypi.org/project/pyvista/}{PyVista} \href{https://docs.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} object
+(Code Listing \ref{ReadFileCode}, Figure \ref{ReadFileFigure}).
+Also note that we can export any PyVista mesh to any file format supported by \href{https://pypi.org/project/meshio/}{meshio}.
+To save a PyVista mesh using meshio, use \href{https://docs.pyvista.org/utilities/utilities.html#pyvista.save_meshio}{pyvista.save\_meshio()}(Code Listing \ref{ReadFileFigure}):
+\lstinputlisting[caption=Load meshs from the many supported file formats, label=ReadFileCode, firstline=5, lastline=8]{read_file.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{read_file.png}
-\caption{Stanford bunny (Load from file)}
+\caption{Meshs from the many supported file formats}\label{ReadFileFigure}
 \end{figure}
+\lstinputlisting[caption=Save meshs to the many supported file formats, label=ReadFileCode, firstline=26, lastline=29]{read_file.py}
 \end{block}
 \end{textblock*}
 
