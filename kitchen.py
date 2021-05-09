@@ -11,15 +11,16 @@ normal = [0, 0, 1]
 polar = [4000.0, 0.0, 0.0]
 center = mesh.center
 angle = 90.0
-
-mesh.plot_over_circular_arc_normal(
-    center, 10000, normal, polar, angle, fname="velocity.png"
-)
+resolution = 10000
 
 # Preview how this circular arc intersects this mesh
-arc = pv.CircularArcFromNormal(center, 100, normal, polar, angle)
+arc = pv.CircularArcFromNormal(center, resolution, normal, polar, angle)
 
-p = pv.Plotter()
+mesh.plot_over_circular_arc_normal(
+    center, resolution, normal, polar, angle, fname="elevation.png"
+)
+
+p = pv.Plotter(window_size=[1000, 500])
 p.add_mesh(mesh)
 p.add_mesh(arc, color="white", line_width=10)
 a = arc.points[0]

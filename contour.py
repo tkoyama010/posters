@@ -14,27 +14,19 @@ warped_mesh["values"] = pv.plotting.normalize(mesh["Elevation"]) * 100
 p = pv.Plotter(shape=(2, 2))
 p.subplot(0, 0)
 p.add_text("Before Warp")
-p.add_mesh(
-    mesh, scalars="Elevation", cmap="hot", stitle="Matplotlib Hot"
-)
+p.add_mesh(mesh, scalars="Elevation", cmap="hot", stitle="Matplotlib Hot")
 
 p.subplot(0, 1)
 p.add_text("After Warp")
-p.add_mesh(
-    warped_mesh, scalars="Elevation", cmap="hot", stitle="Matplotlib Hot"
-)
+p.add_mesh(warped_mesh, scalars="Elevation", cmap="hot", stitle="Matplotlib Hot")
 
 p.subplot(1, 0)
 p.add_text("Before Warp")
-p.add_mesh(
-    mesh, scalars="Elevation", cmap="cool", stitle="Matplotlib Cool"
-)
+p.add_mesh(mesh, scalars="Elevation", cmap="cool", stitle="Matplotlib Cool")
 
 p.subplot(1, 1)
 p.add_text("After Warp")
-p.add_mesh(
-    warped_mesh, scalars="Elevation", cmap="cool", stitle="Matplotlib Cool"
-)
+p.add_mesh(warped_mesh, scalars="Elevation", cmap="cool", stitle="Matplotlib Cool")
 
 p.show(screenshot="contour.png")
 
