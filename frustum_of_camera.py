@@ -9,9 +9,6 @@ camera = pv.Camera()
 near_range = 0.3
 far_range = 0.8
 camera.clipping_range = (near_range, far_range)
-unit_vector = np.array(camera.direction) / np.linalg.norm(
-    np.array([camera.focal_point]) - np.array([camera.position])
-)
 
 frustum = camera.view_frustum(1.0)
 
@@ -20,10 +17,13 @@ focal_point = camera.focal_point
 line = pv.Line(position, focal_point)
 
 bunny = examples.download_bunny()
+unit_vector = np.array(camera.direction) / np.linalg.norm(
+    np.array([camera.focal_point]) - np.array([camera.position])
+)
 xyz = camera.position + unit_vector * 0.6 - np.mean(bunny.points, axis=0)
 bunny.translate(xyz)
 
-p = pv.Plotter()
+p = pv.Plotter(window_size=[1000, 700])
 p.add_mesh(bunny)
 p.add_mesh(frustum, style="wireframe")
 p.add_mesh(bunny)

@@ -1,4 +1,4 @@
-main.pdf: main.tex shrink.png hello_world.png frustum_of_camera.png camera_view.png kitchen.png extrude_rotate.png contour.png read_file.png warped_vector.png
+main.pdf: main.tex shrink.png hello_world.png frustum_of_camera.png camera_view.png kitchen.png extrude_rotate.png contour.png read_file.png warped_vector.png elevation.png
 	pdflatex $<
 shrink.png: shrunk_mesh.py
 	python $<
@@ -17,4 +17,6 @@ contour.png: contour.py
 read_file.png: read_file.py
 	python $<
 warped_vector.png: contour.py
+	python $<
+elevation.png: kitchen.py
 	python $<

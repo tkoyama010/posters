@@ -36,7 +36,8 @@ colorlinks=true,
 \begin{textblock*}{3450pt}(50pt, 50pt)
 \Huge Visualize 3D scientific data in a Pythonic way like matplotlib
 
-\Large Tetsuo Koyama @PyVista developer team
+\Large Tetsuo Koyama
+\small PyVista developer team
 \end{textblock*}
 
 \begin{textblock*}{800pt}(50pt, 200pt)
@@ -56,130 +57,125 @@ It is
 In Code Listing \ref{hello_world_code}, we demonstrate the "Hello World!" of \href{https://pypi.org/project/pyvista/}{PyVista}.
 Basic step of \href{https://pypi.org/project/pyvista/}{PyVista} script is the following.
 First, import \href{https://pypi.org/project/pyvista/}{PyVista}.
-Then generate \href{https://docs.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} and add it to
-\href{https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter}{Plotter} object using \href{https://docs.pyvista.org/plotting/plotting.html#pyvista.BasePlotter.add\_mesh}{add\_mesh()} method.
-And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of \href{https://pypi.org/project/pyvista/}{PyVista} using \href{https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter.show}{\texttt{show()}} method.
+Then generate \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} and add it to
+\href{https://dev.pyvista.org/plotting/plotting.html#pyvista.Plotter}{Plotter} object using \href{https://dev.pyvista.org/plotting/plotting.html#pyvista.BasePlotter.add\_mesh}{add\_mesh()} method.
+And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of \href{https://pypi.org/project/pyvista/}{PyVista} using \href{https://dev.pyvista.org/plotting/plotting.html#pyvista.Plotter.show}{\texttt{show()}} method.
 
 \lstinputlisting[caption=Hello World!, label=hello_world_code, firstline=1, lastline=100]{hello_world.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{hello_world.png}
-\caption{Hello World!}\label{HelloWorldFigure}
+\caption{Hello World!\label{HelloWorldFigure}}
 \end{figure}
 \end{block}
 \begin{block}{General filters to any data type}
 
-\href{https://docs.pyvista.org/core/filters.html}{PyVista classes} hold methods to apply general filters to any data type.
+\href{https://dev.pyvista.org/core/filters.html}{PyVista classes} hold methods to apply general filters to any data type.
 A user can easily apply common filters in an intuitive manner.
 For example,
 Code Listing \ref{ShrinkFilterCode} shrink the individual faces of a mesh
-using \href{https://docs.pyvista.org/core/filters.html#pyvista.DataSetFilters.shrink}{shrink()} method (Figure \ref{ShrinkFilterFigure}), and
+using \href{https://dev.pyvista.org/core/filters.html#pyvista.DataSetFilters.shrink}{shrink()} method (Figure \ref{ShrinkFilterFigure}), and
 Code Listing \ref{ExtrudeRotateCode} sweep polygonal data creating "skirt" from line
-using \href{https://docs.pyvista.org/core/filters.html#pyvista.PolyDataFilters.extrude_rotate}{extrude\_rotate()} method (Figure \ref{ExtrudeRotateFigure}).
+using \href{https://dev.pyvista.org/core/filters.html#pyvista.PolyDataFilters.extrude_rotate}{extrude\_rotate()} method (Figure \ref{ExtrudeRotateFigure}).
 \lstinputlisting[caption=Shrink Mesh, label=ShrinkFilterCode, firstline=4, lastline=5]{shrunk_mesh.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{shrink.png}
-\caption{Shrink filter}\label{ShrinkFilterFigure}
+\caption{Shrink filter\label{ShrinkFilterFigure}}
 \end{figure}
 \lstinputlisting[caption=Extrude Rotate, label=ExtrudeRotateCode, firstline=7, lastline=9]{extrude_rotate.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{extrude_rotate.png}
-\caption{Extrude Rotation}\label{ExtrudeRotateFigure}
+\caption{Extrude Rotation\label{ExtrudeRotateFigure}}
 \end{figure}
 \end{block}
 \end{textblock*}
 
 \begin{textblock*}{800pt}(900pt, 200pt)
 \begin{block}{Load and plot from a files}
-Loading a \href{https://docs.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} is trivial - if your data is in one of the many supported file formats,
-simply use \href{https://docs.pyvista.org/utilities/utilities.html#pyvista.read}{pyvista.read()}
-to load your spatially referenced dataset into a \href{https://pypi.org/project/pyvista/}{PyVista} \href{https://docs.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} object
+Loading a \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} is trivial - if your data is in one of the many supported file formats,
+simply use \href{https://dev.pyvista.org/utilities/utilities.html#pyvista.read}{pyvista.read()}
+to load your spatially referenced dataset into a \href{https://pypi.org/project/pyvista/}{PyVista} \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} object
 (Code Listing \ref{ReadFileCode}, Figure \ref{ReadFileFigure}).
-Also note that we can export any PyVista mesh to any file format supported by \href{https://pypi.org/project/meshio/}{meshio}.
-To save a PyVista mesh using meshio, use \href{https://docs.pyvista.org/utilities/utilities.html#pyvista.save_meshio}{pyvista.save\_meshio()}(Code Listing \ref{SaveFileCode}):
+Also note that we can export any \href{https://pypi.org/project/pyvista/}{PyVista} mesh to any file format supported by \href{https://pypi.org/project/meshio/}{meshio}.
+To save a \href{https://pypi.org/project/pyvista/}{PyVista} mesh using meshio, use \href{https://dev.pyvista.org/utilities/utilities.html#pyvista.save_meshio}{pyvista.save\_meshio()}(Code Listing \ref{SaveFileCode}):
 \lstinputlisting[caption=Load meshs from the many supported file formats, label=ReadFileCode, firstline=5, lastline=8]{read_file.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{read_file.png}
-\caption{Meshs from the many supported file formats}\label{ReadFileFigure}
+\caption{Meshs from the many supported file formats\label{ReadFileFigure}}
 \end{figure}
 \lstinputlisting[caption=Save meshs to the many supported file formats, label=SaveFileCode, firstline=26, lastline=29]{read_file.py}
 \end{block}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(1750pt, 50pt)
-\begin{block}{Camera class}
-Camera class is a virtual camera for 3D rendering.
-It provides methods to position and orient the view point and focal point.
-Convenience methods for moving about the focal point also are provided.
-More complex methods allow the manipulation of the computer graphics model including view up vector, clipping planes, and camera perspective.
-
-The pyvista.Camera class adds additional functionality and a pythonic API to the vtk.vtkCamera class.
-pyvista.Camera objects come with a default set of cameras that work well in most cases,
-but in many situations a more hands-on access to camera is necessary.
-
-Create a frustum of camera, then create a scene of inside frustum.
-
-\begin{figure}
-\includegraphics[width=1.0\linewidth]{frustum_of_camera.png}
-\caption{frustum of camera}
-\end{figure}
-\end{block}
-\end{textblock*}
-
 \begin{textblock*}{800pt}(2570pt, 50pt)
-\begin{block}{Controlling Camera Rotation}
-In addition to directly controlling the camera position by setting it via the pyvista.
-Camera.position property, you can also directly control the pyvista.Camera.roll, pyvista.Camera.elevation, and pyvista.Camera.azimuth of the camera.
-\lstinputlisting[caption=Camera View, label=camera_view, firstline=7, lastline=13]{camera_view.py}
-\begin{figure}
-\includegraphics[width=1.0\linewidth]{camera_view.png}
-\caption{Camera View}
-\end{figure}
-\end{block}
 \end{textblock*}
 
 \begin{textblock*}{800pt}(900pt, 1200pt)
 \begin{block}{Extracting and Contouring}
+Attributes are data values that live on either the nodes or cells of a mesh.
+In \href{https://pypi.org/project/pyvista/}{PyVista}, we work with both point data and cell data and allow easy access to data dictionaries to hold arrays for attributes that live either on all nodes or on all cells of a mesh.
 Meshes can have a scalar field extracted
-using \href{https://pyvista-doc.readthedocs.io/en/latest/core/filters.html#pyvista.DataSetFilters.warp_by_scalar}{warp\_by\_scalar()} method
+using \href{https://dev.pyvista.org/core/filters.html#pyvista.DataSetFilters.warp_by_scalar}{warp\_by\_scalar()} method
 (Code List \ref{WarpScalarCode}, Figure \ref{WarpScalarFigure}).
 Also can have a vector filed extracted
-using \href{https://pyvista-doc.readthedocs.io/en/latest/core/filters.html#pyvista.DataSetFilters.warp_by_vector}{warp\_by\_vector()} method
+using \href{https://dev.pyvista.org/core/filters.html#pyvista.DataSetFilters.warp_by_vector}{warp\_by\_vector()} method
 (Code List \ref{WarpVectorCode}, Figure \ref{WarpVectorFigure}).
-\href{https://docs.pyvista.org/plotting/plotting.html#pyvista.BasePlotter.add\_mesh}{add\_mesh()} method can use a Matplotlib, Colorcet, cmocean, or custom colormap when plotting scalar values
+\href{https://dev.pyvista.org/plotting/plotting.html#pyvista.BasePlotter.add\_mesh}{add\_mesh()} method can use a Matplotlib, Colorcet, cmocean, or custom colormap when plotting scalar values
 (Code List \ref{ContouringScalarCode}, Figure \ref{WarpVectorFigure}).
 \lstinputlisting[caption=Extracted by scalar, label=WarpScalarCode, firstline=9, lastline=9]{contour.py}
 \lstinputlisting[caption=Contouring by scalar, label=ContouringScalarCode, firstline=17, lastline=19]{contour.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{contour.png}
-\caption{Contouring}\label{WarpScalarFigure}
+\caption{Contouring\label{WarpScalarFigure}}
 \end{figure}
-\lstinputlisting[caption=Extracted by vector, label=WarpVectorCode, firstline=44, lastline=44]{contour.py}
 \end{block}
 \end{textblock*}
 
-\begin{textblock*}{800pt}(1750pt, 1200pt)
+\begin{textblock*}{800pt}(1750pt, 50pt)
+\lstinputlisting[caption=Extracted by vector, label=WarpVectorCode, firstline=44, lastline=44]{contour.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{warped_vector.png}
-\caption{Warped sphere by vector}\label{WarpVectorFigure}
+\caption{Warped sphere by vector\label{WarpVectorFigure}}
 \end{figure}
-\begin{block}{Plot data over circular arc}
-Plot data over circular arc
+\begin{block}{Camera class}
+\href{https://dev.pyvista.org/core/camera.html}{Camera} class is a virtual camera for 3D rendering.
+It provides methods to position and orient the view point and focal point.
+Convenience methods for moving about the focal point also are provided.
+More complex methods allow the manipulation of the computer graphics model including view up vector, clipping planes, and camera perspective (Figure \ref{CameraFrustumFigure}).
+Code Listing \ref{CameraFrustumCode} create a camera and frustum.
+Then create a scene of inside frustum adding \href{https://dev.pyvista.org/core/camera.html}{Camera} object to \href{https://dev.pyvista.org/plotting/plotting.html#pyvista.Plotter}{Plotter} object
+(Code list \ref{CameraFrustumCode} ,Figure \ref{CameraFrustumFigure}).
+
+\lstinputlisting[caption=Create camera frustum, label=CameraFrustumCode, firstline=8, lastline=13]{frustum_of_camera.py}
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{kitchen.png}
-\caption{kitchen}
+\includegraphics[width=1.0\linewidth]{frustum_of_camera.png}
+\caption{Frustum of camera \label{CameraFrustumFigure}}
+\end{figure}
+\lstinputlisting[caption=Add Camera to Plotter, label=camera_view, firstline=7, lastline=13]{camera_view.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{camera_view.png}
+\caption{Camera view}
 \end{figure}
 \end{block}
+\begin{block}{Controlling Camera Rotation}
+In addition to directly controlling the camera position by setting it via the pyvista.
+Camera.position property, you can also directly control the pyvista.Camera.roll, pyvista.Camera.elevation, and pyvista.Camera.azimuth of the camera().
+\end{block}
 \end{textblock*}
-
-\begin{textblock*}{800pt}(2570pt, 1200pt)
-\lstinputlisting[caption=Plotting over line, label=kitchen, firstline=11, lastline=18]{kitchen.py}
+\begin{textblock*}{800pt}(2570pt, 50pt)
+\begin{block}{Plot data over circular arc}
+It can be plotting the values of a dataset over a circular arc through that dataset using
+\href{https://dev.pyvista.org/core/filters.html#pyvista.DataSetFilters.plot_over_circular_arc_normal}{plot\_over\_circular\_arc\_normal}.
+\lstinputlisting[caption=Circular arc to plot, label=CircularArc, firstline=8, lastline=17]{kitchen.py}
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{velocity.png}
+\includegraphics[width=1.0\linewidth]{kitchen.png}
+\caption{Circular arc to plot \label{CircularArcToPlot}}
+\end{figure}
+\end{block}
+\lstinputlisting[caption=Plotting over circular arc, label=kitchen, firstline=10, lastline=18]{kitchen.py}
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{elevation.png}
 \caption{Plot over line}
 \end{figure}
-\end{textblock*}
-
-\begin{textblock*}{800pt}(2570pt, 2050pt)
 \begin{block}{References}
 C. Bane Sullivan and Alexander Kaszynski, (2019). PyVista: 3D plotting and mesh analysis through a streamlined interface for the Visualization Toolkit (VTK). Journal of Open Source Software, 4(37), 1450, \url{https://doi.org/10.21105/joss.01450}
 \end{block}
