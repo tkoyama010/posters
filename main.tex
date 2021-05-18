@@ -158,28 +158,47 @@ Then create a scene of inside frustum adding \href{https://dev.pyvista.org/core/
 \end{block}
 \begin{block}{Controlling Camera Rotation}
 In addition to directly controlling the camera position by setting it via the pyvista.
-Camera.position property, you can also directly control the pyvista.Camera.roll, pyvista.Camera.elevation, and pyvista.Camera.azimuth of the camera().
+\href{https://dev.pyvista.org/core/camera.html/#pyvista.Camera.position}{Camera.position}
+property, you can also directly control the
+\href{https://dev.pyvista.org/core/camera.html/#pyvista.Camera.roll}{pyvista.Camera.roll},
+\href{https://dev.pyvista.org/core/camera.html/#pyvista.Camera.elevation}{pyvista.Camera.elevation}, and
+\href{https://dev.pyvista.org/core/camera.html/#pyvista.Camera.azimuth}{pyvista.Camera.azimuth}
+of the camera.
+(Code list \ref{CameraRotationCode} ,Figure \ref{CameraRotationFigure}).
 \end{block}
 \end{textblock*}
 \begin{textblock*}{800pt}(2570pt, 50pt)
+\begin{figure}
+\lstinputlisting[caption=Controlling Camera Rotation, label=CameraRotationCode, firstline=24, lastline=46]{camera_view.py}
+\end{figure}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{camera_rotation.png}
+\caption{Controlling Camera Rotation \label{CameraRotationFigure}}
+\end{figure}
 \begin{block}{Plot data over circular arc}
 It can be plotting the values of a dataset over a circular arc through that dataset using
 \href{https://dev.pyvista.org/core/filters.html#pyvista.DataSetFilters.plot_over_circular_arc_normal}{plot\_over\_circular\_arc\_normal}.
-\lstinputlisting[caption=Circular arc to plot, label=CircularArc, firstline=8, lastline=17]{kitchen.py}
+(Code list \ref{CircularArcToPlotCode} and \ref{PlotOverCircularArcCode},
+Figure \ref{CircularArcToPlotFigure} and \ref{PlotOverCircularArcFigure}).
+\lstinputlisting[caption=Circular arc to plot, label=CircularArcToPlotCode, firstline=8, lastline=17]{kitchen.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{kitchen.png}
-\caption{Circular arc to plot \label{CircularArcToPlot}}
+\caption{Circular arc to plot \label{CircularArcToPlotFigure}}
 \end{figure}
 \end{block}
-\lstinputlisting[caption=Plotting over circular arc, label=kitchen, firstline=10, lastline=18]{kitchen.py}
+\lstinputlisting[caption=Plotting over circular arc, label=PlotOverCircularArcCode, firstline=10, lastline=18]{kitchen.py}
 \begin{figure}
 \includegraphics[width=0.9\linewidth]{elevation.png}
-\caption{Plot over line}
+\caption{Plot over line \label{PlotOverCircularArcFigure}}
 \end{figure}
+\begin{block}{Acknowlegment}
+I would like to thank \href{https://github.com/orgs/pyvista/teams/developers}{PyVista developer team} for developing useful library.
+\end{block}
 \begin{block}{References}
 C. Bane Sullivan and Alexander Kaszynski, (2019). PyVista: 3D plotting and mesh analysis through a streamlined interface for the Visualization Toolkit (VTK). Journal of Open Source Software, 4(37), 1450, \url{https://doi.org/10.21105/joss.01450}
 \end{block}
 \begin{block}{Contact Information}
+If you want to know pyvista more join \href{http://slack.pyvista.org/}{Slack}.
 \doclicenseThis
 \end{block}
 \end{textblock*}
