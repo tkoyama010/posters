@@ -25,22 +25,16 @@ p = pv.Plotter(shape=(3, 1), window_size=[1000, 900])
 p.subplot(0, 0)
 p.add_text("Roll 10 degree")
 p.add_mesh(bunny)
-camera1 = pv.Camera()
-camera.DeepCopy(camera1)
-p.camera = camera1
+p.camera = camera.copy()
 p.camera.roll += 10
 p.subplot(1, 0)
 p.add_text("Azimuth 45 degree")
 p.add_mesh(bunny)
-camera2 = pv.Camera()
-camera.DeepCopy(camera2)
-p.camera = camera2
+p.camera = camera.copy()
 p.camera.azimuth = 45
 p.subplot(2, 0)
 p.add_text("Elevation 10 degree")
 p.add_mesh(bunny)
-camera3 = pv.Camera()
-camera.DeepCopy(camera3)
-p.camera = camera3
+p.camera = camera.copy()
 p.camera.elevation = 10
 p.show(screenshot="camera_rotation.png")
