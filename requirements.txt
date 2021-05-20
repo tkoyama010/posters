@@ -1,2 +1,2 @@
-git+https://github.com/pyvista/pyvista.git@master
+git+https://github.com/pyvista/pyvista.git@feat/camera_copy
 matplotlib
