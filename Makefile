@@ -1,3 +1,9 @@
+all:
+	make slides.pdf
+	make main.pdf
+
+slides.pdf: slides.tex shrink.png hello_world.png frustum_of_camera.png camera_view.png kitchen.png extrude_rotate.png contour.png read_file.png warped_vector.png elevation.png
+	pdflatex $<
 main.pdf: main.tex shrink.png hello_world.png frustum_of_camera.png camera_view.png kitchen.png extrude_rotate.png contour.png read_file.png warped_vector.png elevation.png
 	pdflatex $<
 shrink.png: shrunk_mesh.py
