@@ -4,7 +4,7 @@
 }
 
 \usepackage{lipsum}
-\usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
+% \usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{pythonhighlight}
 \usepackage[absolute,overlay]{textpos}
@@ -43,13 +43,12 @@ colorlinks=true,
 \date{Scipy 2021}
 
 \frame{\titlepage}
+\note{Hi my name is Tetsuo Koyama. Today I will talk about the title "Visualize 3D scientific data in a Pythonic way like matplotlib".}
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 20pt)
 \begin{block}{Who am I?}
 \note{Let me introduce myself first.}
-\note{My Twitter and Github accounts are \href{https://twitter.com/tkoyama010}{@tkoyama010}.}
-\note{Please follow me if you like this presentation.}
 \end{block}
 \end{textblock*}
 \begin{textblock*}{350pt}(50pt, 70pt)
@@ -70,19 +69,25 @@ colorlinks=true,
 \begin{textblock*}{350pt}(150pt, 25pt)
 \begin{itemize}
 \item \emoji{gear} Mechanical simulation software engineer.
+\note{I am mechanical simulation software engineer in my careers.}
 \item \emoji{japan} Stuff of Scipy Japan 2020.
+\note{And I was a stuff of Scipy Japan 2020 in community.}
 \item \emoji{computer} PyVista developer team member.
+\note{Also I am a member of PyVista developer team.}
 \item \emoji{heart} Science Python Anime and Manga.
+\note{I love Science Python Anime and Manga.}
 \end{itemize}
 \end{textblock*}
 \begin{textblock*}{350pt}(200pt, 120pt)
 \includegraphics[width=0.50\linewidth]{2-most-commit-language.png}
 \end{textblock*}
+\note{My Twitter and Github accounts are \href{https://twitter.com/tkoyama010}{@tkoyama010}.}
+\note{Please follow me if you like this presentation.}
 \end{frame}
 
 \begin{frame}[fragile]
 \begin{textblock*}{800pt}(50pt, 20pt)
-\begin{block}{Overview}
+\begin{block}{What we want to do is using VTK like matplotlib in PyVista.}
 \note{Do you want to visualize 3D scientific data in a Pythonic way like matplotlib?}
 \note{If you want, this slides is for you.}
 \note{This slides is the introduction of \href{https://pypi.org/project/pyvista/}{PyVista}.}
@@ -140,11 +145,11 @@ colorlinks=true,
 \includegraphics[width=1.0\linewidth]{shrink.png}
 \caption{Shrink filter\label{ShrinkFilterFigure}}
 \end{figure}
-\note{\href{https://dev.pyvista.org/core/filters.html}{PyVista classes} hold methods to apply general filters to any data type.}
-\note{A user can easily apply common filters in an intuitive manner.}
-\note{For example,}
-\note{Code Listing \ref{ShrinkFilterCode} shrink the individual faces of a mesh}
-\note{using shrink method (Figure \ref{ShrinkFilterFigure}), and}
+\note{
+\href{https://dev.pyvista.org/core/filters.html}{PyVista classes} hold methods to apply general filters to any data type.
+A user can easily apply common filters in an intuitive manner.
+For example, Code Listing \ref{ShrinkFilterCode} shrink the individual faces of a mesh using shrink method (Figure \ref{ShrinkFilterFigure}).
+}
 \end{block}
 \end{textblock*}
 \end{frame}
@@ -152,15 +157,16 @@ colorlinks=true,
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Rotation about the x axis}
-\note{Rotations of a mesh about its axes. In this model, the x axis is from the left}
-\note{to right; the y axis is from bottom to top; and the z axis emerges from the}
-\note{image. The camera location is the same in all four images.}
-\note{Plot the mesh rotated about the x axis every 60 degrees.}
-\note{Add the axes actor to the Plotter and set the axes origin to the point of rotation.}
+\note{
+We can of course rotate the mesh about the axes.
+Let's rotate a mesh about its axes. In this model, the x axis is from the left to right; the y axis is from bottom to top; and the z axis emerges from the
+image. The camera location is the same in two images.
+Rotate the mesh about the x axis every 60 degrees and we can plot it.
+}
 \end{block}
 \lstinputlisting[caption=X-Axis Rotation, firstline=66, lastline=69]{rotate.py}
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{rotate_y.png}
+\includegraphics[width=1.0\linewidth]{rotate_x.png}
 \caption{X-Axis Rotation}
 \end{figure}
 \end{textblock*}
@@ -169,13 +175,15 @@ colorlinks=true,
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Rotation about the y axis}
-\note{Plot the mesh rotated about the y axis every 60 degrees.}
-\note{Add the axes actor to the Plotter and set the axes origin to the point of rotation.}
+\note{
+Plot the mesh rotated about the y axis every 60 degrees.
+Add the axes actor to the Plotter and set the axes origin to the point of rotation.
+}
 \end{block}
-\lstinputlisting[caption=X-Axis Rotation, firstline=66, lastline=69]{rotate.py}
+\lstinputlisting[caption=Y-Axis Rotation, firstline=66, lastline=69]{rotate.py}
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{rotate_x.png}
-\caption{X-Axis Rotation}
+\includegraphics[width=1.0\linewidth]{rotate_y.png}
+\caption{Y-Axis Rotation}
 \end{figure}
 \end{textblock*}
 \end{frame}
@@ -183,13 +191,15 @@ colorlinks=true,
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Rotation about the z axis}
-\note{Plot the mesh rotated about the z axis every 60 degrees.}
-\note{Add the axes actor to the Plotter and set the axes origin to the point of rotation.}
+\note{
+Plot the mesh rotated about the z axis every 60 degrees.
+Add the axes actor to the Plotter and set the axes origin to the point of rotation.
+}
 \end{block}
-\lstinputlisting[caption=X-Axis Rotation, firstline=66, lastline=69]{rotate.py}
+\lstinputlisting[caption=Z-Axis Rotation, firstline=66, lastline=69]{rotate.py}
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{rotate_x.png}
-\caption{X-Axis Rotation}
+\includegraphics[width=1.0\linewidth]{rotate_z.png}
+\caption{Z-Axis Rotation}
 \end{figure}
 \end{textblock*}
 \end{frame}
@@ -197,13 +207,15 @@ colorlinks=true,
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Rotation about a custom vector}
-\note{Plot the mesh rotated about a custom vector every 60 degrees.}
-\note{Add the axes actor to the Plotter and set axes origin to the point of rotation.}
+\note{
+Plot the mesh rotated about a custom vector every 60 degrees.
+Add the axes actor to the Plotter and set axes origin to the point of rotation.
+}
 \end{block}
-\lstinputlisting[caption=X-Axis Rotation, firstline=66, lastline=69]{rotate.py}
+\lstinputlisting[caption=Custom Rotation, firstline=66, lastline=69]{rotate.py}
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{rotate_x.png}
-\caption{X-Axis Rotation}
+\includegraphics[width=1.0\linewidth]{rotate_custom.png}
+\caption{Custom Rotation}
 \end{figure}
 \end{textblock*}
 \end{frame}
@@ -216,8 +228,10 @@ colorlinks=true,
 \includegraphics[width=1.0\linewidth]{extrude_rotate.png}
 \caption{Extrude Rotation\label{ExtrudeRotateFigure}}
 \end{figure}
-\note{Code Listing \ref{ExtrudeRotateCode} sweep polygonal data creating "skirt" from line}
-\note{using extrude rotate method (Figure \ref{ExtrudeRotateFigure}).}
+\note{
+Code Listing \ref{ExtrudeRotateCode} sweep polygonal data creating "skirt" from line
+using extrude rotate method (Figure \ref{ExtrudeRotateFigure}).
+}
 \end{block}
 \end{textblock*}
 \end{frame}
@@ -230,10 +244,12 @@ colorlinks=true,
 \includegraphics[width=0.6\linewidth]{read_file.png}
 \caption{Meshs from the many supported file formats\label{ReadFileFigure}}
 \end{figure}
-\note{Loading a \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} is trivial - if your data is in one of the many supported file formats,}
-\note{simply use \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.read()}}
-\note{to load your spatially referenced dataset into a \href{https://pypi.org/project/pyvista/}{PyVista} \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} object}
-\note{(Code Listing \ref{ReadFileCode}, Figure \ref{ReadFileFigure}).}
+\note{
+Loading a \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} is trivial - if your data is in one of the many supported file formats,
+simply use \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.read()}
+to load your spatially referenced dataset into a \href{https://pypi.org/project/pyvista/}{PyVista} \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} object
+(Code Listing \ref{ReadFileCode}, Figure \ref{ReadFileFigure}).
+}
 \end{block}
 \end{textblock*}
 \end{frame}
@@ -246,8 +262,10 @@ colorlinks=true,
 \includegraphics[width=0.6\linewidth]{read_file.png}
 \caption{Meshs from the many supported file formats\label{ReadFileFigure}}
 \end{figure}
-\note{Also note that we can export any \href{https://pypi.org/project/pyvista/}{PyVista} mesh to any file format supported by \href{https://pypi.org/project/meshio/}{meshio}.}
-\note{To save a \href{https://pypi.org/project/pyvista/}{PyVista} mesh using meshio, use \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.save\_meshio()}(Code Listing \ref{SaveFileCode}):}
+\note{
+Also note that we can export any \href{https://pypi.org/project/pyvista/}{PyVista} mesh to any file format supported by \href{https://pypi.org/project/meshio/}{meshio}.
+To save a \href{https://pypi.org/project/pyvista/}{PyVista} mesh using meshio, use \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.save\_meshio()}(Code Listing \ref{SaveFileCode}):
+}
 \end{block}
 \end{textblock*}
 \end{frame}
@@ -260,16 +278,13 @@ colorlinks=true,
 \includegraphics[width=0.5\linewidth]{contour.png}
 \caption{Contouring\label{WarpScalarFigure}}
 \end{figure}
-\note{Attributes are data values that live on either the nodes or cells of a mesh.}
-\note{In \href{https://pypi.org/project/pyvista/}{PyVista}, we work with both point data and cell data and allow easy access to data dictionaries to hold arrays for attributes that live either on all nodes or on all cells of a mesh.}
-\note{Meshes can have a scalar field extracted}
-\note{using \href{https://dev.pyvista.org/core/filters.html}{warp\_by\_scalar()} method}
-\note{(Code List \ref{WarpScalarCode}, Figure \ref{WarpScalarFigure}).}
-\note{Also can have a vector filed extracted}
-\note{using \href{https://dev.pyvista.org/core/filters.html}{warp\_by\_vector()} method}
-\note{(Code List \ref{WarpVectorCode}, Figure \ref{WarpVectorFigure}).}
-\note{\href{https://dev.pyvista.org/plotting/plotting.html}{add\_mesh()} method can use a Matplotlib, Colorcet, cmocean, or custom colormap when plotting scalar values}
-\note{(Figure \ref{WarpVectorFigure}).}
+\note{
+Attributes are data values that live on either the nodes or cells of a mesh.
+In \href{https://pypi.org/project/pyvista/}{PyVista}, we work with both point data and cell data and allow easy access to data dictionaries to hold arrays for attributes that live either on all nodes or on all cells of a mesh.
+Meshes can have a scalar field extracted
+using \href{https://dev.pyvista.org/core/filters.html}{warp\_by\_scalar()} method
+(Code List \ref{WarpScalarCode}, Figure \ref{WarpScalarFigure}).
+}
 \end{block}
 \end{textblock*}
 \end{frame}
@@ -282,6 +297,13 @@ colorlinks=true,
 \includegraphics[width=1.0\linewidth]{warped_vector.png}
 \caption{Warped sphere by vector\label{WarpVectorFigure}}
 \end{figure}
+\note{
+Also can have a vector filed extracted
+using \href{https://dev.pyvista.org/core/filters.html}{warp\_by\_vector()} method
+(Code List \ref{WarpVectorCode}, Figure \ref{WarpVectorFigure}).
+\href{https://dev.pyvista.org/plotting/plotting.html}{add\_mesh()} method can use a Matplotlib, Colorcet, cmocean, or custom colormap when plotting scalar values
+(Figure \ref{WarpVectorFigure}).
+}
 \end{block}
 \end{textblock*}
 \end{frame}
@@ -293,13 +315,12 @@ colorlinks=true,
 \includegraphics[width=0.75\linewidth]{frustum_of_camera.png}
 \caption{Frustum of camera \label{CameraFrustumFigure}}
 \end{figure}
-\note{\href{https://dev.pyvista.org/core/camera.html}{Camera} class is a virtual camera for 3D rendering.}
-\note{It provides methods to position and orient the view point and focal point.}
-\note{Convenience methods for moving about the focal point also are provided.}
-\note{More complex methods allow the manipulation of the computer graphics model including view up vector, clipping planes, and camera perspective (Figure \ref{CameraFrustumFigure}).}
-\note{Code Listing \ref{CameraFrustumCode} create a camera and frustum.}
-\note{Then create a scene of inside frustum adding \href{https://dev.pyvista.org/core/camera.html}{Camera} object to \href{https://dev.pyvista.org/plotting/plotting.html}{Plotter} object}
-\note{(Code list \ref{CameraFrustumCode} ,Figure \ref{CameraFrustumFigure}).}
+\note{
+\href{https://dev.pyvista.org/core/camera.html}{Camera} class is a virtual camera for 3D rendering.
+It provides methods to position and orient the view point and focal point.
+Convenience methods for moving about the focal point also are provided.
+More complex methods allow the manipulation of the computer graphics model including view up vector, clipping planes, and camera perspective (Figure \ref{CameraFrustumFigure}).
+}
 \lstinputlisting[caption=Add Camera to Plotter, label=camera_view, firstline=7, lastline=13]{camera_view.py}
 \end{block}
 \end{textblock*}
@@ -313,6 +334,11 @@ colorlinks=true,
 \includegraphics[width=0.75\linewidth]{camera_view.png}
 \caption{Camera view}
 \end{figure}
+\note{
+Code Listing \ref{CameraFrustumCode} create a camera and frustum.
+Then create a scene of inside frustum adding \href{https://dev.pyvista.org/core/camera.html}{Camera} object to \href{https://dev.pyvista.org/plotting/plotting.html}{Plotter} object
+(Code list \ref{CameraFrustumCode} ,Figure \ref{CameraFrustumFigure}).
+}
 \end{block}
 \end{textblock*}
 \end{frame}
@@ -330,14 +356,16 @@ colorlinks=true,
 \includegraphics[width=0.5\linewidth]{camera_rotation.png}
 \caption{Controlling Camera Rotation \label{CameraRotationFigure}}
 \end{figure}
-\note{In addition to directly controlling the camera position by setting it via the pyvista.}
-\note{\href{https://dev.pyvista.org/core/camera.html}{Camera.position}}
-\note{property, you can also directly control the}
-\note{\href{https://dev.pyvista.org/core/camera.html}{pyvista.Camera.roll},}
-\note{\href{https://dev.pyvista.org/core/camera.html}{pyvista.Camera.elevation}, and}
-\note{\href{https://dev.pyvista.org/core/camera.html}{pyvista.Camera.azimuth}}
-\note{of the camera.}
-\note{(Code list \ref{CameraRotationCode} ,Figure \ref{CameraRotationFigure}).}
+\note{
+In addition to directly controlling the camera position by setting it via the pyvista.
+\href{https://dev.pyvista.org/core/camera.html}{Camera.position}
+property, you can also directly control the
+\href{https://dev.pyvista.org/core/camera.html}{pyvista.Camera.roll},
+\href{https://dev.pyvista.org/core/camera.html}{pyvista.Camera.elevation}, and
+\href{https://dev.pyvista.org/core/camera.html}{pyvista.Camera.azimuth}
+of the camera.
+(Code list \ref{CameraRotationCode} ,Figure \ref{CameraRotationFigure}).
+}
 \end{textblock*}
 \end{frame}
 
@@ -349,9 +377,11 @@ colorlinks=true,
 \end{textblock*}
 \begin{textblock*}{300pt}(0pt, 110pt)
 \begin{block}{}
-\note{It can be plotting the values of a dataset over a circular arc through that dataset using}
-\note{\href{https://dev.pyvista.org/core/filters.html}{plot\_over\_circular\_arc\_normal}.}
-\note{(Code list \ref{PlotOverCircularArcCode}, Figure \ref{CircularArcToPlotFigure} and \ref{PlotOverCircularArcFigure}).}
+\note{
+It can be plotting the values of a dataset over a circular arc through that dataset using
+\href{https://dev.pyvista.org/core/filters.html}{plot\_over\_circular\_arc\_normal}.
+(Code list \ref{PlotOverCircularArcCode}, Figure \ref{CircularArcToPlotFigure} and \ref{PlotOverCircularArcFigure}).
+}
 \begin{figure}
 \includegraphics[width=0.5\linewidth]{kitchen.png}
 \caption{Circular arc to plot \label{CircularArcToPlotFigure}}
@@ -377,8 +407,10 @@ C. Bane Sullivan and Alexander Kaszynski, (2019). PyVista: 3D plotting and mesh 
 \begin{block}{Contact Information}
 If you want to know and discuss pyvista more, join \href{http://github.com/pyvista/pyvista/discussions}{GitHub Discussion}.
 \end{block}
-\note{I would like to thank PyVista developer team for developing useful library.}
-\note{If you want to know and discuss pyvista more, join \href{http://github.com/pyvista/pyvista/discussions}{GitHub Discussion}.}
+\note{
+I would like to thank PyVista developer team for developing useful library.
+If you want to know and discuss pyvista more, join \href{http://github.com/pyvista/pyvista/discussions}{GitHub Discussion}.
+}
 \doclicenseThis
 \end{textblock*}
 \end{frame}
