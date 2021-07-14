@@ -16,6 +16,8 @@
     modifier={by},
     version={3.0},
 ]{doclicense}
+\usepackage{emoji}
+\setemojifont{TwemojiMozilla}
 
 \setbeamertemplate{note page}{\pagecolor{yellow!5}\vfill\insertnote\vfill}
 \setbeameroption{show notes on second screen=right}
@@ -23,7 +25,7 @@
 \lstset{
 language = Python,
 breaklines = true,
-basicstyle=\fontsize{8}{8}\selectfont\ttfamily,
+basicstyle=\fontsize{7}{7}\selectfont\ttfamily,
 commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
 keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
 stringstyle = {\ttfamily \color[rgb]{1,0,0}},
@@ -33,20 +35,43 @@ frame = single,
 colorlinks=true,
 }
 
+\title{Visualize 3D scientific data in a Pythonic way like matplotlib}
+
 \begin{document}
+\author{Tetsuo Koyama}
+\institute{PyVista developer team}
+\date{Scipy 2021}
+
+\frame{\titlepage}
 
 \begin{frame}[fragile]
-
 \begin{textblock*}{350pt}(50pt, 50pt)
-\Large Visualize 3D scientific data in a Pythonic way like matplotlib
+\begin{block}{Who am I?}
+\note{Let me introduce myself first.}
+\note{My Twitter and Github accounts are @tkoyama010.}
+\note{Here is the URL for Twitter.}
+\end{block}
 \end{textblock*}
-
-\begin{textblock*}{350pt}(150pt, 100pt)
-Tetsuo Koyama
-
-\small PyVista developer team
+\begin{textblock*}{350pt}(50pt, 100pt)
+\includegraphics[width=0.25\linewidth]{tkoyama010.png}
 \end{textblock*}
-
+\begin{textblock*}{350pt}(50pt, 200pt)
+\includegraphics[width=0.05\linewidth]{twitter-5662063_1280.png}
+\end{textblock*}
+\begin{textblock*}{350pt}(70pt, 205pt)
+@tkoyama010
+\end{textblock*}
+\begin{textblock*}{350pt}(150pt, 50pt)
+\begin{itemize}
+\item \emoji{gear} Mechanical simulation software engineer.
+\item \emoji{japan} Stuff of Scipy Japan 2020.
+\item \emoji{computer} PyVista developer team member.
+\item \emoji{heart} Science Python Anime and Manga.
+\end{itemize}
+\end{textblock*}
+\begin{textblock*}{350pt}(200pt, 140pt)
+\includegraphics[width=0.50\linewidth]{2-most-commit-language.png}
+\end{textblock*}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -82,6 +107,10 @@ Tetsuo Koyama
 \end{frame}
 
 \begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Hello World!}
+\end{block}
+\end{textblock*}
 \begin{textblock*}{350pt}(50pt, 50pt)
 \begin{block}{}
 \begin{figure}
@@ -108,6 +137,65 @@ Tetsuo Koyama
 \note{Code Listing \ref{ShrinkFilterCode} shrink the individual faces of a mesh}
 \note{using shrink method (Figure \ref{ShrinkFilterFigure}), and}
 \end{block}
+\end{textblock*}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Rotation about the x axis}
+\note{Rotations of a mesh about its axes. In this model, the x axis is from the left}
+\note{to right; the y axis is from bottom to top; and the z axis emerges from the}
+\note{image. The camera location is the same in all four images.}
+\note{Plot the mesh rotated about the x axis every 60 degrees.}
+\note{Add the axes actor to the Plotter and set the axes origin to the point of rotation.}
+\end{block}
+\lstinputlisting[caption=X-Axis Rotation, firstline=66, lastline=69]{rotate.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{rotate_y.png}
+\caption{X-Axis Rotation}
+\end{figure}
+\end{textblock*}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Rotation about the y axis}
+\note{Plot the mesh rotated about the y axis every 60 degrees.}
+\note{Add the axes actor to the Plotter and set the axes origin to the point of rotation.}
+\end{block}
+\lstinputlisting[caption=X-Axis Rotation, firstline=66, lastline=69]{rotate.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{rotate_x.png}
+\caption{X-Axis Rotation}
+\end{figure}
+\end{textblock*}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Rotation about the z axis}
+\note{Plot the mesh rotated about the z axis every 60 degrees.}
+\note{Add the axes actor to the Plotter and set the axes origin to the point of rotation.}
+\end{block}
+\lstinputlisting[caption=X-Axis Rotation, firstline=66, lastline=69]{rotate.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{rotate_x.png}
+\caption{X-Axis Rotation}
+\end{figure}
+\end{textblock*}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Rotation about a custom vector}
+\note{Plot the mesh rotated about a custom vector every 60 degrees.}
+\note{Add the axes actor to the Plotter and set axes origin to the point of rotation.}
+\end{block}
+\lstinputlisting[caption=X-Axis Rotation, firstline=66, lastline=69]{rotate.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{rotate_x.png}
+\caption{X-Axis Rotation}
+\end{figure}
 \end{textblock*}
 \end{frame}
 
@@ -192,7 +280,6 @@ Tetsuo Koyama
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Camera class}
-\lstinputlisting[caption=Create camera frustum, label=CameraFrustumCode, firstline=8, lastline=13]{frustum_of_camera.py}
 \begin{figure}
 \includegraphics[width=0.75\linewidth]{frustum_of_camera.png}
 \caption{Frustum of camera \label{CameraFrustumFigure}}
@@ -205,8 +292,16 @@ Tetsuo Koyama
 \note{Then create a scene of inside frustum adding \href{https://dev.pyvista.org/core/camera.html}{Camera} object to \href{https://dev.pyvista.org/plotting/plotting.html}{Plotter} object}
 \note{(Code list \ref{CameraFrustumCode} ,Figure \ref{CameraFrustumFigure}).}
 \lstinputlisting[caption=Add Camera to Plotter, label=camera_view, firstline=7, lastline=13]{camera_view.py}
+\end{block}
+\end{textblock*}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Camera class}
+\lstinputlisting[caption=Create camera frustum, label=CameraFrustumCode, firstline=8, lastline=13]{frustum_of_camera.py}
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{camera_view.png}
+\includegraphics[width=0.75\linewidth]{camera_view.png}
 \caption{Camera view}
 \end{figure}
 \end{block}
@@ -214,11 +309,14 @@ Tetsuo Koyama
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{textblock*}{150pt}(50pt, 10pt)
 \begin{block}{Controlling Camera Rotation}
 \lstinputlisting[caption=Controlling Camera Rotation, label=CameraRotationCode, firstline=29, lastline=29]{camera_view.py}
 \lstinputlisting[firstline=34, lastline=34]{camera_view.py}
 \lstinputlisting[firstline=39, lastline=39]{camera_view.py}
+\end{block}
+\end{textblock*}
+\begin{textblock*}{350pt}(150pt, 50pt)
 \begin{figure}
 \includegraphics[width=0.5\linewidth]{camera_rotation.png}
 \caption{Controlling Camera Rotation \label{CameraRotationFigure}}
@@ -231,27 +329,27 @@ Tetsuo Koyama
 \note{\href{https://dev.pyvista.org/core/camera.html}{pyvista.Camera.azimuth}}
 \note{of the camera.}
 \note{(Code list \ref{CameraRotationCode} ,Figure \ref{CameraRotationFigure}).}
-\end{block}
 \end{textblock*}
 \end{frame}
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Plot data over circular arc}
+\lstinputlisting[caption=Plotting over circular arc, label=PlotOverCircularArcCode, firstline=10, lastline=18]{kitchen.py}
+\end{block}
+\end{textblock*}
+\begin{textblock*}{300pt}(0pt, 110pt)
+\begin{block}{}
 \note{It can be plotting the values of a dataset over a circular arc through that dataset using}
 \note{\href{https://dev.pyvista.org/core/filters.html}{plot\_over\_circular\_arc\_normal}.}
 \note{(Code list \ref{PlotOverCircularArcCode}, Figure \ref{CircularArcToPlotFigure} and \ref{PlotOverCircularArcFigure}).}
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{kitchen.png}
+\includegraphics[width=0.5\linewidth]{kitchen.png}
 \caption{Circular arc to plot \label{CircularArcToPlotFigure}}
 \end{figure}
 \end{block}
 \end{textblock*}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\lstinputlisting[caption=Plotting over circular arc, label=PlotOverCircularArcCode, firstline=10, lastline=18]{kitchen.py}
+\begin{textblock*}{350pt}(150pt, 130pt)
 \begin{figure}
 \includegraphics[width=0.3\linewidth]{elevation.png}
 \caption{Plot over line \label{PlotOverCircularArcFigure}}
@@ -268,11 +366,13 @@ I would like to thank \href{https://github.com/orgs/pyvista/teams/developers}{Py
 C. Bane Sullivan and Alexander Kaszynski, (2019). PyVista: 3D plotting and mesh analysis through a streamlined interface for the Visualization Toolkit (VTK). Journal of Open Source Software, 4(37), 1450, \url{https://doi.org/10.21105/joss.01450}
 \end{block}
 \begin{block}{Contact Information}
-If you want to know pyvista more, join \href{http://slack.pyvista.org/}{Slack}.
-\doclicenseThis
+If you want to know and discuss pyvista more, join \href{http://github.com/pyvista/pyvista/discussions}{GitHub Discussion}.
 \end{block}
+\note{I would like to thank PyVista developer team for developing useful library.}
+\note{If you want to know and discuss pyvista more, join \href{http://github.com/pyvista/pyvista/discussions}{GitHub Discussion}.}
+\doclicenseThis
 \end{textblock*}
-
 \end{frame}
+
 \end{document}
 
