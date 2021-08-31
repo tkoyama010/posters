@@ -1,6 +1,5 @@
 all:
 	make slides.pdf
-	make main.pdf
 
 slides.pdf: slides.tex shrink.png hello_world.png frustum_of_camera.png camera_view.png kitchen.png extrude_rotate.png contour.png read_file.png warped_vector.png elevation.png rotate_mesh.png rotate_x.png rotate_y.png rotate_z.png rotate_custom.png
 	pdflatex $<
