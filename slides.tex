@@ -126,26 +126,13 @@ Please follow me if you like this presentation.
 \begin{textblock*}{800pt}(50pt, 20pt)
 \begin{block}{What we want to do is using VTK like matplotlib in PyVista.}
 \note{
-Do you want to visualize 3D scientific data in a Pythonic way like matplotlib?
-
-matplotlibのようにPythonicな方法で3D科学データを視覚化したいと思いませんか？
-
-}
-\note{
+Do you want to visualize 3D data in a Pythonic way like matplotlib?
 If you want, this slides is for you.
+This slides is the introduction of \href{https://pypi.org/project/pyvista/}{PyVista}. It is
 
-望むなら、このスライドはあなたのためのものです。
-
-}
-\note{
-This slides is the introduction of \href{https://pypi.org/project/pyvista/}{PyVista}.
-
-このスライドは、\href{https://pypi.org/project/pyvista/}{PyVista}の紹介です。
-
-}
-\note{
-It is
-
+matplotlibのようにPythonicな方法で3Dデータを視覚化したいと思ったことはありませんか？
+このスライドはそんなあなたのためのものです。
+このスライドでは、\href{https://pypi.org/project/pyvista/}{PyVista}と呼ばれるライブラリを紹介します。
 このライブラリには3つの特徴があります。
 
 }
@@ -168,7 +155,7 @@ It is
 \note[item]{
 mesh data structures and filtering methods for spatial datasets
 
-3つ目はメッシュデータ構造と空間データのフィルタリングメソッドです。
+3つ目はメッシュデータと空間データのフィルタリングメソッドです。
 
 }
 \end{itemize}
@@ -184,31 +171,15 @@ mesh data structures and filtering methods for spatial datasets
 \begin{block}{Hello World!}
 \note{
 In Code Listing \ref{hello_world_code}, we demonstrate the "Hello World!" of \href{https://pypi.org/project/pyvista/}{PyVista}.
-
-コードリスト\ref{hello_world_code}では、\href{https://pypi.org/project/pyvista/}{PyVista}の "Hello World!" を実演しています。
-
-}
-\note{
 Basic step of \href{https://pypi.org/project/pyvista/}{PyVista} script is the following.
-
-\href{https://pypi.org/project/pyvista/}{PyVista} スクリプトの基本ステップは以下の通りです。
-
-}
-\note{
 First, import \href{https://pypi.org/project/pyvista/}{PyVista}.
-
-まず、 \href{https://pypi.org/project/pyvista/}{PyVista} をインポートします。
-
-}
-\note{
 Then generate \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} and add it to
-
-次に \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} を生成して、それを
-
-}
-\note{
 Plotter object using add mesh method.
 
+コードリスト\ref{hello_world_code}では、\href{https://pypi.org/project/pyvista/}{PyVista}の "Hello World!" を行っています。
+\href{https://pypi.org/project/pyvista/}{PyVista} スクリプトの基本ステップについて説明します。
+まず、 \href{https://pypi.org/project/pyvista/}{PyVista} をインポートします。
+次に \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} を生成して、それを
 add meshメソッドを使用してPlotterオブジェクトに追加します。
 
 }
@@ -257,7 +228,7 @@ A user can easily apply common filters in an intuitive manner.
 
 For example, Code Listing \ref{ShrinkFilterCode} shrink the individual faces of a mesh using shrink method (Figure \ref{ShrinkFilterFigure}).
 
-例えば、コードリスト \ref{ShrinkFilterCode} では、シュリンクメソッドを使ってメッシュの各面を縮小しています（図 \ref{ShrinkFilterFigure}）。
+例えば、コードリスト \ref{ShrinkFilterCode} では、shrinkメソッドを使ってメッシュの各面を縮小しています（図 \ref{ShrinkFilterFigure}）。
 
 }
 \end{block}
