@@ -154,21 +154,21 @@ It is
 \note[item]{
 "VTK for humans"\: a high-level API to the Visualization Toolkit (VTK)
 
-1つ目は"人間のためのVTK"\: 可視化ツールキット（VTK）の高レベルAPI
+1つ目は"人間のためのVTK"\: 可視化ツールキット（VTK）の高レベルAPIです。
 
 }
 \item 3D plotting made simple and built for large/complex data geometries
 \note[item]{
 3D plotting made simple and built for large/complex data geometries
 
-2つ目は大規模／複雑なデータ形状に対応した、シンプルな3Dプロッティング機能
+2つ目は大規模／複雑なデータ形状に対応した、シンプルな3Dプロッティング機能です。
 
 }
 \item mesh data structures and filtering methods for spatial datasets
 \note[item]{
 mesh data structures and filtering methods for spatial datasets
 
-3つ目はメッシュデータ構造と空間データのフィルタリング方法
+3つ目はメッシュデータ構造と空間データのフィルタリングメソッドです。
 
 }
 \end{itemize}
@@ -253,7 +253,7 @@ And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of PyV
 
 A user can easily apply common filters in an intuitive manner.
 
-ユーザーは直感的な方法で簡単に共通のフィルターを適用することができます。
+ユーザーは直感的なメソッドで簡単に共通のフィルターを適用することができます。
 
 For example, Code Listing \ref{ShrinkFilterCode} shrink the individual faces of a mesh using shrink method (Figure \ref{ShrinkFilterFigure}).
 
@@ -377,11 +377,11 @@ For example, Code Listing \ref{ShrinkFilterCode} shrink the individual faces of 
 \caption{Extrude Rotation\label{ExtrudeRotateFigure}}
 \end{figure}
 \note{
-Code Listing \ref{ExtrudeRotateCode} sweep polygonal data creating "skirt" from line
+Code Listing \ref{ExtrudeRotateCode}  creating "skirt" from line
 using extrude rotate method (Figure \ref{ExtrudeRotateFigure}).
 
-コードリスト \ref{ExtrudeRotateCode} スイープ回転メソッドを使って直線から "skirt" を
-作成するポリゴンデータです (図\ref{ExtrudeRotateFigure}) 。
+コードリスト \ref{ExtrudeRotateCode} では、押出し回転メソッドを使って直線から "skirt" を
+作成しています (図\ref{ExtrudeRotateFigure}) 。
 }
 \end{block}
 \end{textblock*}
@@ -503,7 +503,7 @@ It can be plotting the values of a dataset over a circular arc through that data
 \note{
 Also can have a vector filed extracted using \href{https://dev.pyvista.org/core/filters.html}{warp\_by\_vector()} method (Code List \ref{WarpVectorCode}, Figure \ref{WarpVectorFigure}).
 
-また、 \href{https://dev.pyvista.org/core/filters.html}{warp\_by\_vector()} 方式で抽出されたベクターファイルを持つことができます（コードリスト \ref{WarpVectorCode} 、図 \ref{WarpVectorFigure} ）。
+また、 \href{https://dev.pyvista.org/core/filters.html}{warp\_by\_vector()} メソッドで抽出されたベクターファイルを持つことができます（コードリスト \ref{WarpVectorCode} 、図 \ref{WarpVectorFigure} ）。
 
 \href{https://dev.pyvista.org/plotting/plotting.html}{add\_mesh()} method can use a Matplotlib, Colorcet, cmocean, or custom colormap when plotting scalar values(Figure \ref{WarpVectorFigure}).
 
@@ -528,15 +528,15 @@ Also can have a vector filed extracted using \href{https://dev.pyvista.org/core/
 
 It provides methods to position and orient the view point and focal point.
 
-視点や焦点の位置や方向を決める方法を提供します。
+視点や焦点の位置や方向を決めるメソッドを提供します。
 
 Convenience methods for moving about the focal point also are provided.
 
-また、焦点を移動するための便利な方法も提供されています。
+また、焦点を移動するための便利なメソッドも提供されています。
 
 More complex methods allow the manipulation of the computer graphics model including view up vector, clipping planes, and camera perspective (Figure \ref{CameraFrustumFigure}).
 
-より複雑な方法では、ビューアップベクター、クリッピングプレーン、カメラパースペクティブなど、コンピュータグラフィックスモデルを操作することができます（図 \ref{CameraFrustumFigure}）。
+より複雑なメソッドでは、ビューアップベクター、クリッピングプレーン、カメラパースペクティブなど、コンピュータグラフィックスモデルを操作することができます（図 \ref{CameraFrustumFigure}）。
 
 }
 \lstinputlisting[caption=Add Camera to Plotter, label=camera_view, firstline=7, lastline=13]{camera_view.py}
@@ -555,7 +555,7 @@ More complex methods allow the manipulation of the computer graphics model inclu
 \note{
 Code Listing \ref{CameraFrustumCode} create a camera and frustum.
 
-コードリスト\ref{CameraFrustumCode}カメラと視錐台を作成します。
+コードリスト\ref{CameraFrustumCode}ではカメラと視錐台を作成しています。
 
 Then create a scene of inside frustum adding \href{https://dev.pyvista.org/core/camera.html}{Camera} object to \href{https://dev.pyvista.org/plotting/plotting.html}{Plotter} object
 (Code list \ref{CameraFrustumCode} ,Figure \ref{CameraFrustumFigure}).
