@@ -76,11 +76,11 @@ Let me introduce myself first.
 \end{textblock*}
 \begin{textblock*}{350pt}(150pt, 25pt)
 \begin{itemize}
-\item Mechanical simulation software engineer.
+\item Scientific simulation software engineer.
 \note{
 I am mechanical simulation software engineer in my careers.
 
-私は力学シミュレーションのソフトウェアエンジニアとして働いています。
+私は科学シミュレーションのソフトウェアエンジニアとして働いています。
 
 }
 \item Stuff of Scipy Japan 2020.
@@ -141,28 +141,34 @@ If you want, this slides is for you.
 This slides is the introduction of \href{https://pypi.org/project/pyvista/}{PyVista}.
 
 このスライドは、\href{https://pypi.org/project/pyvista/}{PyVista}の紹介です。
+
 }
-\note{It is}
+\note{
+It is
+
+このライブラリには3つの特徴があります。
+
+}
 \begin{itemize}
 \item "VTK for humans"\: a high-level API to the Visualization Toolkit (VTK)
 \note[item]{
 "VTK for humans"\: a high-level API to the Visualization Toolkit (VTK)
 
-"人間のためのVTK"\: 可視化ツールキット（VTK）の高レベルAPI
+1つ目は"人間のためのVTK"\: 可視化ツールキット（VTK）の高レベルAPI
 
 }
 \item 3D plotting made simple and built for large/complex data geometries
 \note[item]{
 3D plotting made simple and built for large/complex data geometries
 
-大規模／複雑なデータ形状に対応した、シンプルな3Dプロッティング機能
+2つ目は大規模／複雑なデータ形状に対応した、シンプルな3Dプロッティング機能
 
 }
 \item mesh data structures and filtering methods for spatial datasets
 \note[item]{
 mesh data structures and filtering methods for spatial datasets
 
-メッシュデータ構造と空間データのフィルタリング方法
+3つ目はメッシュデータ構造と空間データのフィルタリング方法
 
 }
 \end{itemize}
@@ -258,106 +264,110 @@ For example, Code Listing \ref{ShrinkFilterCode} shrink the individual faces of 
 \end{textblock*}
 \end{frame}
 
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Rotation about the x axis}
-\note{
-We can of course rotate the mesh about the axes.
-
-もちろん、軸を中心にメッシュを回転させることもできます。
-
-Let's rotate a mesh about its axes.
-
-メッシュを軸周りに回転させてみましょう。
-
-In this model, the x axis is from the left to right; the y axis is from bottom to top; and the z axis emerges from the image.
-
-このモデルでは、x軸は左から右へ、y軸は下から上へ、z軸は画像から浮かび上がるようになっています。
-
-The camera location is the same in two images.
-
-カメラの位置は2つの画像で同じです。
-
-Rotate the mesh about the x axis every 60 degrees and we can plot it.
-
-このメッシュをx軸を中心に60度ごとに回転させると、プロットできます。
-
-}
-\end{block}
-\lstinputlisting[caption=X-Axis Rotation, firstline=66, lastline=69]{rotate.py}
-\begin{figure}
-\includegraphics[width=1.0\linewidth]{rotate_x.png}
-\caption{X-Axis Rotation}
-\end{figure}
-\end{textblock*}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Rotation about the y axis}
-\note{
-Plot the mesh rotated about the y axis every 60 degrees.
-
-メッシュを60度ごとにY軸を中心に回転させてプロットします。
-
-Add the axes actor to the Plotter and set the axes origin to the point of rotation.
-
-プロッターに軸アクターを追加し、軸の原点を回転点に設定します。
-
-}
-\end{block}
-\lstinputlisting[caption=Y-Axis Rotation, firstline=66, lastline=69]{rotate.py}
-\begin{figure}
-\includegraphics[width=1.0\linewidth]{rotate_y.png}
-\caption{Y-Axis Rotation}
-\end{figure}
-\end{textblock*}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Rotation about the z axis}
-\note{
-Plot the mesh rotated about the z axis every 60 degrees.
-
-メッシュを60度ごとにz軸を中心に回転させてプロットします。
-
-Add the axes actor to the Plotter and set the axes origin to the point of rotation.
-
-プロッターに軸アクターを追加し、軸の原点を回転点に設定します。
-
-}
-\end{block}
-\lstinputlisting[caption=Z-Axis Rotation, firstline=66, lastline=69]{rotate.py}
-\begin{figure}
-\includegraphics[width=1.0\linewidth]{rotate_z.png}
-\caption{Z-Axis Rotation}
-\end{figure}
-\end{textblock*}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Rotation about a custom vector}
-\note{
-Plot the mesh rotated about a custom vector every 60 degrees.
-
-メッシュを60度ごとのカスタムベクトルで回転させてプロットします。
-
-Add the axes actor to the Plotter and set axes origin to the point of rotation.
-
-プロッターに軸アクターを追加し、軸の原点を回転点に設定します。
-
-}
-\end{block}
-\lstinputlisting[caption=Custom Rotation, firstline=66, lastline=69]{rotate.py}
-\begin{figure}
-\includegraphics[width=1.0\linewidth]{rotate_custom.png}
-\caption{Custom Rotation}
-\end{figure}
-\end{textblock*}
-\end{frame}
-
+% \begin{frame}[fragile]
+% \begin{textblock*}{350pt}(50pt, 10pt)
+% \begin{block}{Rotation about the x axis}
+% \note{
+% We can of course rotate the mesh about the axes.
+%
+% もちろん、軸を中心にメッシュを回転させることもできます。
+%
+% Let's rotate a mesh about its axes.
+%
+% メッシュを軸周りに回転させてみましょう。
+%
+% In this model, the x axis is from the left to right; the y axis is from bottom to top; and the z axis emerges from the image.
+%
+% このモデルでは、x軸は左から右へ、y軸は下から上へ、z軸は画面から垂直になっています。
+%
+% The camera location is the same in two images.
+%
+% カメラの位置は2つの画像で同じです。
+%
+% Rotate the mesh about the x axis every 60 degrees and we can plot it.
+%
+% このメッシュをx軸を中心に60度ごとに回転させてプロットできます。
+%
+% Of cource, we can plot also about other axis.
+%
+% もちろん、他の軸についてもプロットできます。
+%
+% }
+% \end{block}
+% \lstinputlisting[caption=X-Axis Rotation, firstline=66, lastline=69]{rotate.py}
+% \begin{figure}
+% \includegraphics[width=1.0\linewidth]{rotate_x.png}
+% \caption{X-Axis Rotation}
+% \end{figure}
+% \end{textblock*}
+% \end{frame}
+%
+% \begin{frame}[fragile]
+% \begin{textblock*}{350pt}(50pt, 10pt)
+% \begin{block}{Rotation about the y axis}
+% \note{
+% Plot the mesh rotated about the y axis every 60 degrees.
+%
+% メッシュを60度ごとにY軸を中心に回転させてプロットします。
+%
+% Add the axes actor to the Plotter and set the axes origin to the point of rotation.
+%
+% プロッターに軸アクターを追加し、軸の原点を回転点に設定しています。
+%
+% }
+% \end{block}
+% \lstinputlisting[caption=Y-Axis Rotation, firstline=66, lastline=69]{rotate.py}
+% \begin{figure}
+% \includegraphics[width=1.0\linewidth]{rotate_y.png}
+% \caption{Y-Axis Rotation}
+% \end{figure}
+% \end{textblock*}
+% \end{frame}
+%
+% \begin{frame}[fragile]
+% \begin{textblock*}{350pt}(50pt, 10pt)
+% \begin{block}{Rotation about the z axis}
+% \note{
+% Plot the mesh rotated about the z axis every 60 degrees.
+%
+% メッシュを60度ごとにz軸を中心に回転させてプロットします。
+%
+% Add the axes actor to the Plotter and set the axes origin to the point of rotation.
+%
+% プロッターに軸アクターを追加し、軸の原点を回転点に設定しています。
+%
+% }
+% \end{block}
+% \lstinputlisting[caption=Z-Axis Rotation, firstline=66, lastline=69]{rotate.py}
+% \begin{figure}
+% \includegraphics[width=1.0\linewidth]{rotate_z.png}
+% \caption{Z-Axis Rotation}
+% \end{figure}
+% \end{textblock*}
+% \end{frame}
+%
+% \begin{frame}[fragile]
+% \begin{textblock*}{350pt}(50pt, 10pt)
+% \begin{block}{Rotation about a custom vector}
+% \note{
+% Plot the mesh rotated about a custom vector every 60 degrees.
+%
+% メッシュを60度ごとのカスタムベクトルで回転させてプロットします。
+%
+% Add the axes actor to the Plotter and set axes origin to the point of rotation.
+%
+% プロッターに軸アクターを追加し、軸の原点を回転点に設定しています。
+%
+% }
+% \end{block}
+% \lstinputlisting[caption=Custom Rotation, firstline=66, lastline=69]{rotate.py}
+% \begin{figure}
+% \includegraphics[width=1.0\linewidth]{rotate_custom.png}
+% \caption{Custom Rotation}
+% \end{figure}
+% \end{textblock*}
+% \end{frame}
+%
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{General filters to any data type}
@@ -447,6 +457,38 @@ Meshes can have a scalar field extracted using \href{https://dev.pyvista.org/cor
 
 }
 \end{block}
+\end{textblock*}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Plot data over circular arc}
+\lstinputlisting[caption=Plotting over circular arc, label=PlotOverCircularArcCode, firstline=10, lastline=18]{kitchen.py}
+\end{block}
+\end{textblock*}
+\begin{textblock*}{300pt}(0pt, 110pt)
+\begin{block}{}
+\note{
+It can be plotting the values of a dataset over a circular arc through that dataset using
+\href{https://dev.pyvista.org/core/filters.html}{plot\_over\_circular\_arc\_normal}
+(Code list \ref{PlotOverCircularArcCode}, Figure \ref{CircularArcToPlotFigure} and \ref{PlotOverCircularArcFigure}).
+
+\href{https://dev.pyvista.org/core/filters.html}{plot\_over\_circular\_arc\_normal}
+を使用して、データセットを通る円弧上のデータセットの値をプロットすることができます
+(コードリスト\ref{PlotOverCircularArcCode}、図\ref{CircularArcToPlotFigure}および\ref{PlotOverCircularArcFigure})。
+
+}
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{kitchen.png}
+\caption{Circular arc to plot \label{CircularArcToPlotFigure}}
+\end{figure}
+\end{block}
+\end{textblock*}
+\begin{textblock*}{350pt}(150pt, 130pt)
+\begin{figure}
+\includegraphics[width=0.3\linewidth]{elevation.png}
+\caption{Plot over line \label{PlotOverCircularArcFigure}}
+\end{figure}
 \end{textblock*}
 \end{frame}
 
@@ -562,38 +604,6 @@ of the camera.
 (コードリスト\ref{CameraRotationCode}、図\ref{CameraRotationFigure})
 
 }
-\end{textblock*}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Plot data over circular arc}
-\lstinputlisting[caption=Plotting over circular arc, label=PlotOverCircularArcCode, firstline=10, lastline=18]{kitchen.py}
-\end{block}
-\end{textblock*}
-\begin{textblock*}{300pt}(0pt, 110pt)
-\begin{block}{}
-\note{
-It can be plotting the values of a dataset over a circular arc through that dataset using
-\href{https://dev.pyvista.org/core/filters.html}{plot\_over\_circular\_arc\_normal}
-(Code list \ref{PlotOverCircularArcCode}, Figure \ref{CircularArcToPlotFigure} and \ref{PlotOverCircularArcFigure}).
-
-\href{https://dev.pyvista.org/core/filters.html}{plot\_over\_circular\_arc\_normal}
-を使用して、データセットを通る円弧上のデータセットの値をプロットすることができます
-(コードリスト\ref{PlotOverCircularArcCode}、図\ref{CircularArcToPlotFigure}および\ref{PlotOverCircularArcFigure})。
-
-}
-\begin{figure}
-\includegraphics[width=0.5\linewidth]{kitchen.png}
-\caption{Circular arc to plot \label{CircularArcToPlotFigure}}
-\end{figure}
-\end{block}
-\end{textblock*}
-\begin{textblock*}{350pt}(150pt, 130pt)
-\begin{figure}
-\includegraphics[width=0.3\linewidth]{elevation.png}
-\caption{Plot over line \label{PlotOverCircularArcFigure}}
-\end{figure}
 \end{textblock*}
 \end{frame}
 
