@@ -125,7 +125,7 @@ Please follow me if you like this presentation.
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{textblock*}{800pt}(50pt, 20pt)
+\begin{textblock*}{800pt}(50pt, 10pt)
 \begin{block}{What we want to do is using VTK like matplotlib in PyVista.}
 \note{
 Do you want to visualize 3D data in a Pythonic way like matplotlib?
@@ -324,20 +324,20 @@ This is the figure of threshold, contour, slices and glyphs.
 \end{frame}
 
 \note{
-In VTK, filters are often used in a pipeline where each algorithm passes its output to the next filtering algorithm.
 In PyVista, we can mimic the filtering pipeline through a chain; attaching each filter to the last filter.
-In the following example, several filters are chained together:
-
+In this example, several filters are chained together.
 First, and empty threshold filter to clean out any NaN values.
+Second, use an elevation filter to generate scalar values corresponding to height.
+Then, use the clip filter to cut the dataset in half.
+At the end, create three slices along each axial plane using the slice\_orthogonal filter.
 
-Use an elevation filter to generate scalar values corresponding to height.
-
-Use the clip filter to cut the dataset in half.
-
-Create three slices along each axial plane using the slice\_orthogonal filter.
-
-And to view this filtered data, simply call the plot method (result.plot()) or create a rendering scene:
-Add a background image with pyvista.Plotter.add\_background\_image().
+PyVistaでは、チェーンを介してフィルタリングパイプラインを模倣することができます。
+各フィルタを最後のフィルタにアタッチします。
+この例では、複数のフィルタが連結されています。
+まず、すべてのNaN値を消去する空のしきい値フィルタです。
+次に、高度フィルタを使用して、高さに対応するスカラー値を生成します。
+さらに、クリップフィルタを使用してデータセットを半分にカットします。
+最後に、slice\_orthogonalフィルタを使用して、各軸平面に沿って3つのスライスを作成します。
 }
 
 \begin{frame}[fragile]
@@ -350,18 +350,11 @@ Add a background image with pyvista.Plotter.add\_background\_image().
 \caption{Shrink filter\label{ShrinkFilterFigure}}
 \end{figure}
 \note{
-\href{https://dev.pyvista.org/core/filters.html}{PyVista classes} hold methods to apply general filters to any data type.
+There is also a filter useful for mesh viewing.
+Code Listing \ref{ShrinkFilterCode} shrink the individual faces of a mesh using shrink method (Figure \ref{ShrinkFilterFigure}).
 
-\href{https://dev.pyvista.org/core/filters.html}{PyVistaのクラス} は、任意のデータ型に一般的なフィルタを適用するメソッドを保持しています。
-
-A user can easily apply common filters in an intuitive manner.
-
-ユーザーは直感的なメソッドで簡単に共通のフィルターを適用することができます。
-
-For example, Code Listing \ref{ShrinkFilterCode} shrink the individual faces of a mesh using shrink method (Figure \ref{ShrinkFilterFigure}).
-
-例えば、コードリスト \ref{ShrinkFilterCode} では、shrinkメソッドを使ってメッシュの各面を縮小しています（図 \ref{ShrinkFilterFigure}）。
-
+メッシュの確認に便利なフィルターもあります。
+コードリスト \ref{ShrinkFilterCode} では、shrinkメソッドを使ってメッシュの各面を縮小しています（図 \ref{ShrinkFilterFigure}）。
 }
 \end{block}
 \end{textblock*}
@@ -374,6 +367,8 @@ For example, Code Listing \ref{ShrinkFilterCode} shrink the individual faces of 
 \end{textblock*}
 \end{frame}
 \note{
+And to view this filtered data, simply call the plot method (result.plot()) or create a rendering scene:
+Add a background image with pyvista.Plotter.add\_background\_image().
 Clip/cut any dataset using using planes or boxes.
 Clip any dataset by a user defined plane using the pyvista.DataSetFilters.clip() filter
 }
