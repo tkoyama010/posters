@@ -310,7 +310,19 @@ This is the figure of threshold, contour, slices and glyphs.
 
 
 \begin{frame}[fragile]
+\begin{textblock*}{200pt}(20pt, 10pt)
+\begin{block}{Filter Pipeline}
+\lstinputlisting[caption=Filter Pipeline, label=using_common_filters, firstline=106, lastline=111]{using-filters.py}
+\end{block}
+\end{textblock*}
+\begin{textblock*}{200pt}(250pt, 50pt)
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{using-filters3.png}
+\caption{Filter Pipeline\label{FilterPipelineFigure}}
+\end{figure}
+\end{textblock*}
 \end{frame}
+
 \note{
 In VTK, filters are often used in a pipeline where each algorithm passes its output to the next filtering algorithm.
 In PyVista, we can mimic the filtering pipeline through a chain; attaching each filter to the last filter.

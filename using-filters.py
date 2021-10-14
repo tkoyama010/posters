@@ -105,14 +105,13 @@ p.show(screenshot="using-filters2.png")
 # 4. Create three slices along each axial plane using the ``slice_orthogonal`` filter.
 
 # Apply a filtering chain
-result = dataset.threshold().elevation().clip(normal="z").slice_orthogonal()
-
-###############################################################################
-# And to view this filtered data, simply call the ``plot`` method
-# (``result.plot()``) or create a rendering scene:
+result = dataset.threshold()
+result = result.elevation()
+result = result.clip(normal="z")
+result = result.slice_orthogonal()
 
 p = pv.Plotter()
 p.add_mesh(outline, color="k")
 p.add_mesh(result, scalars="Elevation")
 p.view_isometric()
-p.show()
+p.show(screenshot="using-filters3.png")
