@@ -49,29 +49,6 @@ Hi my name is Tetsuo Koyama. Today I will talk about the title "Visualize 3D sci
 
 こんにちは、Tetsuo Koyamaです。本日は、「Pythonicに3次元データを可視化しよう」というタイトルでお話します。
 }
-\begin{frame}[fragile]
-\todo[inline]{https://github.com/pyvista/pyvista/pull/878}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/883}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/896}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/909}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1103}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1177}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1246}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1253}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1263}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1303}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1444}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1328}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1496}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1519}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1544}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1587}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1569}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1603}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1677}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1700}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1704}
-\end{frame}
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 20pt)
@@ -214,13 +191,6 @@ add meshメソッドを使用してPlotterオブジェクトに追加します�
 \end{frame}
 
 \begin{frame}[fragile]
-\end{frame}
-\note{
-Create a Kochanek spline/polyline from a numpy array of XYZ vertices.
-Interpolate those points onto a parametric Kochanek spline
-}
-
-\begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Hello World!}
 \end{block}
@@ -239,6 +209,23 @@ And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of PyV
 \end{block}
 \end{textblock*}
 \end{frame}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Create tube from line}
+\lstinputlisting[caption=Create tube, label=ShrinkFilterCode, firstline=15, lastline=15]{tube.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{tube.png}
+\caption{Line and tube\label{ShrinkFilterFigure}}
+\end{figure}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+We can also make customize mesh like tube from line points using Tube function.
+
+Tube関数を使用して、線の点から管のようなメッシュをカスタマイズすることもできます。
+}
 
 \begin{frame}[fragile]
 \begin{block}{Create PolyData}
