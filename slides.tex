@@ -257,6 +257,32 @@ The vertex array contains the locations of the points in the mesh and the face a
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Load and plot from a files}
+\lstinputlisting[caption=Load meshs from the many supported file formats, label=ReadFileCode, firstline=5, lastline=8]{read_file.py}
+\begin{figure}
+\includegraphics[width=0.6\linewidth]{read_file.png}
+\caption{Meshs from the many supported file formats\label{ReadFileFigure}}
+\end{figure}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+We can also load mesh from file.
+Loading a \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} is trivial - if your data is in one of the many supported file formats,
+simply use \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.read()}
+to load your spatially referenced dataset into a \href{https://pypi.org/project/pyvista/}{PyVista} \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} object
+(Code Listing \ref{ReadFileCode}, Figure \ref{ReadFileFigure}).
+
+ファイルからメッシュをロードすることもできます。
+\href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} のロードは簡単です。
+データがサポートされている多くのファイルフォーマットのいずれかである場合、
+単に \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.read()} を使用して空間的に参照されたデータセットを
+\href{https://pypi.org/project/pyvista/}{PyVista} \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} オブジェクトにロードします
+(コードリスト\ref{ReadFileCode}、図\ref{ReadFileFigure})。
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Thresholding Filter}
 \lstinputlisting[caption=Create tube, label=ThresholdingFilterCode, firstline=36, lastline=36]{using-filters.py}
 \begin{figure}
@@ -402,8 +428,6 @@ DataSetFilters.clip\_box () フィルタです。
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Rotation about the x axis}
 \note{
-Add a background image with pyvista.Plotter.add\_background\_image().
-Clip/cut any dataset using using planes or boxes.
 We can of course rotate the mesh about the axes.
 
 もちろん、軸を中心にメッシュを回転させることもできます。
@@ -528,35 +552,12 @@ using extrude rotate method (Figure \ref{ExtrudeRotateFigure}).
 \end{block}
 \end{frame}
 \note{
+Add a background image with pyvista.Plotter.add\_background\_image().
+Clip/cut any dataset using using planes or boxes.
 Extract a subset of the edges of a polygonal mesh to generate an outline (silhouette) of a mesh.
 Prepare a triangulated PolyData
 Now we can display the silhouette of the mesh and compare the result:
 }
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Load and plot from a files}
-\lstinputlisting[caption=Load meshs from the many supported file formats, label=ReadFileCode, firstline=5, lastline=8]{read_file.py}
-\begin{figure}
-\includegraphics[width=0.6\linewidth]{read_file.png}
-\caption{Meshs from the many supported file formats\label{ReadFileFigure}}
-\end{figure}
-\note{
-Loading a \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} is trivial - if your data is in one of the many supported file formats,
-simply use \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.read()}
-to load your spatially referenced dataset into a \href{https://pypi.org/project/pyvista/}{PyVista} \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} object
-(Code Listing \ref{ReadFileCode}, Figure \ref{ReadFileFigure}).
-
-\href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} のロードは簡単です。
-データがサポートされている多くのファイルフォーマットのいずれかである場合、
-単に \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.read()} を使用して空間的に参照されたデータセットを
-\href{https://pypi.org/project/pyvista/}{PyVista} \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} オブジェクトにロードします
-(コードリスト\ref{ReadFileCode}、図\ref{ReadFileFigure})。
-
-}
-\end{block}
-\end{textblock*}
-\end{frame}
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
