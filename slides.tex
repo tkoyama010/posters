@@ -213,10 +213,10 @@ And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of PyV
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Create tube from line}
-\lstinputlisting[caption=Create tube, label=ShrinkFilterCode, firstline=15, lastline=15]{tube.py}
+\lstinputlisting[caption=Create tube, label=CreateTube, firstline=15, lastline=15]{tube.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{tube.png}
-\caption{Line and tube\label{ShrinkFilterFigure}}
+\caption{Line and tube\label{LineTubeFigure}}
 \end{figure}
 \end{block}
 \end{textblock*}
@@ -256,42 +256,40 @@ The vertex array contains the locations of the points in the mesh and the face a
 }
 
 \begin{frame}[fragile]
-\begin{block}{Using Common Filters}
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Thresholding Filter}
+\lstinputlisting[caption=Create tube, label=ThresholdingFilterCode, firstline=36, lastline=36]{using-filters.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{using-filters1.png}
+\caption{\label{ThresholdingFilterFigure}}
+\end{figure}
 \end{block}
+\end{textblock*}
+\end{frame}
 \note{
-Using common filters like thresholding and clipping.
+In this slide we use common filters like thresholding and clipping.
 PyVista wrapped data objects have a suite of common filters ready for immediate use directly on the object.
-These filters include the following (see Filters for a complete list):
-slice: creates a single slice through the input dataset on a user defined plane
-
-slice\_orthogonal: creates a MultiBlock dataset of three orthogonal slices
-
-slice\_along\_axis: creates a MultiBlock dataset of many slices along a specified axis
-
-threshold: Thresholds a dataset by a single value or range of values
-
-threshold\_percent: Threshold by percentages of the scalar range
-
-clip: Clips the dataset by a user defined plane
-
-outline\_corners: Outlines the corners of the data extent
-
-extract\_geometry: Extract surface geometry
-
-To use these filters, call the method of your choice directly on your data object:
+These filters include the following (see Filters for a complete list).
+To use these filters, call the method of your choice directly on your data object.
 And now there is a thresholded version of the input dataset in the new threshed object.
 To learn more about what keyword arguments are available to alter how filters are executed,
-print the docstring for any filter attached to PyVista objects with either help(dataset.threshold) or using shift+tab in an IPython environment.
+print the docstring for any filter attached to PyVista objects with either help or using shift+tab in an IPython environment.
 
-We can now plot this filtered dataset along side an outline of the original dataset
-What about other filters? Let’s collect a few filter results and compare them:
+このスライドではしきい値設定やクリッピングなどの一般的なフィルタを使用してみます。
+PyVistaでラップされたデータオブジェクトには、オブジェクト上で直接すぐに使用できる一連の共通フィルタが用意されています。
+これらのフィルタを使用するには、データ・オブジェクトで直接選択したメソッドを呼び出します。
+これで、新しいしきい値オブジェクトに入力データセットのしきい値バージョンがあります。
+フィルタの実行方法を変更するために使用できるキーワード引数の詳細については、ヘルプを使用するか、
+IPython環境でshift+tabを使用して、PyVistaオブジェクトに適用されているフィルタのdocstringを出力してください。
+
 }
-\end{frame}
 
 \begin{frame}[fragile]
 \begin{block}{Filter Pipeline}
 \end{block}
 \note{
+We can now plot this filtered dataset along side an outline of the original dataset
+What about other filters? Let’s collect a few filter results and compare them:
 In VTK, filters are often used in a pipeline where each algorithm passes its output to the next filtering algorithm.
 In PyVista, we can mimic the filtering pipeline through a chain; attaching each filter to the last filter.
 In the following example, several filters are chained together:
