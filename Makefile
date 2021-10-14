@@ -1,7 +1,7 @@
 all:
 	make slides.pdf
 
-slides.pdf: slides.tex shrink.png hello_world.png frustum_of_camera.png camera_view.png kitchen.png extrude_rotate.png contour.png read_file.png warped_vector.png elevation.png rotate_mesh.png rotate_x.png rotate_y.png rotate_z.png rotate_custom.png tube.png
+slides.pdf: slides.tex shrink.png hello_world.png frustum_of_camera.png camera_view.png kitchen.png extrude_rotate.png contour.png read_file.png warped_vector.png elevation.png rotate_mesh.png rotate_x.png rotate_y.png rotate_z.png rotate_custom.png tube.png create-poly.png
 	pdflatex $<
 main.pdf: main.tex shrink.png hello_world.png frustum_of_camera.png camera_view.png kitchen.png extrude_rotate.png contour.png read_file.png warped_vector.png elevation.png
 	pdflatex $<
@@ -36,4 +36,6 @@ rotate_z.png: rotate.py
 rotate_custom.png: rotate.py
 	python $<
 tube.png: tube.py
+	python $<
+create-poly.png: create-poly.py
 	python $<

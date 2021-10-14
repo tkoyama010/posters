@@ -13,6 +13,6 @@ p.add_mesh(line, color="k", line_width=5)
 p.subplot(0, 1)
 p.add_text("Tube")
 tube = pv.Tube((0, 0, 0), (10, 0, 0))
-p.add_mesh(tube)
+p.add_mesh(tube, show_edges=True)
 
 p.show(cpos="xz", screenshot="tube.png")

@@ -5,7 +5,7 @@
 }
 
 \usepackage{lipsum}
-% \usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
+\usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{pythonhighlight}
 \usepackage[absolute,overlay]{textpos}
@@ -228,13 +228,31 @@ Tube関数を使用して、線の点から管のようなメッシュをカス�
 }
 
 \begin{frame}[fragile]
+\begin{textblock*}{200pt}(50pt, 10pt)
 \begin{block}{Create PolyData}
+\lstinputlisting[caption=Create PolyData, label=CreatePolyDataCode, firstline=12, lastline=29]{create-poly.py}
 \end{block}
+\end{textblock*}
+\begin{textblock*}{350pt}(180pt, 50pt)
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{create-poly.png}
+\caption{Create PolyData \label{CreatePolyData}}
+\end{figure}
+\end{textblock*}
 \end{frame}
 \note{
-Creating a PolyData (triangulated surface) object from NumPy arrays of the vertices and faces.
+You can also create PolyData (Triangulated Surface) objects from the NumPy arrays of vertices and faces if you want to further customize the mesh.
+
+メッシュをさらにカスタマイズする場合は、頂点と面のNumPy配列からPolyData (Triangulated Surface) オブジェクトを作成することもできます。
+
 A PolyData object can be created quickly from numpy arrays.
+
+PolyDataオブジェクトは、numpy配列からすばやく作成できます。
+
 The vertex array contains the locations of the points in the mesh and the face array contains the number of points of each face and the indices of the vertices which comprise that face.
+
+頂点配列にはメッシュ内のポイントの位置が含まれ、面配列には各面のポイント数と、その面を構成する頂点のインデックスが含まれます。
+
 }
 
 \begin{frame}[fragile]
