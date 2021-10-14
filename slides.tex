@@ -19,6 +19,7 @@
 ]{doclicense}
 \usepackage[whole]{bxcjkjatype}
 \usepackage{todonotes}
+\usepackage{multimedia}
 
 \setbeamertemplate{note page}{\pagecolor{yellow!5}\vfill\insertnote\vfill}
 \setbeameroption{show notes on second screen=right}
@@ -53,8 +54,6 @@ Hi my name is Tetsuo Koyama. Today I will talk about the title "Visualize 3D sci
 \todo[inline]{https://github.com/pyvista/pyvista/pull/883}
 \todo[inline]{https://github.com/pyvista/pyvista/pull/896}
 \todo[inline]{https://github.com/pyvista/pyvista/pull/909}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/913}
-\todo[inline]{https://github.com/pyvista/pyvista/pull/1102}
 \todo[inline]{https://github.com/pyvista/pyvista/pull/1103}
 \todo[inline]{https://github.com/pyvista/pyvista/pull/1177}
 \todo[inline]{https://github.com/pyvista/pyvista/pull/1246}
@@ -215,6 +214,13 @@ add meshメソッドを使用してPlotterオブジェクトに追加します�
 \end{frame}
 
 \begin{frame}[fragile]
+\end{frame}
+\note{
+Create a Kochanek spline/polyline from a numpy array of XYZ vertices.
+Interpolate those points onto a parametric Kochanek spline
+}
+
+\begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Hello World!}
 \end{block}
@@ -233,6 +239,76 @@ And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of PyV
 \end{block}
 \end{textblock*}
 \end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Create PolyData}
+\end{block}
+\end{frame}
+\note{
+Creating a PolyData (triangulated surface) object from NumPy arrays of the vertices and faces.
+A PolyData object can be created quickly from numpy arrays.
+The vertex array contains the locations of the points in the mesh and the face array contains the number of points of each face and the indices of the vertices which comprise that face.
+}
+
+\begin{frame}[fragile]
+\begin{block}{Using Common Filters}
+\end{block}
+\note{
+Using common filters like thresholding and clipping.
+PyVista wrapped data objects have a suite of common filters ready for immediate use directly on the object.
+These filters include the following (see Filters for a complete list):
+slice: creates a single slice through the input dataset on a user defined plane
+
+slice\_orthogonal: creates a MultiBlock dataset of three orthogonal slices
+
+slice\_along\_axis: creates a MultiBlock dataset of many slices along a specified axis
+
+threshold: Thresholds a dataset by a single value or range of values
+
+threshold\_percent: Threshold by percentages of the scalar range
+
+clip: Clips the dataset by a user defined plane
+
+outline\_corners: Outlines the corners of the data extent
+
+extract\_geometry: Extract surface geometry
+
+To use these filters, call the method of your choice directly on your data object:
+And now there is a thresholded version of the input dataset in the new threshed object.
+To learn more about what keyword arguments are available to alter how filters are executed,
+print the docstring for any filter attached to PyVista objects with either help(dataset.threshold) or using shift+tab in an IPython environment.
+
+We can now plot this filtered dataset along side an outline of the original dataset
+What about other filters? Let’s collect a few filter results and compare them:
+}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Filter Pipeline}
+\end{block}
+\note{
+In VTK, filters are often used in a pipeline where each algorithm passes its output to the next filtering algorithm.
+In PyVista, we can mimic the filtering pipeline through a chain; attaching each filter to the last filter.
+In the following example, several filters are chained together:
+
+First, and empty threshold filter to clean out any NaN values.
+
+Use an elevation filter to generate scalar values corresponding to height.
+
+Use the clip filter to cut the dataset in half.
+
+Create three slices along each axial plane using the slice\_orthogonal filter.
+
+And to view this filtered data, simply call the plot method (result.plot()) or create a rendering scene:
+}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\end{frame}
+\note{
+Add a background image with pyvista.Plotter.add\_background\_image().
+}
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
@@ -260,6 +336,27 @@ For example, Code Listing \ref{ShrinkFilterCode} shrink the individual faces of 
 \end{block}
 \end{textblock*}
 \end{frame}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Clipping with Planes}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Clip/cut any dataset using using planes or boxes.
+Clip any dataset by a user defined plane using the pyvista.DataSetFilters.clip() filter
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Clipping with Planes}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Clip any dataset by a set of XYZ bounds using the pyvista.DataSetFilters.clip\_box() filter.
+}
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
@@ -383,6 +480,16 @@ using extrude rotate method (Figure \ref{ExtrudeRotateFigure}).
 \end{block}
 \end{textblock*}
 \end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Silhouette Highlight}
+\end{block}
+\end{frame}
+\note{
+Extract a subset of the edges of a polygonal mesh to generate an outline (silhouette) of a mesh.
+Prepare a triangulated PolyData
+Now we can display the silhouette of the mesh and compare the result:
+}
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
@@ -521,7 +628,7 @@ Also can have a vector filed extracted using \href{https://dev.pyvista.org/core/
 \note{
 \href{https://dev.pyvista.org/core/camera.html}{Camera} class is a virtual camera for 3D rendering.
 
-\href{https://dev.pyvista.org/core/camera.html}{Camera}クラスは、3 Dレンダリング用の仮想カメラです。
+\href{https://dev.pyvista.org/core/camera.html}{Camera}クラスは、3Dレンダリング用の仮想カメラです。
 
 It provides methods to position and orient the view point and focal point.
 
@@ -603,6 +710,394 @@ of the camera.
 }
 \end{textblock*}
 \end{frame}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Light class}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+pyvista.Light instances come in three types: headlights, camera lights, and scene lights. Headlights always shine along the camera’s axis, camera lights have a fixed position with respect to the camera, and scene lights are positioned with respect to the scene, such that moving around the camera doesn’t affect the lighting of the scene.
+Lights have a position and a focal\_point that define the axis of the light. The meaning of these depends on the type of the light. The color of the light can be set according to ambient, diffuse and specular components. The brightness can be set with the intensity property, and the writable on property specifies whether the light is switched on.
+Lights can be either directional (meaning an infinitely distant point source) or positional. Positional lights have additional properties that describe the geometry and the spatial distribution of the light. The cone\_angle and exponent properties define the shape of the light beam and the angular distribution of the light’s intensity within that beam. The fading of the light with distance can be customized with the attenuation\_values property. Positional lights can also make use of an actor that represents the shape and color of the light using a wireframe, see show\_actor().
+Positional lights with a cone\_angle of less than 90 degrees are known as spotlights. Spotlights are unidirectional and they make full use of beam shaping properties, namely exponent and attenuation.
+Non-spotlight positional lights, however, act like point sources located in the real-world position of the light, shining in all directions of space.
+They display attenuation with distance from the source, but their beam is isotropic in space.
+In contrast, directional lights act as infinitely distant point sources, so they are unidirectional but they do not attenuate.
+With directed lights, it is possible to create complex lighting scenarios.
+For example, you can position a light directly above an actor (in this case, a sphere), to create a shadow directly below it.
+The following example uses a positional light to create an eclipse-like shadow below a sphere by controlling the cone angle and exponent values of the light.
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Light Actors}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Positional lights in PyVista have customizable beam shapes, see the Beam Shape example. Spotlights are special in the sense that they are unidirectional lights with a finite position, so they can be visualized using a cone.
+This is exactly the purpose of a vtk.vtkLightActor, the functionality of which can be enabled for spotlights:
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Attenuation}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Attenuation is the phenomenon of light’s intensity being gradually dampened as it propagates through a medium.
+In PyVista positional lights can show attenuation.
+The quadratic attenuation model uses three parameters to describe attenuation: a constant, a linear and a quadratic parameter.
+These parameters describe the decrease of the beam intensity as a function of the distance, I(r).
+In a broad sense the constant, linear and quadratic components correspond to I(r) = 1, I(r) = 1/r and I(r) = 1/r**2 decay of the intensity with distance from the point source.
+In all cases a larger attenuation value (of a given kind) means stronger dampening (weaker light at a given distance).
+So the constant attenuation parameter corresponds roughly to a constant intensity component.
+The linear and the quadratic attenuation parameters correspond to intensity components that decay with distance from the source.
+For the same parameter value the quadratic attenuation produces a beam that is shorter in range than that produced by linear attenuation.
+Three spotlights with three different attenuation profiles each:
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Attenuation}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+It’s not too obvious but it’s visible that the rightmost light with quadratic attenuation has a shorter range than the middle one with linear attenuation.
+Although it seems that even the leftmost light with constant attenuation loses its brightness gradually, this partly has to do with the fact that we sliced the light beams very close to their respective axes, meaning that light hits the surface in a very small angle.
+Altering the scene such that the lights are further away from the plane changes this:
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Attenuation}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Now the relationship of the three kinds of attenuation seems clearer.
+For a more practical comparison, let’s look at planes that are perpendicular to the axis of each light (making use of the fact that shadowing between objects is not handled by default):
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Beam Shape}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+The default directional lights are infinitely distant point sources, for which the only geometric customization option is the choice of beam direction defined by the light’s position and focal point.
+Positional lights, however, have more options for beam customization.
+Consider two hemispheres:
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Beam Shape}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+We can see that the default lighting does a very good job of articulating the shape of the hemispheres.
+Let’s shine a directional light on them, positioned between the hemispheres and oriented along their centers:
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Beam Shape}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Both hemispheres have their surface lit on the side that faces the light.
+This is consistent with the point source positioned at infinity, directed from the light’s nominal position toward the focal point.
+Now let’s change the light to a positional light (but not a spotlight):
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Beam Shape}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Now the inner surface of both hemispheres is lit.
+A positional light with a cone angle of 90 degrees (or more) acts as a point source located at the light’s nominal position.
+It could still display attenuation, see the Attenuation example.
+Switching to a spotlight (i.e. a positional light with a cone angle less than 90 degrees) will enable beam shaping using the exponent property.
+Let’s put our hemispheres side by side for this, and put a light in the center of each: one spotlight, one merely positional.
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Beam Shape}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Even though the two lights only differ by a fraction of a degree in cone angle, the beam shaping effect enabled for spotlights causes a marked difference in the result.
+Once we have a spotlight we can change its exponent to make the beam shape sharper or broader. Three spotlights with varying sharpness:
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Beam Shape}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+The spotlight with exponent 0.3 is practically uniform, and the one with exponent 5 is visibly focused along the axis of the light.
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Eye Dome Lighting}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Eye-Dome Lighting (EDL) is a non-photorealistic, image-based shading technique designed to improve depth perception in scientific visualization images. To learn more, please see this blog post.
+Eye-Dome Lighting can dramatically improve depth perception when plotting incredibly sophisticated meshes like the creative commons Queen Nefertiti statue:
+Here we will compare a EDL shading side by side with normal shading
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Point Cloud}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+When plotting a simple point cloud, it can be difficult to perceive depth. Take this Lidar point cloud for example:
+And now plot this point cloud as-is:
+We can improve the depth mapping by enabling eye dome lighting on the renderer with pyvista.Renderer.enable\_eye\_dome\_lighting().
+The eye dome lighting mode can also handle plotting scalar arrays:
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Geodesic Paths}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Calculates the geodesic path between two vertices using Dijkstra’s algorithm
+Get the geodesic path as a new pyvista.PolyData object:
+Render the path along the land surface
+How long is that path?
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Applying Textures}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Plot a mesh with an image projected onto it as a texture.
+Texture mapping is easily implemented using PyVista.
+Many of the geometric objects come preloaded with texture coordinates, so quickly creating a surface and displaying an image is simply:
+But what if your dataset doesn’t have texture coordinates? Then you can harness the pyvista.
+DataSetFilters.texture\_map\_to\_plane() filter to properly map an image to a dataset’s surface.
+For example, let’s map that same image of bricks to a curvey surface:
+Display scalar data along with a texture by ensuring the interpolate\_before\_map setting is False and specifying both the texture and scalars arguments.
+Note that this process can be completed with any image texture!
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Textures from Files}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+What about loading your own texture from an image?
+This is often most easily done using the pyvista.read\_texture() function - simply pass an image file’s path, and this function with handle making a vtkTexture for you to use.
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{NumPy Arrays as Textures}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Want to use a programmatically built image?
+pyvista.UniformGrid objects can be converted to textures using pyvista.image\_to\_texture() and 3D NumPy (X by Y by RGB) arrays can be converted to textures using pyvista.numpy\_to\_texture().
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Textures with Transparency}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Textures can also specify per-pixel opacity values.
+The image must contain a 4th channel specifying the opacity value from 0 [transparent] to 255 [fully visible].
+To enable this feature just pass the opacity array as the 4th channel of the image as a 3 dimensional matrix with shape [nrows, ncols, 4] pyvista.numpy\_to\_texture().
+Here we can download an image that has an alpha channel:
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Repeating Textures}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+What if you have a single texture that you’d like to repeat across a mesh?
+Simply define the texture coordinates for all nodes explicitly.
+Here we create the texture coordinates to fill up the grid with several mappings of a single texture.
+In order to do this we must define texture coordinates outside of the typical (0, 1) range:
+By defining texture coordinates that range (0, 4) on each axis, we will produce 4 repetitions of the same texture on this mesh.
+Then we must associate those texture coordinates with the mesh through the pyvista.DataSet.active\_t\_coords property.
+Now display all the puppies!
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Spherical Texture Coordinates}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+We have a built in convienance method for mapping textures to spherical coordinate systems much like the planar mapping demoed above.
+The helper method above does not always produce the desired texture coordinates, so sometimes it must be done manually. Here is a great, user contributed example from this support issue
+Manually create the texture coordinates for a globe map. First, we create the mesh that will be used as the globe. Note the start\_theta for a slight overlappig
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Physically Based Rendering}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+
+VTK 9 introduced Physically Based Rendering (PBR) and we have exposed that functionality in PyVista. Read the blog about PBR for more details.
+
+PBR is only supported for pyvista.PolyData and can be triggered via the pbr keyword argument of add\_mesh. Also use the metallic and roughness arguments for further control.
+
+Let’s show off this functionality by rendering a high quality mesh of a statue as though it were metallic.
+
+Let’s render the mesh with a base color of “linen” to give it a metal looking finish.
+
+Show the variation of the metallic and roughness parameters.
+
+Plot with metallic increasing from left to right and roughness increasing from bottom to top.
+
+Combine custom lighting and physically based rendering.
+
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Working with a glTF Files}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Import a glTF directly into a PyVista plotting scene. For more details regarding the glTF format, see: https://www.khronos.org/gltf/
+Note this feature is only available for vtk>=9.
+First, download the examples. Note that here we’re using a high dynamic range texture since glTF files generally contain physically based rendering and VTK v9 supports high dynamic range textures.
+Setup the plotter and enable environment textures. This works well for physically based rendering enabled meshes like the damaged helmet example.
+You can also directly read in gltf files and extract the underlying mesh.
+}
+
+\begin{frame}[fragile]
+\begin{block}{Widgets}
+\end{block}
+\end{frame}
+\note{
+PyVista has several widgets that can be added to the rendering scene to control filters like clipping, slicing, and thresholding - specifically there are widgets to control the positions of boxes, planes, and lines or slider bars which can all be highly customized through the use of custom callback functions.
+Here we’ll take a look at the various widgets, some helper methods that leverage those widgets to do common tasks, and demonstrate how to leverage the widgets for user defined tasks and processing routines.
+}
+
+\begin{frame}[fragile]
+\begin{block}{Widgets}
+\movie[width=5cm,height=5cm]{}{box-clip.gif}
+\end{block}
+\end{frame}
+\note{
+The box widget can be enabled and disabled by the pyvista.WidgetHelper.add\_box\_widget() and pyvista.WidgetHelper.clear\_box\_widgets() methods respectively.
+When enabling the box widget, you must provide a custom callback function otherwise the box would appear and do nothing - the callback functions are what allow us to leverage the widget to perform a task like clipping/cropping.
+
+Considering that using a box to clip/crop a mesh is one of the most common use cases, we have included a helper method that will allow you to add a mesh to a scene with a box widget that controls its extent, the pyvista.WidgetHelper.add\_mesh\_clip\_box() method.
+}
+
+\begin{frame}[fragile]
+\begin{block}{Plane Widget}
+\end{block}
+\end{frame}
+\note{
+The plane widget can be enabled and disabled by the pyvista.WidgetHelper.add\_plane\_widget() and pyvista.WidgetHelper.clear\_plane\_widgets() methods respectively.
+As with all widgets, you must provide a custom callback method to utilize that plane.
+Considering that planes are most commonly used for clipping and slicing meshes, we have included two helper methods for doing those tasks!
+Let’s use a plane to clip a mesh:
+After interacting with the scene, the clipped mesh is available as:
+And here is a screen capture of a user interacting with this
+Or you could slice a mesh using the plane widget:
+After interacting with the scene, the slice is available as:
+And here is a screen capture of a user interacting with this
+}
+
+\begin{frame}[fragile]
+\begin{block}{Slider Widget}
+\end{block}
+\end{frame}
+\note{
+The slider widget can be enabled and disabled by the pyvista.WidgetHelper.add\_slider\_widget() and pyvista.WidgetHelper.clear\_slider\_widgets() methods respectively.
+This is one of the most versatile widgets as it can control a value that can be used for just about anything.
+One helper method we’ve added is the pyvista.WidgetHelper.add\_mesh\_threshold() method which leverages the slider widget to control a thresholding value.
+After interacting with the scene, the threshold mesh is available as:
+Or you could leverage a custom callback function that takes a single value from the slider as its argument to do something like control the resolution of a mesh. Again note the use of the name argument in add\_mesh:
+And here is a screen capture of a user interacting with this
+}
+
+\begin{frame}[fragile]
+\begin{block}{Sphere Widget}
+\end{block}
+\end{frame}
+\note{
+The sphere widget can be enabled and disabled by the pyvista.WidgetHelper.add\_sphere\_widget() and pyvista.WidgetHelper.clear\_sphere\_widgets() methods respectively. This is a very versatile widget as it can control vertex location that can be used to control or update the location of just about anything.
+We don’t have any convenient helper methods that utilize this widget out of the box, but we have added a lot of ways to use this widget so that you can easily add several widgets to a scene.
+Let’s look at a few use cases that all update a surface mesh.
+}
+
+\begin{frame}[fragile]
+\begin{block}{Interpolate Before Mapping}
+\end{block}
+\end{frame}
+\note{
+The add\_mesh function has an interpolate\_before\_map argument - this affects the way scalar data is visualized with colors. The effect can of this can vary depending on the dataset’s topology and the chosen colormap.
+This example serves to demo the difference and why we’ve chosen to enable this by default.
+For more details, please see this blog post
+
+Meshes are colored by the data on their nodes or cells - when coloring a mesh by data on its nodes, the values must be interpolated across the faces of cells. The process by which those scalars are interpolated is critical. If the interpolate\_before\_map is left off, the color mapping occurs at polygon points and colors are interpolated, which is generally less accurate whereas if the interpolate\_before\_map is on, then the scalars will be interpolated across the topology of the dataset which is more accurate.
+
+To summarize, when interpolate\_before\_map is off, the colors are interpolated after rendering and when interpolate\_before\_map is on, the scalars are interpolated across the mesh and those values are mapped to colors.
+
+So lets take a look at the difference:
+Shown in the figure above, when not interpolating the scalars before mapping, the colors (RGB values, not scalars) are interpolated between the vertices by the underlying graphics library (OpenGL), and the colors shown are not accurate.
+
+The same interpolation effect occurs for wireframe visualization too:
+The cylinder mesh above is a great example dataset for this as it has a wide spread between the vertices (points are only at the top and bottom of the cylinder) which means high surface are of the mesh has to be interpolated.
+
+However, most meshes don’t have such a wide spread and the effects of color interpolating are harder to notice. Let’s take a look at a wavelet example and try to figure out how the interpolate\_before\_map option affects its rendering.
+
+This time is pretty difficult to notice the differences - they are there, subtle, but present. The differences become more apparent when we decrease the number of colors in colormap. Let’s take a look at the differences when using eight discrete colors via the n\_colors argument:
+
+Left, interpolate\_before\_map OFF. Right, interpolate\_before\_map ON.
+
+Now that is much more compelling! On the right, the contours of the scalar field are visible, but on the left, the contours are obscured due to the color interpolation by OpenGL. In both cases, the colors at the vertices are the same, the difference is how color is assigned between the vertices.
+
+In our opinion, color interpolation is not a preferred default for scientific visualization and is why we have chosen to set the interpolate\_before\_map flag to True.
+}
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
