@@ -283,6 +283,27 @@ to load your spatially referenced dataset into a \href{https://pypi.org/project/
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Load and plot from a files}
+\lstinputlisting[caption=Save meshs to the many supported file formats, label=SaveFileCode, firstline=26, lastline=29]{read_file.py}
+\begin{figure}
+\includegraphics[width=0.6\linewidth]{read_file.png}
+\caption{Meshs from the many supported file formats\label{ReadFileFigure}}
+\end{figure}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Also note that we can export any \href{https://pypi.org/project/pyvista/}{PyVista} mesh to any file format supported by \href{https://pypi.org/project/meshio/}{meshio}.
+
+また、任意の \href{https://pypi.org/project/pyvista/}{PyVista} メッシュを \href{https://pypi.org/project/meshio/}{meshio} でサポートされている任意のファイルフォーマットにエクスポートできることにも注意してください。
+
+To save a \href{https://pypi.org/project/pyvista/}{PyVista} mesh using meshio, use \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.save\_meshio()}(Code Listing \ref{SaveFileCode}):
+
+meshioを使って \href{https://pypi.org/project/pyvista/}{PyVista} のメッシュを保存するには、 \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.save\_meshio()} を使います（コードリスト \ref{SaveFileCode} ）。
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Thresholding Filter}
 \lstinputlisting[caption=Create tube, label=ThresholdingFilterCode, firstline=36, lastline=36]{using-filters.py}
 \begin{figure}
@@ -548,40 +569,6 @@ using extrude rotate method (Figure \ref{ExtrudeRotateFigure}).
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{block}{Silhouette Highlight}
-\end{block}
-\end{frame}
-\note{
-Add a background image with pyvista.Plotter.add\_background\_image().
-Clip/cut any dataset using using planes or boxes.
-Extract a subset of the edges of a polygonal mesh to generate an outline (silhouette) of a mesh.
-Prepare a triangulated PolyData
-Now we can display the silhouette of the mesh and compare the result:
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Load and plot from a files}
-\lstinputlisting[caption=Save meshs to the many supported file formats, label=SaveFileCode, firstline=26, lastline=29]{read_file.py}
-\begin{figure}
-\includegraphics[width=0.6\linewidth]{read_file.png}
-\caption{Meshs from the many supported file formats\label{ReadFileFigure}}
-\end{figure}
-\note{
-Also note that we can export any \href{https://pypi.org/project/pyvista/}{PyVista} mesh to any file format supported by \href{https://pypi.org/project/meshio/}{meshio}.
-
-また、任意の \href{https://pypi.org/project/pyvista/}{PyVista} メッシュを \href{https://pypi.org/project/meshio/}{meshio} でサポートされている任意のファイルフォーマットにエクスポートできることにも注意してください。
-
-To save a \href{https://pypi.org/project/pyvista/}{PyVista} mesh using meshio, use \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.save\_meshio()}(Code Listing \ref{SaveFileCode}):
-
-meshioを使って \href{https://pypi.org/project/pyvista/}{PyVista} のメッシュを保存するには、 \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.save\_meshio()} を使います（コードリスト \ref{SaveFileCode} ）。
-
-}
-\end{block}
-\end{textblock*}
-\end{frame}
-
-\begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Extracting and Contouring}
 \lstinputlisting[caption=Extracted by scalar, label=WarpScalarCode, firstline=9, lastline=9]{contour.py}
@@ -647,6 +634,9 @@ It can be plotting the values of a dataset over a circular arc through that data
 \includegraphics[width=1.0\linewidth]{warped_vector.png}
 \caption{Warped sphere by vector\label{WarpVectorFigure}}
 \end{figure}
+\end{block}
+\end{textblock*}
+\end{frame}
 \note{
 Also can have a vector filed extracted using \href{https://dev.pyvista.org/core/filters.html}{warp\_by\_vector()} method (Code List \ref{WarpVectorCode}, Figure \ref{WarpVectorFigure}).
 
@@ -657,9 +647,25 @@ Also can have a vector filed extracted using \href{https://dev.pyvista.org/core/
 \href{https://dev.pyvista.org/plotting/plotting.html}{add\_mesh () }メソッドは、スカラー値をプロットするときにMatplotlib、Colorcet、cmocean、またはカスタムカラーマップを使用できます (図\ref{WarpVectorFigure}) 。
 
 }
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Silhouette Highlight}
+\lstinputlisting[caption=Silhouette Highlight, label=SilhouetteHighlight, firstline=22, lastline=28]{silhouette.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{silhouette1.png}
+\caption{Silhouette Highlight\label{WarpVectorFigure}}
+\end{figure}
 \end{block}
 \end{textblock*}
 \end{frame}
+\note{
+We can extract a subset of the edges of a polygonal mesh to generate an outline silhouette of a mesh using add\_mesh method.
+We can set it using the silhouette argument.
+
+ポリゴンメッシュのエッジのサブセットを抽出し、add\_meshメソッドを使用してメッシュのアウトラインシルエットを生成できます。
+シルエット引数で設定することができます。
+}
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
@@ -669,6 +675,7 @@ Also can have a vector filed extracted using \href{https://dev.pyvista.org/core/
 \caption{Frustum of camera \label{CameraFrustumFigure}}
 \end{figure}
 \note{
+Add a background image with pyvista.Plotter.add\_background\_image().
 \href{https://dev.pyvista.org/core/camera.html}{Camera} class is a virtual camera for 3D rendering.
 
 \href{https://dev.pyvista.org/core/camera.html}{Camera}クラスは、3Dレンダリング用の仮想カメラです。
