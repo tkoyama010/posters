@@ -365,8 +365,7 @@ Code Listing \ref{ShrinkFilterCode} shrink the individual faces of a mesh using 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Clip with Plane}
-
-\lstinputlisting[caption=Clip with Plane, label=ClipWithPlaneCode, firstline=19, lastline=20]{clipping.py}
+\lstinputlisting[caption=Clip with Plane, label=ClipWithPlaneCode, firstline=20, lastline=21]{clipping.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{clipping1.png}
 \caption{Clip with Plane\label{ClipWithPlane}}
@@ -382,20 +381,29 @@ pyvistaを使用して、pyvista.DataSetFilters.clip() フィルタを使うこ�
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Clipping with Planes}
+\begin{block}{Clip with Bounds}
+\lstinputlisting[caption=Clip with Bounds, label=ClipWithBoundsCode, firstline=39, lastline=42]{clipping.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{clipping2.png}
+\caption{Clip with Bounds\label{ClipWithBounds}}
+\end{figure}
 \end{block}
 \end{textblock*}
 \end{frame}
 \note{
 Clip any dataset by a set of XYZ bounds using the pyvista.DataSetFilters.clip\_box() filter.
-Add a background image with pyvista.Plotter.add\_background\_image().
-Clip/cut any dataset using using planes or boxes.
+
+pyvistaを使用して、XYZ境界のセットによってデータセットをクリップします。
+DataSetFilters.clip\_box () フィルタです。
+
 }
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Rotation about the x axis}
 \note{
+Add a background image with pyvista.Plotter.add\_background\_image().
+Clip/cut any dataset using using planes or boxes.
 We can of course rotate the mesh about the axes.
 
 もちろん、軸を中心にメッシュを回転させることもできます。

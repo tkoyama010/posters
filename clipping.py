@@ -41,11 +41,11 @@ dataset = examples.download_office()
 bounds = [2,4.5, 2,4.5, 1,3]
 clipped = dataset.clip_box(bounds)
 
-p = pv.Plotter()
+p = pv.Plotter(window_size=[1000, 300])
 p.add_mesh(dataset, style='wireframe', color='blue', label='Input')
 p.add_mesh(clipped, label='Clipped')
 p.add_legend()
-p.show()
+p.show(screenshot="clipping2.png")
 
 
 ###############################################################################
