@@ -857,7 +857,7 @@ PyVistaでは、フラットシェーディングとスムーズシェーディ�
 \lstinputlisting[caption=Eye Dome Lighting, label=EyeDomeLighting, firstline=40, lastline=40]{edl.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{edl1.png}
-\caption{Eye Dome Lighting\label{EyeDomeLighting}}
+\caption{Statue\label{Statue}}
 \end{figure}
 \end{block}
 \end{textblock*}
@@ -874,15 +874,23 @@ Here we will compare a EDL shading side by side with normal shading
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Point Cloud}
+\begin{block}{Eye Dome Lighting}
+\lstinputlisting[caption=Eye Dome Lighting, label=EyeDomeLighting, firstline=40, lastline=40]{edl.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{edl2.png}
+\caption{Point Cloud\label{PointCloud}}
+\end{figure}
 \end{block}
 \end{textblock*}
 \end{frame}
 \note{
-When plotting a simple point cloud, it can be difficult to perceive depth. Take this Lidar point cloud for example:
-And now plot this point cloud as-is:
-We can improve the depth mapping by enabling eye dome lighting on the renderer with pyvista.Renderer.enable\_eye\_dome\_lighting().
-The eye dome lighting mode can also handle plotting scalar arrays:
+When plotting a simple point cloud, it can be difficult to perceive depth.
+Take this Lidar point cloud for example.
+And now plot this point cloud as-is.
+
+単純な点群を印刷する場合、奥行きを認識するのが難しいことがあります
+たとえば、このライダー点群を考えてみましょう。
+次に、この点群をそのまま描画します。
 }
 
 \begin{frame}[fragile]

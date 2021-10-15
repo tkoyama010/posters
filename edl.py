@@ -63,20 +63,15 @@ point_cloud = examples.download_lidar()
 # And now plot this point cloud as-is:
 
 # Plot a typical point cloud with no EDL
-p = pv.Plotter()
-p.add_mesh(point_cloud, color="tan", point_size=5)
-p.show()
-
-
-###############################################################################
-# We can improve the depth mapping by enabling eye dome lighting on the
-# renderer with :func:`pyvista.Renderer.enable_eye_dome_lighting`.
-
-# Plot with EDL
-p = pv.Plotter()
+p = pv.Plotter(shape=(1, 2), window_size=[1000, 300])
+p.subplot(0, 0)
 p.add_mesh(point_cloud, color="tan", point_size=5)
 p.enable_eye_dome_lighting()
-p.show()
+p.add_text("Eye-Dome Lighting")
+p.subplot(0, 1)
+p.add_mesh(point_cloud, color="tan", point_size=5)
+p.add_text("No Eye-Dome Lighting")
+p.show(screenshot="edl2.png")
 
 
 ###############################################################################
