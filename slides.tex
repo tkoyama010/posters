@@ -368,7 +368,6 @@ This is the figure of threshold, contour, slices and glyphs.
 \end{figure}
 \end{textblock*}
 \end{frame}
-
 \note{
 In PyVista, we can mimic the filtering pipeline through a chain; attaching each filter to the last filter.
 In this example, several filters are chained together.
@@ -916,40 +915,28 @@ Many of the geometric objects come preloaded with texture coordinates, so quickl
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Physically Based Rendering}
+\begin{block}{Physically Based Rendering (PBR)}
+\lstinputlisting[caption=Physically Based Rendering (PBR), label=PBR, firstline=35, lastline=37]{pbr.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{pbr1.png}
+\caption{Physically Based Rendering (PBR) Textures\label{PBRFigure}}
+\end{figure}
 \end{block}
 \end{textblock*}
 \end{frame}
 \note{
 
-VTK 9 introduced Physically Based Rendering (PBR) and we have exposed that functionality in PyVista. Read the blog about PBR for more details.
-
-PBR is only supported for pyvista.PolyData and can be triggered via the pbr keyword argument of add\_mesh. Also use the metallic and roughness arguments for further control.
-
+VTK 9 introduced Physically Based Rendering (PBR) and we have exposed that functionality in PyVista.
+PBR is only supported for pyvista.PolyData and can be triggered via the pbr keyword argument of add\_mesh.
+Also use the metallic and roughness arguments for further control.
 Let’s show off this functionality by rendering a high quality mesh of a statue as though it were metallic.
-
 Let’s render the mesh with a base color of “linen” to give it a metal looking finish.
 
-Show the variation of the metallic and roughness parameters.
-
-Plot with metallic increasing from left to right and roughness increasing from bottom to top.
-
-Combine custom lighting and physically based rendering.
-
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Working with a glTF Files}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-Import a glTF directly into a PyVista plotting scene. For more details regarding the glTF format, see: https://www.khronos.org/gltf/
-Note this feature is only available for vtk>=9.
-First, download the examples. Note that here we’re using a high dynamic range texture since glTF files generally contain physically based rendering and VTK v9 supports high dynamic range textures.
-Setup the plotter and enable environment textures. This works well for physically based rendering enabled meshes like the damaged helmet example.
-You can also directly read in gltf files and extract the underlying mesh.
+VTK 9はPhysically Based Rendering (PBR) を導入し、その機能をPyVistaで公開しました。
+PBRは、pyvistaでのみサポートされています。PolyDataであり、add\_meshのpbrキーワード引数を介してトリガできます。
+さらにコントロールするには、metallic引数とroughness引数も使用します。
+ここでは、彫像の高品質のメッシュをメタリックであるかのようにレンダリングして、この機能を紹介します。
+メッシュを 「リネン」 のベースカラーでレンダリングして、金属のような仕上げにします。
 }
 
 \begin{frame}[fragile]
@@ -1014,19 +1001,6 @@ Let’s look at a few use cases that all update a surface mesh.
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Geodesic Paths}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-Calculates the geodesic path between two vertices using Dijkstra’s algorithm
-Get the geodesic path as a new pyvista.PolyData object:
-Render the path along the land surface
-How long is that path?
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Acknowlegment}
 I would like to thank \href{https://github.com/orgs/pyvista/teams/developers}{PyVista developer team} for developing useful library.
 \end{block}
@@ -1050,67 +1024,5 @@ pyvistaについてもっと知りたいなら、\href{http://github.com/pyvista
 \end{textblock*}
 \end{frame}
 
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Textures from Files}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-What about loading your own texture from an image?
-This is often most easily done using the pyvista.read\_texture() function - simply pass an image file’s path, and this function with handle making a vtkTexture for you to use.
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{NumPy Arrays as Textures}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-Want to use a programmatically built image?
-pyvista.UniformGrid objects can be converted to textures using pyvista.image\_to\_texture() and 3D NumPy (X by Y by RGB) arrays can be converted to textures using pyvista.numpy\_to\_texture().
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Textures with Transparency}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-Textures can also specify per-pixel opacity values.
-The image must contain a 4th channel specifying the opacity value from 0 [transparent] to 255 [fully visible].
-To enable this feature just pass the opacity array as the 4th channel of the image as a 3 dimensional matrix with shape [nrows, ncols, 4] pyvista.numpy\_to\_texture().
-Here we can download an image that has an alpha channel:
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Repeating Textures}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-What if you have a single texture that you’d like to repeat across a mesh?
-Simply define the texture coordinates for all nodes explicitly.
-Here we create the texture coordinates to fill up the grid with several mappings of a single texture.
-In order to do this we must define texture coordinates outside of the typical (0, 1) range:
-By defining texture coordinates that range (0, 4) on each axis, we will produce 4 repetitions of the same texture on this mesh.
-Then we must associate those texture coordinates with the mesh through the pyvista.DataSet.active\_t\_coords property.
-Now display all the puppies!
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Spherical Texture Coordinates}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-We have a built in convienance method for mapping textures to spherical coordinate systems much like the planar mapping demoed above.
-The helper method above does not always produce the desired texture coordinates, so sometimes it must be done manually. Here is a great, user contributed example from this support issue
-Manually create the texture coordinates for a globe map. First, we create the mesh that will be used as the globe. Note the start\_theta for a slight overlappig
-}
 \end{document}
 
