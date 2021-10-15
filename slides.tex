@@ -1003,13 +1003,25 @@ This is one of the most versatile widgets as it can control a value that can be 
 }
 
 \begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Sphere Widget}
+\lstinputlisting[caption=Sphere Widget, label=SphereWidgetList, firstline=37, lastline=39]{sphere-widget.py}
 \end{block}
+\begin{figure}
+\movie[width=5cm,height=5cm]{}{sphere-widget-a.gif}
+\end{figure}
+\end{textblock*}
 \end{frame}
 \note{
-The sphere widget can be enabled and disabled by the pyvista.WidgetHelper.add\_sphere\_widget() and pyvista.WidgetHelper.clear\_sphere\_widgets() methods respectively. This is a very versatile widget as it can control vertex location that can be used to control or update the location of just about anything.
+The sphere widget can be enabled and disabled by the pyvista.WidgetHelper.add\_sphere\_widget() and pyvista.WidgetHelper.clear\_sphere\_widgets() methods respectively.
+This is a very versatile widget as it can control vertex location that can be used to control or update the location of just about anything.
 We don’t have any convenient helper methods that utilize this widget out of the box, but we have added a lot of ways to use this widget so that you can easily add several widgets to a scene.
 Let’s look at a few use cases that all update a surface mesh.
+
+球ウィジェットは、 pyvista.WidgetHelper.add\_sphere\_widget() と  pyvista.WidgetHelper.clear\_sphere\_widgets() で有効または無効にできます。
+これは頂点の位置を制御できるため、非常に用途の広いウィジェットで、ほぼすべての位置の制御や更新に使用できます。
+このウィジェットをそのまま使用する便利なヘルパーメソッドはありませんが、シーンに複数のウィジェットを簡単に追加できるように、このウィジェットを使用する方法が多数追加されています。
+サーフェスメッシュを更新するいくつかの使用例を見てみましょう。
 }
 
 \begin{frame}[fragile]
