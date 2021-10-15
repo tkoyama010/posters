@@ -5,7 +5,6 @@
 }
 
 \usepackage{lipsum}
-\usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{pythonhighlight}
 \usepackage[absolute,overlay]{textpos}
@@ -392,7 +391,6 @@ PyVistaでは、チェーンを介してフィルタリングパイプライン�
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Shrink mesh}
-
 \lstinputlisting[caption=Shrink Mesh, label=ShrinkFilterCode, firstline=5, lastline=6]{shrunk_mesh.py}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{shrink.png}
@@ -763,144 +761,74 @@ of the camera.
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Light class}
+\begin{block}{Light Types}
+\lstinputlisting[caption=Headlight, label=Headlight, firstline=32, lastline=36]{light_types.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{light_types1.png}
+\caption{Headlight\label{Headlight}}
+\end{figure}
 \end{block}
 \end{textblock*}
 \end{frame}
 \note{
-pyvista.Light instances come in three types: headlights, camera lights, and scene lights. Headlights always shine along the camera’s axis, camera lights have a fixed position with respect to the camera, and scene lights are positioned with respect to the scene, such that moving around the camera doesn’t affect the lighting of the scene.
-Lights have a position and a focal\_point that define the axis of the light. The meaning of these depends on the type of the light. The color of the light can be set according to ambient, diffuse and specular components. The brightness can be set with the intensity property, and the writable on property specifies whether the light is switched on.
-Lights can be either directional (meaning an infinitely distant point source) or positional. Positional lights have additional properties that describe the geometry and the spatial distribution of the light. The cone\_angle and exponent properties define the shape of the light beam and the angular distribution of the light’s intensity within that beam. The fading of the light with distance can be customized with the attenuation\_values property. Positional lights can also make use of an actor that represents the shape and color of the light using a wireframe, see show\_actor().
-Positional lights with a cone\_angle of less than 90 degrees are known as spotlights. Spotlights are unidirectional and they make full use of beam shaping properties, namely exponent and attenuation.
-Non-spotlight positional lights, however, act like point sources located in the real-world position of the light, shining in all directions of space.
-They display attenuation with distance from the source, but their beam is isotropic in space.
-In contrast, directional lights act as infinitely distant point sources, so they are unidirectional but they do not attenuate.
-With directed lights, it is possible to create complex lighting scenarios.
-For example, you can position a light directly above an actor (in this case, a sphere), to create a shadow directly below it.
-The following example uses a positional light to create an eclipse-like shadow below a sphere by controlling the cone angle and exponent values of the light.
+We can also set the condition of the light.
+Lights come in three types:
+
+光の状態を設定することもできます。
+光源には3つのタイプがあります。
+
+First type is headlight.
+The axis of which always coincides with the view of the camera,
+For headlights the position and focal\_point properties are meaningless. 
+No matter where you move the camera, the light always emanates from the view point:
+
+1つ目はヘッドライトです。
+軸は常にカメラのビューと一致します。
+ヘッドライトの場合、positionプロパティとfocal\_pointプロパティは意味がありません。
+カメラをどこに移動しても、ライトは常に視点から放射されます。
 }
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Light Actors}
+\begin{block}{Light Types}
+\lstinputlisting[caption=Cameralight, label=Cameralight, firstline=54, lastline=56]{light_types.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{light_types2.png}
+\caption{Cameralight\label{Cameralight}}
+\end{figure}
 \end{block}
 \end{textblock*}
 \end{frame}
 \note{
-Positional lights in PyVista have customizable beam shapes, see the Beam Shape example. Spotlights are special in the sense that they are unidirectional lights with a finite position, so they can be visualized using a cone.
-This is exactly the purpose of a vtk.vtkLightActor, the functionality of which can be enabled for spotlights:
+Second is camera light.
+Camera lights define their position and focal\_point properties in a coordinate system that is local to the camera.
+The coordinates in the scene’s coordinate system can be accessed through the world\_position and world\_focal\_point read-only properties, respectively.
+For specifics of the local coordinate system used for the coordinates please see the documentation of pyvista.Light.set\_camera\_light().
+
+2つ目はカメラライトです。カメラライトは、カメラに対してローカルな座標系で位置とfocal\_pointプロパティを定義します。
+シーンの座標系の座標には、それぞれworld\_positionおよびworld\_focal\_point読み取り専用プロパティからアクセスできます。
+座標に使用されるローカル座標系の詳細については、pyvistaLight.set\_camera\_light()のドキュメントを参照してください。
 }
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Attenuation}
+\begin{block}{Light Types}
+\lstinputlisting[caption=Scenelight, label=Scenelight, firstline=69, lastline=71]{light_types.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{light_types3.png}
+\caption{Scenelight\label{Scenelight}}
+\end{figure}
 \end{block}
 \end{textblock*}
 \end{frame}
 \note{
-Attenuation is the phenomenon of light’s intensity being gradually dampened as it propagates through a medium.
-In PyVista positional lights can show attenuation.
-The quadratic attenuation model uses three parameters to describe attenuation: a constant, a linear and a quadratic parameter.
-These parameters describe the decrease of the beam intensity as a function of the distance, I(r).
-In a broad sense the constant, linear and quadratic components correspond to I(r) = 1, I(r) = 1/r and I(r) = 1/r**2 decay of the intensity with distance from the point source.
-In all cases a larger attenuation value (of a given kind) means stronger dampening (weaker light at a given distance).
-So the constant attenuation parameter corresponds roughly to a constant intensity component.
-The linear and the quadratic attenuation parameters correspond to intensity components that decay with distance from the source.
-For the same parameter value the quadratic attenuation produces a beam that is shorter in range than that produced by linear attenuation.
-Three spotlights with three different attenuation profiles each:
-}
+Third is scene light.
+Scene lights are attached to the scene, their position and focal point are
+interpreted as global coordinates:
 
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Attenuation}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-It’s not too obvious but it’s visible that the rightmost light with quadratic attenuation has a shorter range than the middle one with linear attenuation.
-Although it seems that even the leftmost light with constant attenuation loses its brightness gradually, this partly has to do with the fact that we sliced the light beams very close to their respective axes, meaning that light hits the surface in a very small angle.
-Altering the scene such that the lights are further away from the plane changes this:
-}
+3つ目はシーンライトです。
+シーンライトはシーンにアタッチされ、その位置と焦点はグローバル座標として解釈されます。
 
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Attenuation}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-Now the relationship of the three kinds of attenuation seems clearer.
-For a more practical comparison, let’s look at planes that are perpendicular to the axis of each light (making use of the fact that shadowing between objects is not handled by default):
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Beam Shape}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-The default directional lights are infinitely distant point sources, for which the only geometric customization option is the choice of beam direction defined by the light’s position and focal point.
-Positional lights, however, have more options for beam customization.
-Consider two hemispheres:
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Beam Shape}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-We can see that the default lighting does a very good job of articulating the shape of the hemispheres.
-Let’s shine a directional light on them, positioned between the hemispheres and oriented along their centers:
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Beam Shape}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-Both hemispheres have their surface lit on the side that faces the light.
-This is consistent with the point source positioned at infinity, directed from the light’s nominal position toward the focal point.
-Now let’s change the light to a positional light (but not a spotlight):
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Beam Shape}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-Now the inner surface of both hemispheres is lit.
-A positional light with a cone angle of 90 degrees (or more) acts as a point source located at the light’s nominal position.
-It could still display attenuation, see the Attenuation example.
-Switching to a spotlight (i.e. a positional light with a cone angle less than 90 degrees) will enable beam shaping using the exponent property.
-Let’s put our hemispheres side by side for this, and put a light in the center of each: one spotlight, one merely positional.
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Beam Shape}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-Even though the two lights only differ by a fraction of a degree in cone angle, the beam shaping effect enabled for spotlights causes a marked difference in the result.
-Once we have a spotlight we can change its exponent to make the beam shape sharper or broader. Three spotlights with varying sharpness:
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Beam Shape}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-The spotlight with exponent 0.3 is practically uniform, and the one with exponent 5 is visibly focused along the axis of the light.
 }
 
 \begin{frame}[fragile]
@@ -910,7 +838,7 @@ The spotlight with exponent 0.3 is practically uniform, and the one with exponen
 \end{textblock*}
 \end{frame}
 \note{
-Eye-Dome Lighting (EDL) is a non-photorealistic, image-based shading technique designed to improve depth perception in scientific visualization images. To learn more, please see this blog post.
+Eye-Dome Lighting (EDL) is a non-photorealistic, image-based shading technique designed to improve depth perception in scientific visualization images.
 Eye-Dome Lighting can dramatically improve depth perception when plotting incredibly sophisticated meshes like the creative commons Queen Nefertiti statue:
 Here we will compare a EDL shading side by side with normal shading
 }
