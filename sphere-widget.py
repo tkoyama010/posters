@@ -68,7 +68,6 @@ p = pv.Plotter()
 
 def callback(point, i):
     surf.points[i] = point
-
 p.add_sphere_widget(callback, center=surf.points)
 p.add_mesh(surf, color=True)
 
