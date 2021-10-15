@@ -5,6 +5,7 @@
 }
 
 \usepackage{lipsum}
+\usepackage[colorgrid,gridunit=pt,texcoord]{eso-pic}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{pythonhighlight}
 \usepackage[absolute,overlay]{textpos}
@@ -940,24 +941,23 @@ PBRは、pyvistaでのみサポートされています。PolyDataであり、ad
 }
 
 \begin{frame}[fragile]
-\begin{block}{Widgets}
+\begin{textblock*}{200pt}(20pt, 10pt)
+\begin{block}{Filter Pipeline}
+\lstinputlisting[caption=Filter Pipeline, label=using_common_filters, firstline=29, lastline=32]{box-widget.py}
 \end{block}
+\end{textblock*}
+\begin{textblock*}{200pt}(250pt, 50pt)
+\movie[width=6cm,height=6cm]{}{box-clip.gif}
+\end{textblock*}
 \end{frame}
 \note{
-PyVista has several widgets that can be added to the rendering scene to control filters like clipping, slicing, and thresholding - specifically there are widgets to control the positions of boxes, planes, and lines or slider bars which can all be highly customized through the use of custom callback functions.
-Here we’ll take a look at the various widgets, some helper methods that leverage those widgets to do common tasks, and demonstrate how to leverage the widgets for user defined tasks and processing routines.
-}
-
-\begin{frame}[fragile]
-\begin{block}{Widgets}
-\movie[width=5cm,height=5cm]{}{box-clip.gif}
-\end{block}
-\end{frame}
-\note{
+PyVista has several widgets that can be added to the rendering scene to control filters like clipping, slicing, and thresholding.
 The box widget can be enabled and disabled by the pyvista.WidgetHelper.add\_box\_widget() and pyvista.WidgetHelper.clear\_box\_widgets() methods respectively.
 When enabling the box widget, you must provide a custom callback function otherwise the box would appear and do nothing - the callback functions are what allow us to leverage the widget to perform a task like clipping/cropping.
-
 Considering that using a box to clip/crop a mesh is one of the most common use cases, we have included a helper method that will allow you to add a mesh to a scene with a box widget that controls its extent, the pyvista.WidgetHelper.add\_mesh\_clip\_box() method.
+
+
+
 }
 
 \begin{frame}[fragile]
