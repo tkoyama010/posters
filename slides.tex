@@ -828,7 +828,27 @@ interpreted as global coordinates:
 
 3つ目はシーンライトです。
 シーンライトはシーンにアタッチされ、その位置と焦点はグローバル座標として解釈されます。
+}
 
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Types of Shading}
+\lstinputlisting[caption=Types of Shading, label=TypesofShading, firstline=19, lastline=23]{shading.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{shading.png}
+\caption{Types of Shading\label{TypesOfShading}}
+\end{figure}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+When using lights shading is also important.
+PyVista supports two types of shading, flat and smooth shading.
+This is a plot with the default flat shading and smooth shading.
+
+ライトを使用する場合は、シェーディングも重要です。
+PyVistaでは、フラットシェーディングとスムーズシェーディングの2種類のシェーディングがサポートされています。
+これは、既定のフラットシェーディングとスムーズシェーディングを使用したプロットです。
 }
 
 \begin{frame}[fragile]
@@ -841,6 +861,10 @@ interpreted as global coordinates:
 Eye-Dome Lighting (EDL) is a non-photorealistic, image-based shading technique designed to improve depth perception in scientific visualization images.
 Eye-Dome Lighting can dramatically improve depth perception when plotting incredibly sophisticated meshes like the creative commons Queen Nefertiti statue:
 Here we will compare a EDL shading side by side with normal shading
+
+アイドームライティング (EDL) は、科学的可視化イメージの奥行き知覚を改善するために設計された、非フォトリアリスティックなイメージベースのシェーディングテクニックです。
+アイドームライティングは、クリエイティブ・コモンズのネフェルティティ女王の像のような非常に洗練されたメッシュを描画するときに、奥行きの知覚を劇的に改善します。
+ここでは、EDLシェーディングと通常のシェーディングを並べて比較します。
 }
 
 \begin{frame}[fragile]
@@ -854,19 +878,6 @@ When plotting a simple point cloud, it can be difficult to perceive depth. Take 
 And now plot this point cloud as-is:
 We can improve the depth mapping by enabling eye dome lighting on the renderer with pyvista.Renderer.enable\_eye\_dome\_lighting().
 The eye dome lighting mode can also handle plotting scalar arrays:
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Geodesic Paths}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-Calculates the geodesic path between two vertices using Dijkstra’s algorithm
-Get the geodesic path as a new pyvista.PolyData object:
-Render the path along the land surface
-How long is that path?
 }
 
 \begin{frame}[fragile]
@@ -1048,33 +1059,16 @@ Let’s look at a few use cases that all update a surface mesh.
 }
 
 \begin{frame}[fragile]
-\begin{block}{Interpolate Before Mapping}
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Geodesic Paths}
 \end{block}
+\end{textblock*}
 \end{frame}
 \note{
-The add\_mesh function has an interpolate\_before\_map argument - this affects the way scalar data is visualized with colors. The effect can of this can vary depending on the dataset’s topology and the chosen colormap.
-This example serves to demo the difference and why we’ve chosen to enable this by default.
-For more details, please see this blog post
-
-Meshes are colored by the data on their nodes or cells - when coloring a mesh by data on its nodes, the values must be interpolated across the faces of cells. The process by which those scalars are interpolated is critical. If the interpolate\_before\_map is left off, the color mapping occurs at polygon points and colors are interpolated, which is generally less accurate whereas if the interpolate\_before\_map is on, then the scalars will be interpolated across the topology of the dataset which is more accurate.
-
-To summarize, when interpolate\_before\_map is off, the colors are interpolated after rendering and when interpolate\_before\_map is on, the scalars are interpolated across the mesh and those values are mapped to colors.
-
-So lets take a look at the difference:
-Shown in the figure above, when not interpolating the scalars before mapping, the colors (RGB values, not scalars) are interpolated between the vertices by the underlying graphics library (OpenGL), and the colors shown are not accurate.
-
-The same interpolation effect occurs for wireframe visualization too:
-The cylinder mesh above is a great example dataset for this as it has a wide spread between the vertices (points are only at the top and bottom of the cylinder) which means high surface are of the mesh has to be interpolated.
-
-However, most meshes don’t have such a wide spread and the effects of color interpolating are harder to notice. Let’s take a look at a wavelet example and try to figure out how the interpolate\_before\_map option affects its rendering.
-
-This time is pretty difficult to notice the differences - they are there, subtle, but present. The differences become more apparent when we decrease the number of colors in colormap. Let’s take a look at the differences when using eight discrete colors via the n\_colors argument:
-
-Left, interpolate\_before\_map OFF. Right, interpolate\_before\_map ON.
-
-Now that is much more compelling! On the right, the contours of the scalar field are visible, but on the left, the contours are obscured due to the color interpolation by OpenGL. In both cases, the colors at the vertices are the same, the difference is how color is assigned between the vertices.
-
-In our opinion, color interpolation is not a preferred default for scientific visualization and is why we have chosen to set the interpolate\_before\_map flag to True.
+Calculates the geodesic path between two vertices using Dijkstra’s algorithm
+Get the geodesic path as a new pyvista.PolyData object:
+Render the path along the land surface
+How long is that path?
 }
 
 \begin{frame}[fragile]
