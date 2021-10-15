@@ -943,7 +943,7 @@ PBRは、pyvistaでのみサポートされています。PolyDataであり、ad
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Box Widget}
-\lstinputlisting[caption=Box Widget, label=using_common_filters, firstline=30, lastline=32]{box-widget.py}
+\lstinputlisting[caption=Box Widget, label=BoxWidgetList, firstline=30, lastline=32]{box-widget.py}
 \end{block}
 \begin{figure}
 \movie[width=5cm,height=5cm]{}{box-clip.gif}
@@ -965,19 +965,23 @@ PyVistaには、クリッピング、スライス、しきい値などのフィ�
 }
 
 \begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Plane Widget}
+\lstinputlisting[caption=Plane Widget, label=PlaneWidgetList, firstline=23, lastline=25]{plane-widget.py}
 \end{block}
+\begin{figure}
+\movie[width=5cm,height=5cm]{}{plane-clip.gif}
+\end{figure}
+\end{textblock*}
 \end{frame}
 \note{
 The plane widget can be enabled and disabled by the pyvista.WidgetHelper.add\_plane\_widget() and pyvista.WidgetHelper.clear\_plane\_widgets() methods respectively.
 As with all widgets, you must provide a custom callback method to utilize that plane.
 Considering that planes are most commonly used for clipping and slicing meshes, we have included two helper methods for doing those tasks!
-Let’s use a plane to clip a mesh:
-After interacting with the scene, the clipped mesh is available as:
-And here is a screen capture of a user interacting with this
-Or you could slice a mesh using the plane widget:
-After interacting with the scene, the slice is available as:
-And here is a screen capture of a user interacting with this
+
+プレーンウィジェットは、pyvista.WidgetHelper.add\_plane\_widget()とpyvista.WidgetHelper.clear\_plane\_widgets()で有効または無効にできます。
+すべてのウィジェットと同様に、そのプレーンを利用するカスタムコールバックメソッドを提供する必要があります。
+平面はメッシュのクリッピングとスライスに最も一般的に使用されることを考慮して、これらのタスクを実行する2つのヘルパーメソッドを用意しました。
 }
 
 \begin{frame}[fragile]
