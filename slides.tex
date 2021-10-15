@@ -907,75 +907,11 @@ And now plot this point cloud as-is.
 \note{
 We can also plot a mesh with an image projected onto it as a texture.
 Texture mapping is easily implemented using PyVista.
-Many of the geometric objects come preloaded with texture coordinates, so quickly creating a surface and displaying an image is simply:
-But what if your dataset doesn’t have texture coordinates? Then you can harness the pyvista.
-DataSetFilters.texture\_map\_to\_plane() filter to properly map an image to a dataset’s surface.
-For example, let’s map that same image of bricks to a curvey surface:
-Display scalar data along with a texture by ensuring the interpolate\_before\_map setting is False and specifying both the texture and scalars arguments.
-Note that this process can be completed with any image texture!
-}
+Many of the geometric objects come preloaded with texture coordinates, so quickly creating a surface and displaying an image is simple.
 
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Textures from Files}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-What about loading your own texture from an image?
-This is often most easily done using the pyvista.read\_texture() function - simply pass an image file’s path, and this function with handle making a vtkTexture for you to use.
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{NumPy Arrays as Textures}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-Want to use a programmatically built image?
-pyvista.UniformGrid objects can be converted to textures using pyvista.image\_to\_texture() and 3D NumPy (X by Y by RGB) arrays can be converted to textures using pyvista.numpy\_to\_texture().
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Textures with Transparency}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-Textures can also specify per-pixel opacity values.
-The image must contain a 4th channel specifying the opacity value from 0 [transparent] to 255 [fully visible].
-To enable this feature just pass the opacity array as the 4th channel of the image as a 3 dimensional matrix with shape [nrows, ncols, 4] pyvista.numpy\_to\_texture().
-Here we can download an image that has an alpha channel:
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Repeating Textures}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-What if you have a single texture that you’d like to repeat across a mesh?
-Simply define the texture coordinates for all nodes explicitly.
-Here we create the texture coordinates to fill up the grid with several mappings of a single texture.
-In order to do this we must define texture coordinates outside of the typical (0, 1) range:
-By defining texture coordinates that range (0, 4) on each axis, we will produce 4 repetitions of the same texture on this mesh.
-Then we must associate those texture coordinates with the mesh through the pyvista.DataSet.active\_t\_coords property.
-Now display all the puppies!
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Spherical Texture Coordinates}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-We have a built in convienance method for mapping textures to spherical coordinate systems much like the planar mapping demoed above.
-The helper method above does not always produce the desired texture coordinates, so sometimes it must be done manually. Here is a great, user contributed example from this support issue
-Manually create the texture coordinates for a globe map. First, we create the mesh that will be used as the globe. Note the start\_theta for a slight overlappig
+また、イメージをテクスチャとして投影したメッシュをプロットすることもできます。
+テクスチャマッピングは、PyVistaを使用して簡単に実装できます。
+ジオメトリックオブジェクトの多くにはテクスチャ座標があらかじめロードされているため、サーフェスをすばやく作成してイメージを表示するには、次の操作を実行します。
 }
 
 \begin{frame}[fragile]
@@ -1114,5 +1050,67 @@ pyvistaについてもっと知りたいなら、\href{http://github.com/pyvista
 \end{textblock*}
 \end{frame}
 
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Textures from Files}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+What about loading your own texture from an image?
+This is often most easily done using the pyvista.read\_texture() function - simply pass an image file’s path, and this function with handle making a vtkTexture for you to use.
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{NumPy Arrays as Textures}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Want to use a programmatically built image?
+pyvista.UniformGrid objects can be converted to textures using pyvista.image\_to\_texture() and 3D NumPy (X by Y by RGB) arrays can be converted to textures using pyvista.numpy\_to\_texture().
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Textures with Transparency}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+Textures can also specify per-pixel opacity values.
+The image must contain a 4th channel specifying the opacity value from 0 [transparent] to 255 [fully visible].
+To enable this feature just pass the opacity array as the 4th channel of the image as a 3 dimensional matrix with shape [nrows, ncols, 4] pyvista.numpy\_to\_texture().
+Here we can download an image that has an alpha channel:
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Repeating Textures}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+What if you have a single texture that you’d like to repeat across a mesh?
+Simply define the texture coordinates for all nodes explicitly.
+Here we create the texture coordinates to fill up the grid with several mappings of a single texture.
+In order to do this we must define texture coordinates outside of the typical (0, 1) range:
+By defining texture coordinates that range (0, 4) on each axis, we will produce 4 repetitions of the same texture on this mesh.
+Then we must associate those texture coordinates with the mesh through the pyvista.DataSet.active\_t\_coords property.
+Now display all the puppies!
+}
+
+\begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Spherical Texture Coordinates}
+\end{block}
+\end{textblock*}
+\end{frame}
+\note{
+We have a built in convienance method for mapping textures to spherical coordinate systems much like the planar mapping demoed above.
+The helper method above does not always produce the desired texture coordinates, so sometimes it must be done manually. Here is a great, user contributed example from this support issue
+Manually create the texture coordinates for a globe map. First, we create the mesh that will be used as the globe. Note the start\_theta for a slight overlappig
+}
 \end{document}
 
