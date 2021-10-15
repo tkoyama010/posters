@@ -941,13 +941,13 @@ PBRは、pyvistaでのみサポートされています。PolyDataであり、ad
 }
 
 \begin{frame}[fragile]
-\begin{textblock*}{200pt}(20pt, 10pt)
-\begin{block}{Filter Pipeline}
-\lstinputlisting[caption=Filter Pipeline, label=using_common_filters, firstline=29, lastline=32]{box-widget.py}
+\begin{textblock*}{350pt}(50pt, 10pt)
+\begin{block}{Box Widget}
+\lstinputlisting[caption=Box Widget, label=using_common_filters, firstline=30, lastline=32]{box-widget.py}
 \end{block}
-\end{textblock*}
-\begin{textblock*}{200pt}(250pt, 50pt)
-\movie[width=6cm,height=6cm]{}{box-clip.gif}
+\begin{figure}
+\movie[width=5cm,height=5cm]{}{box-clip.gif}
+\end{figure}
 \end{textblock*}
 \end{frame}
 \note{
@@ -956,7 +956,11 @@ The box widget can be enabled and disabled by the pyvista.WidgetHelper.add\_box\
 When enabling the box widget, you must provide a custom callback function otherwise the box would appear and do nothing - the callback functions are what allow us to leverage the widget to perform a task like clipping/cropping.
 Considering that using a box to clip/crop a mesh is one of the most common use cases, we have included a helper method that will allow you to add a mesh to a scene with a box widget that controls its extent, the pyvista.WidgetHelper.add\_mesh\_clip\_box() method.
 
-
+PyVistaには、クリッピング、スライス、しきい値などのフィルタを制御するためにレンダリングシーンに追加できるウィジェットがいくつかあります。
+ボックスウィジェットは、ピビスタで有効または無効にできます。WidgetHelper.add\_box\_widget () およびpyvista。それぞれWidgetHelper.clear\_box\_widgets () メソッド。
+ボックスウィジェットを有効にするときは、カスタムコールバック関数を提供する必要があります。
+そうしないと、ボックスが表示されて何も実行されません。
+コールバック関数を使用すると、ウィジェットを利用してクリッピングやクロップなどのタスクを実行できます。
 
 }
 
