@@ -896,11 +896,16 @@ And now plot this point cloud as-is.
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Applying Textures}
+\lstinputlisting[caption=Applying Textures, label=EyeDomeLighting, firstline=27, lastline=29]{texture.py}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{texture1.png}
+\caption{Applying Textures\label{ApplyingTextures}}
+\end{figure}
 \end{block}
 \end{textblock*}
 \end{frame}
 \note{
-Plot a mesh with an image projected onto it as a texture.
+We can also plot a mesh with an image projected onto it as a texture.
 Texture mapping is easily implemented using PyVista.
 Many of the geometric objects come preloaded with texture coordinates, so quickly creating a surface and displaying an image is simply:
 But what if your dataset doesn’t have texture coordinates? Then you can harness the pyvista.
