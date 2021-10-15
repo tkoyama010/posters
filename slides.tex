@@ -130,6 +130,9 @@ Please follow me if you like this presentation.
 \note{
 Do you want to visualize 3D data in a Pythonic way like matplotlib?
 If you want, this slides is for you.
+VTK is an excellent visualization toolkit, and with Python bindings it should be able to combine the speed of C++ with the rapid prototyping of Python.
+However, despite this VTK code programmed in Python generally looks the same as its C++ counterpart.
+This module seeks to simplify mesh creation and plotting without losing functionality.
 This slides is the introduction of \href{https://pypi.org/project/pyvista/}{PyVista}. It is
 
 }
@@ -156,11 +159,6 @@ mesh data structures and filtering methods for spatial datasets
 }
 \end{itemize}
 \end{block}
-\note{
-VTK is an excellent visualization toolkit, and with Python bindings it should be able to combine the speed of C++ with the rapid prototyping of Python.
-However, despite this VTK code programmed in Python generally looks the same as its C++ counterpart.
-This module seeks to simplify mesh creation and plotting without losing functionality.
-}
 \end{textblock*}
 \begin{textblock*}{800pt}(50pt, 150pt)
 \includegraphics[width=0.50\linewidth]{pyvista_banner_small.png}
@@ -187,11 +185,11 @@ In this presentation, you can learn more about how PyVista wraps different VTK m
 
 Pythonic interface to VTK’s Python bindings
 
-Filtering/plotting tools built for interactivity (see Widgets)
+Filtering/plotting tools built for interactivity
 
-Direct access to common VTK filters (see Filters)
+Direct access to common VTK filters
 
-Intuitive plotting routines with matplotlib similar syntax (see Plotting)
+Intuitive plotting routines with matplotlib similar syntax
 
 }
 \begin{frame}[fragile]
@@ -211,14 +209,14 @@ First, import \href{https://pypi.org/project/pyvista/}{PyVista}.
 Then generate \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} and add it to
 Plotter object using add mesh method.
 This example also shows how to create a multi-window plotter by specifying the shape parameter.
-The window generated is a two by two window by setting shape=(1, 3). Use the pyvista.BasePlotter.subplot() function to select the subplot you wish to be the active subplot.
+The window generated is a one by three window by setting shape=(1, 3). Use the pyvista.BasePlotter.subplot() function to select the subplot you wish to be the active subplot.
 And "add\_text" method add text to plot object in the top left corner by default.
 
-コードリスト\ref{hello_world_code}では、\href{https://pypi.org/project/pyvista/}{PyVista}の "Hello World!" を行っています。
-\href{https://pypi.org/project/pyvista/}{PyVista} スクリプトの基本ステップについて説明します。
-まず、 \href{https://pypi.org/project/pyvista/}{PyVista} をインポートします。
-次に \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} を生成して、それを
-add meshメソッドを使用してPlotterオブジェクトに追加します。
+% コードリスト\ref{hello_world_code}では、\href{https://pypi.org/project/pyvista/}{PyVista}の "Hello World!" を行っています。
+% \href{https://pypi.org/project/pyvista/}{PyVista} スクリプトの基本ステップについて説明します。
+% まず、 \href{https://pypi.org/project/pyvista/}{PyVista} をインポートします。
+% 次に \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} を生成して、それを
+% add meshメソッドを使用してPlotterオブジェクトに追加します。
 
 }
 
@@ -236,7 +234,7 @@ add meshメソッドを使用してPlotterオブジェクトに追加します�
 \note{
 And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of PyVista using show method.
 
-最後に、showメソッドを使って、PyVistaのレンダリングビュー（図 \ref{HelloWorldFigure}）を確認します。
+% 最後に、showメソッドを使って、PyVistaのレンダリングビュー（図 \ref{HelloWorldFigure}）を確認します。
 }
 \end{block}
 \end{textblock*}
