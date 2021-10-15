@@ -985,16 +985,21 @@ Considering that planes are most commonly used for clipping and slicing meshes, 
 }
 
 \begin{frame}[fragile]
+\begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Slider Widget}
+\lstinputlisting[caption=Slider Widget, label=SliderWidgetList, firstline=26, lastline=28]{slider-bar-widget.py}
 \end{block}
+\begin{figure}
+\movie[width=5cm,height=5cm]{}{plane-clip.gif}
+\end{figure}
+\end{textblock*}
 \end{frame}
 \note{
 The slider widget can be enabled and disabled by the pyvista.WidgetHelper.add\_slider\_widget() and pyvista.WidgetHelper.clear\_slider\_widgets() methods respectively.
 This is one of the most versatile widgets as it can control a value that can be used for just about anything.
-One helper method we’ve added is the pyvista.WidgetHelper.add\_mesh\_threshold() method which leverages the slider widget to control a thresholding value.
-After interacting with the scene, the threshold mesh is available as:
-Or you could leverage a custom callback function that takes a single value from the slider as its argument to do something like control the resolution of a mesh. Again note the use of the name argument in add\_mesh:
-And here is a screen capture of a user interacting with this
+
+スライダウィジェットは、pyvistaでWidgetHelper.add\_slider\_widget ()および有効または無効にできます。
+これは、ほぼすべての目的に使用できる値を制御できるため、最も用途の広いウィジェットの1つです。
 }
 
 \begin{frame}[fragile]
