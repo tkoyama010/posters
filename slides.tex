@@ -37,7 +37,7 @@ frame = single,
 colorlinks=true,
 }
 
-\title{Visualize 3D scientific data in a Pythonic way like matplotlib}
+\title{PyVista Contribution 2021}
 
 \begin{document}
 \author{Tetsuo Koyama}
@@ -45,19 +45,14 @@ colorlinks=true,
 
 \frame{\titlepage}
 \note{
-Hi my name is Tetsuo Koyama. Today I will talk about the title "Visualize 3D scientific data in a Pythonic way like matplotlib".
-
-こんにちは、Tetsuo Koyamaです。本日は、「Pythonicに3次元データを可視化しよう」というタイトルでお話します。
+こんにちは、Tetsuo Koyamaです。本日は、「PyVista Contribution 2021」というタイトルでお話します。
 }
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 20pt)
 \begin{block}{Who am I?}
 \note{
-Let me introduce myself first.
-
 まずは自己紹介をさせてください。
-
 }
 \end{block}
 \end{textblock*}
@@ -80,29 +75,18 @@ Let me introduce myself first.
 \begin{itemize}
 \item Scientific simulation software engineer.
 \note{
-I am mechanical simulation software engineer in my careers.
-
 私は科学シミュレーションのソフトウェアエンジニアとして働いています。
-
 }
 \item Stuff of Scipy Japan 2020.
 \note{
-And I was a staff of Scipy Japan 2020.
-
 そして、Scipy Japan 2020のスタッフを務めました。
-
 }
 \item PyVista developer team member.
 \note{
-Also I am a member of PyVista developer team.
-
 また、PyVista開発チームのメンバーでもあります。
-
 }
 \item Science, Python, Anime, and Manga.
 \note{
-I love Science, Python, Anime and Manga.
-
 科学、Python、アニメ、マンガが大好きです。
 
 }
@@ -112,86 +96,14 @@ I love Science, Python, Anime and Manga.
 \includegraphics[width=0.50\linewidth]{2-most-commit-language.png}
 \end{textblock*}
 \note{
-My Twitter and Github accounts are \href{https://twitter.com/tkoyama010}{@tkoyama010}.
-
 私のTwitterとGithubのアカウントは\href{https://twitter.com/tkoyama010}{@tkoyama010}です。
 
 }
 \note{
-Please follow me if you like this presentation.
-
 このプレゼンテーションを気に入っていただけたら、ぜひフォローしてください。
 }
 \end{frame}
 
-\begin{frame}[fragile]
-\begin{textblock*}{800pt}(50pt, 10pt)
-\begin{block}{What we want to do is using VTK like matplotlib in PyVista.}
-\note{
-Do you want to visualize 3D data in a Pythonic way like matplotlib?
-If you want, this slides is for you.
-VTK is an excellent visualization toolkit, and with Python bindings it should be able to combine the speed of C++ with the rapid prototyping of Python.
-However, despite this VTK code programmed in Python generally looks the same as its C++ counterpart.
-This module seeks to simplify mesh creation and plotting without losing functionality.
-This slides is the introduction of \href{https://pypi.org/project/pyvista/}{PyVista}. It is
-
-}
-\begin{itemize}
-\item "VTK for humans"\: a high-level API to the Visualization Toolkit (VTK)
-\note[item]{
-"VTK for humans"\: a high-level API to the Visualization Toolkit (VTK).
-}
-\item 3D plotting made simple and built for large/complex data geometries
-\note[item]{
-3D plotting made simple and built for large/complex data geometries
-}
-\item mesh data structures and filtering methods for spatial datasets
-\note[item]{
-mesh data structures and filtering methods for spatial datasets
-
-% matplotlibのようにPythonicな方法で3Dデータを視覚化したいと思ったことはありませんか？
-% このスライドはそんなあなたのためのものです。
-% このスライドでは、\href{https://pypi.org/project/pyvista/}{PyVista}と呼ばれるライブラリを紹介します。
-% このライブラリには3つの特徴があります。
-% 1つ目は"人間のためのVTK"\: 可視化ツールキット（VTK）の高レベルAPIです。
-% 2つ目は大規模／複雑なデータ形状に対応した、シンプルな3Dプロッティング機能です。
-% 3つ目はメッシュデータと空間データのフィルタリングメソッドです。
-}
-\end{itemize}
-\end{block}
-\end{textblock*}
-\begin{textblock*}{800pt}(50pt, 150pt)
-\includegraphics[width=0.50\linewidth]{pyvista_banner_small.png}
-\end{textblock*}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{textblock*}{800pt}(50pt, 10pt)
-\begin{block}{In this slides you can learn.. }
-\begin{itemize}
-\item Pythonic interface to VTK’s Python bindings
-\item Filtering/plotting tools built for interactivity
-\item Direct access to common VTK filters
-\item Intuitive plotting routines with matplotlib similar syntax
-\end{itemize}
-\end{block}
-\end{textblock*}
-\begin{textblock*}{800pt}(50pt, 150pt)
-\includegraphics[width=0.50\linewidth]{pyvista_banner_small.png}
-\end{textblock*}
-\end{frame}
-\note{
-In this presentation, you can learn more about how PyVista wraps different VTK mesh types and how you can leverage powerful 3D plotting and mesh analysis tools. Highlights of the API include:
-
-Pythonic interface to VTK’s Python bindings
-
-Filtering/plotting tools built for interactivity
-
-Direct access to common VTK filters
-
-Intuitive plotting routines with matplotlib similar syntax
-
-}
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Hello World!}
@@ -200,24 +112,11 @@ Intuitive plotting routines with matplotlib similar syntax
 \end{textblock*}
 \end{frame}
 \note{
-PyVista is a helper module for the Visualization Toolkit (VTK) that takes a different approach on interfacing with VTK through NumPy and direct array access.
-This package provides a Pythonic, well-documented interface exposing VTK’s powerful visualization backend to facilitate rapid prototyping, analysis, and visual integration of spatially referenced datasets.
-This module can be used for scientific plotting for presentations and research papers as well as a supporting module for other mesh dependent Python modules.
-In Code Listing \ref{hello_world_code}, we demonstrate the "Hello World!" of \href{https://pypi.org/project/pyvista/}{PyVista}.
-Basic step of \href{https://pypi.org/project/pyvista/}{PyVista} script is the following.
-First, import \href{https://pypi.org/project/pyvista/}{PyVista}.
-Then generate \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} and add it to
-Plotter object using add mesh method.
-This example also shows how to create a multi-window plotter by specifying the shape parameter.
-The window generated is a one by three window by setting shape=(1, 3). Use the pyvista.BasePlotter.subplot() function to select the subplot you wish to be the active subplot.
-And "add\_text" method add text to plot object in the top left corner by default.
-
-% コードリスト\ref{hello_world_code}では、\href{https://pypi.org/project/pyvista/}{PyVista}の "Hello World!" を行っています。
-% \href{https://pypi.org/project/pyvista/}{PyVista} スクリプトの基本ステップについて説明します。
-% まず、 \href{https://pypi.org/project/pyvista/}{PyVista} をインポートします。
-% 次に \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} を生成して、それを
-% add meshメソッドを使用してPlotterオブジェクトに追加します。
-
+コードリスト\ref{hello_world_code}では、\href{https://pypi.org/project/pyvista/}{PyVista}の "Hello World!" を行っています。
+\href{https://pypi.org/project/pyvista/}{PyVista} スクリプトの基本ステップについて説明します。
+まず、 \href{https://pypi.org/project/pyvista/}{PyVista} をインポートします。
+次に \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} を生成して、それを
+add meshメソッドを使用してPlotterオブジェクトに追加します。
 }
 
 \begin{frame}[fragile]
@@ -232,9 +131,7 @@ And "add\_text" method add text to plot object in the top left corner by default
 \caption{Hello World!\label{HelloWorldFigure}}
 \end{figure}
 \note{
-And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of PyVista using show method.
-
-% 最後に、showメソッドを使って、PyVistaのレンダリングビュー（図 \ref{HelloWorldFigure}）を確認します。
+最後に、showメソッドを使って、PyVistaのレンダリングビュー（図 \ref{HelloWorldFigure}）を確認します。
 }
 \end{block}
 \end{textblock*}
@@ -252,8 +149,6 @@ And finally, we can check the render view (Figure \ref{HelloWorldFigure}) of PyV
 \end{textblock*}
 \end{frame}
 \note{
-We can also make customize mesh like tube from line points using Tube function.
-
 Tube関数を使用して、線の点から管のようなメッシュをカスタマイズすることもできます。
 }
 
@@ -271,18 +166,9 @@ Tube関数を使用して、線の点から管のようなメッシュをカス�
 \end{textblock*}
 \end{frame}
 \note{
-You can also create PolyData (Triangulated Surface) objects from the NumPy arrays of vertices and faces if you want to further customize the mesh.
-
 メッシュをさらにカスタマイズする場合は、頂点と面のNumPy配列からPolyData (Triangulated Surface) オブジェクトを作成することもできます。
-
-A PolyData object can be created quickly from numpy arrays.
-
 PolyDataオブジェクトは、numpy配列からすばやく作成できます。
-
-The vertex array contains the locations of the points in the mesh and the face array contains the number of points of each face and the indices of the vertices which comprise that face.
-
 頂点配列にはメッシュ内のポイントの位置が含まれ、面配列には各面のポイント数と、その面を構成する頂点のインデックスが含まれます。
-
 }
 
 \begin{frame}[fragile]
@@ -297,12 +183,6 @@ The vertex array contains the locations of the points in the mesh and the face a
 \end{textblock*}
 \end{frame}
 \note{
-We can also load mesh from file.
-Loading a \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} is trivial - if your data is in one of the many supported file formats,
-simply use \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.read()}
-to load your spatially referenced dataset into a \href{https://pypi.org/project/pyvista/}{PyVista} \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} object
-(Code Listing \ref{ReadFileCode}, Figure \ref{ReadFileFigure}).
-
 ファイルからメッシュをロードすることもできます。
 \href{https://dev.pyvista.org/getting-started/what-is-a-mesh.html}{mesh} のロードは簡単です。
 データがサポートされている多くのファイルフォーマットのいずれかである場合、
@@ -323,12 +203,7 @@ to load your spatially referenced dataset into a \href{https://pypi.org/project/
 \end{textblock*}
 \end{frame}
 \note{
-Also note that we can export any \href{https://pypi.org/project/pyvista/}{PyVista} mesh to any file format supported by \href{https://pypi.org/project/meshio/}{meshio}.
-
 また、任意の \href{https://pypi.org/project/pyvista/}{PyVista} メッシュを \href{https://pypi.org/project/meshio/}{meshio} でサポートされている任意のファイルフォーマットにエクスポートできることにも注意してください。
-
-To save a \href{https://pypi.org/project/pyvista/}{PyVista} mesh using meshio, use \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.save\_meshio()}(Code Listing \ref{SaveFileCode}):
-
 meshioを使って \href{https://pypi.org/project/pyvista/}{PyVista} のメッシュを保存するには、 \href{https://dev.pyvista.org/utilities/utilities.html}{pyvista.save\_meshio()} を使います（コードリスト \ref{SaveFileCode} ）。
 }
 
@@ -344,21 +219,12 @@ meshioを使って \href{https://pypi.org/project/pyvista/}{PyVista} のメッ�
 \end{textblock*}
 \end{frame}
 \note{
-In this slide we use common filters like thresholding and clipping.
-PyVista wrapped data objects have a suite of common filters ready for immediate use directly on the object.
-These filters include the following (see Filters for a complete list).
-To use these filters, call the method of your choice directly on your data object.
-And now there is a thresholded version of the input dataset in the new threshed object.
-To learn more about what keyword arguments are available to alter how filters are executed,
-print the docstring for any filter attached to PyVista objects with either help or using shift+tab in an IPython environment.
-
 このスライドではしきい値設定やクリッピングなどの一般的なフィルタを使用してみます。
 PyVistaでラップされたデータオブジェクトには、オブジェクト上で直接すぐに使用できる一連の共通フィルタが用意されています。
 これらのフィルタを使用するには、データ・オブジェクトで直接選択したメソッドを呼び出します。
 これで、新しいしきい値オブジェクトに入力データセットのしきい値バージョンがあります。
 フィルタの実行方法を変更するために使用できるキーワード引数の詳細については、ヘルプを使用するか、
 IPython環境でshift+tabを使用して、PyVistaオブジェクトに適用されているフィルタのdocstringを出力してください。
-
 }
 
 \begin{frame}[fragile]
@@ -375,14 +241,9 @@ IPython環境でshift+tabを使用して、PyVistaオブジェクトに適用さ
 \end{textblock*}
 \end{frame}
 \note{
-What about other filters?
-Let’s collect a few filter results and compare them:
-This is the figure of threshold, contour, slices and glyphs.
-
 他のフィルターはどうですか?
 いくつかのフィルタ結果を収集して比較します。
 これはしきい値、コンター、スライス、グリフの図です。
-
 }
 
 
@@ -400,14 +261,6 @@ This is the figure of threshold, contour, slices and glyphs.
 \end{textblock*}
 \end{frame}
 \note{
-In PyVista, we can mimic the filtering pipeline through a chain; attaching each filter to the last filter.
-In this example, several filters are chained together.
-First, and empty threshold filter to clean out any NaN values.
-Second, use an elevation filter to generate scalar values corresponding to height.
-Then, use the clip filter to cut the dataset in half.
-At the end, create three slices along each axial plane using the slice\_orthogonal filter.
-And to view this filtered data, simply call the plot method (result.plot()) or create a rendering scene:
-
 PyVistaでは、チェーンを介してフィルタリングパイプラインを模倣することができます。
 各フィルタを最後のフィルタにアタッチします。
 この例では、複数のフィルタが連結されています。
@@ -430,9 +283,6 @@ PyVistaでは、チェーンを介してフィルタリングパイプライン�
 \end{textblock*}
 \end{frame}
 \note{
-There is also a filter useful for mesh viewing.
-Code Listing \ref{ShrinkFilterCode} shrink the individual faces of a mesh using shrink method (Figure \ref{ShrinkFilterFigure}).
-
 メッシュの確認に便利なフィルターもあります。
 コードリスト \ref{ShrinkFilterCode} では、shrinkメソッドを使ってメッシュの各面を縮小しています（図 \ref{ShrinkFilterFigure}）。
 }
@@ -449,8 +299,6 @@ Code Listing \ref{ShrinkFilterCode} shrink the individual faces of a mesh using 
 \end{textblock*}
 \end{frame}
 \note{
-We can also clip any dataset by a user defined plane using the pyvista.DataSetFilters.clip() filter
-
 pyvistaを使用して、pyvista.DataSetFilters.clip() フィルタを使うことで、ユーザ定義平面によりデータセットをクリップすることもできます。
 }
 
@@ -466,41 +314,20 @@ pyvistaを使用して、pyvista.DataSetFilters.clip() フィルタを使うこ�
 \end{textblock*}
 \end{frame}
 \note{
-Clip any dataset by a set of XYZ bounds using the pyvista.DataSetFilters.clip\_box() filter.
-
 pyvistaを使用して、XYZ境界のセットによってデータセットをクリップします。
 DataSetFilters.clip\_box () フィルタです。
-
 }
 
 \begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Rotation about the x axis}
 \note{
-We can of course rotate the mesh about the axes.
-
 もちろん、軸を中心にメッシュを回転させることもできます。
-
-Let's rotate a mesh about its axes.
-
 メッシュを軸周りに回転させてみましょう。
-
-In this model, the x axis is from the left to right; the y axis is from bottom to top; and the z axis emerges from the image.
-
 このモデルでは、x軸は左から右へ、y軸は下から上へ、z軸は画面から垂直になっています。
-
-The camera location is the same in two images.
-
 カメラの位置は2つの画像で同じです。
-
-Rotate the mesh about the x axis every 60 degrees and we can plot it.
-
 このメッシュをx軸を中心に60度ごとに回転させてプロットできます。
-
-Of cource, we can plot also about other axis.
-
 もちろん、他の軸についてもプロットできます。
-
 }
 \end{block}
 \lstinputlisting[caption=X-Axis Rotation, firstline=66, lastline=69]{rotate.py}
@@ -515,14 +342,8 @@ Of cource, we can plot also about other axis.
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Rotation about the y axis}
 \note{
-Plot the mesh rotated about the y axis every 60 degrees.
-
 メッシュを60度ごとにY軸を中心に回転させてプロットします。
-
-Add the axes actor to the Plotter and set the axes origin to the point of rotation.
-
 プロッターに軸アクターを追加し、軸の原点を回転点に設定しています。
-
 }
 \end{block}
 \lstinputlisting[caption=Y-Axis Rotation, firstline=66, lastline=69]{rotate.py}
@@ -537,14 +358,8 @@ Add the axes actor to the Plotter and set the axes origin to the point of rotati
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Rotation about the z axis}
 \note{
-Plot the mesh rotated about the z axis every 60 degrees.
-
 メッシュを60度ごとにz軸を中心に回転させてプロットします。
-
-Add the axes actor to the Plotter and set the axes origin to the point of rotation.
-
 プロッターに軸アクターを追加し、軸の原点を回転点に設定しています。
-
 }
 \end{block}
 \lstinputlisting[caption=Z-Axis Rotation, firstline=66, lastline=69]{rotate.py}
@@ -559,14 +374,8 @@ Add the axes actor to the Plotter and set the axes origin to the point of rotati
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Rotation about a custom vector}
 \note{
-Plot the mesh rotated about a custom vector every 60 degrees.
-
 メッシュを60度ごとのカスタムベクトルで回転させてプロットします。
-
-Add the axes actor to the Plotter and set axes origin to the point of rotation.
-
 プロッターに軸アクターを追加し、軸の原点を回転点に設定しています。
-
 }
 \end{block}
 \lstinputlisting[caption=Custom Rotation, firstline=66, lastline=69]{rotate.py}
@@ -586,9 +395,6 @@ Add the axes actor to the Plotter and set axes origin to the point of rotation.
 \caption{Extrude Rotation\label{ExtrudeRotateFigure}}
 \end{figure}
 \note{
-Code Listing \ref{ExtrudeRotateCode}  creating "skirt" from line
-using extrude rotate method (Figure \ref{ExtrudeRotateFigure}).
-
 コードリスト \ref{ExtrudeRotateCode} では、押出し回転メソッドを使って直線から "skirt" を
 作成しています (図\ref{ExtrudeRotateFigure}) 。
 }
@@ -605,18 +411,9 @@ using extrude rotate method (Figure \ref{ExtrudeRotateFigure}).
 \caption{Contouring\label{WarpScalarFigure}}
 \end{figure}
 \note{
-Attributes are data values that live on either the nodes or cells of a mesh.
-
 Attributeとは、メッシュのノードまたはセル上に存在するデータ値のことです。
-
-In \href{https://pypi.org/project/pyvista/}{PyVista}, we work with both point data and cell data and allow easy access to data dictionaries to hold arrays for attributes that live either on all nodes or on all cells of a mesh.
-
 \href{https://pypi.org/project/pyvista/}{PyVista} では、ポイントデータとセルデータの両方を扱い、メッシュのすべてのノードまたはすべてのセルに存在する属性の配列を保持するデータ辞書に簡単にアクセスできるようにしています。
-
-Meshes can have a scalar field extracted using \href{https://dev.pyvista.org/core/filters.html}{warp\_by\_scalar()} method (Code List \ref{WarpScalarCode}, Figure \ref{WarpScalarFigure}).
-
 \href{https://dev.pyvista.org/core/filters.html}{warp\_by\_scalar()} メソッドでメッシュからスカラーフィールドを抽出することができます（コードリスト \ref{WarpScalarCode} 、図 \ref{WarpScalarFigure} ）。
-
 }
 \end{block}
 \end{textblock*}
@@ -631,14 +428,9 @@ Meshes can have a scalar field extracted using \href{https://dev.pyvista.org/cor
 \begin{textblock*}{300pt}(0pt, 110pt)
 \begin{block}{}
 \note{
-It can be plotting the values of a dataset over a circular arc through that dataset using
-\href{https://dev.pyvista.org/core/filters.html}{plot\_over\_circular\_arc\_normal}
-(Code list \ref{PlotOverCircularArcCode}, Figure \ref{CircularArcToPlotFigure} and \ref{PlotOverCircularArcFigure}).
-
 \href{https://dev.pyvista.org/core/filters.html}{plot\_over\_circular\_arc\_normal}
 を使用して、データセットを通る円弧上のデータセットの値をプロットすることができます
 (コードリスト\ref{PlotOverCircularArcCode}、図\ref{CircularArcToPlotFigure}および\ref{PlotOverCircularArcFigure})。
-
 }
 \begin{figure}
 \includegraphics[width=0.5\linewidth]{kitchen.png}
@@ -666,14 +458,8 @@ It can be plotting the values of a dataset over a circular arc through that data
 \end{textblock*}
 \end{frame}
 \note{
-Also can have a vector filed extracted using \href{https://dev.pyvista.org/core/filters.html}{warp\_by\_vector()} method (Code List \ref{WarpVectorCode}, Figure \ref{WarpVectorFigure}).
-
 また、 \href{https://dev.pyvista.org/core/filters.html}{warp\_by\_vector()} メソッドで抽出されたベクターファイルを持つことができます（コードリスト \ref{WarpVectorCode} 、図 \ref{WarpVectorFigure} ）。
-
-\href{https://dev.pyvista.org/plotting/plotting.html}{add\_mesh()} method can use a Matplotlib, Colorcet, cmocean, or custom colormap when plotting scalar values(Figure \ref{WarpVectorFigure}).
-
 \href{https://dev.pyvista.org/plotting/plotting.html}{add\_mesh () }メソッドは、スカラー値をプロットするときにMatplotlib、Colorcet、cmocean、またはカスタムカラーマップを使用できます (図\ref{WarpVectorFigure}) 。
-
 }
 
 \begin{frame}[fragile]
@@ -688,27 +474,8 @@ Also can have a vector filed extracted using \href{https://dev.pyvista.org/core/
 \end{textblock*}
 \end{frame}
 \note{
-We can extract a subset of the edges of a polygonal mesh to generate an outline silhouette of a mesh using add\_mesh method.
-We can set it using the silhouette argument.
-
 ポリゴンメッシュのエッジのサブセットを抽出し、add\_meshメソッドを使用してメッシュのアウトラインシルエットを生成できます。
 シルエット引数で設定することができます。
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Back Ground Image}
-\lstinputlisting[caption=Silhouette Highlight, label=SilhouetteHighlight, firstline=20, lastline=20]{background_image.py}
-\begin{figure}
-\includegraphics[width=1.0\linewidth]{background_image1.png}
-\caption{Back Ground Image}
-\end{figure}
-\end{block}
-\end{textblock*}
-\end{frame}
-\note{
-We can also add background of plot using add a background image with pyvista.Plotter.add\_background\_image().
-Let's Plot several earth related plots
 }
 
 \begin{frame}[fragile]
@@ -719,22 +486,10 @@ Let's Plot several earth related plots
 \caption{Frustum of camera \label{CameraFrustumFigure}}
 \end{figure}
 \note{
-\href{https://dev.pyvista.org/core/camera.html}{Camera} class is a virtual camera for 3D rendering.
-
 \href{https://dev.pyvista.org/core/camera.html}{Camera}クラスは、3Dレンダリング用の仮想カメラです。
-
-It provides methods to position and orient the view point and focal point.
-
 視点や焦点の位置や方向を決めるメソッドを提供します。
-
-Convenience methods for moving about the focal point also are provided.
-
 また、焦点を移動するための便利なメソッドも提供されています。
-
-More complex methods allow the manipulation of the computer graphics model including view up vector, clipping planes, and camera perspective (Figure \ref{CameraFrustumFigure}).
-
 より複雑なメソッドでは、ビューアップベクター、クリッピングプレーン、カメラパースペクティブなど、コンピュータグラフィックスモデルを操作することができます（図 \ref{CameraFrustumFigure}）。
-
 }
 \lstinputlisting[caption=Add Camera to Plotter, label=camera_view, firstline=7, lastline=13]{camera_view.py}
 \end{block}
@@ -750,16 +505,9 @@ More complex methods allow the manipulation of the computer graphics model inclu
 \caption{Camera view}
 \end{figure}
 \note{
-Code Listing \ref{CameraFrustumCode} create a camera and frustum.
-
 コードリスト\ref{CameraFrustumCode}ではカメラと視錐台を作成しています。
-
-Then create a scene of inside frustum adding \href{https://dev.pyvista.org/core/camera.html}{Camera} object to \href{https://dev.pyvista.org/plotting/plotting.html}{Plotter} object
-(Code list \ref{CameraFrustumCode} ,Figure \ref{CameraFrustumFigure}).
-
 次に、視錐台内部のシーンを作成して、\href{https://dev.pyvista.org/plotting/plotting.html}{Plotter}オブジェクトに\href{https://dev.pyvista.org/core/camera.html}{Camera}オブジェクトを追加します
 (コードリスト\ref{CameraFrustumCode}、図\ref{CameraFrustumFigure})。
-
 }
 \end{block}
 \end{textblock*}
@@ -779,27 +527,14 @@ Then create a scene of inside frustum adding \href{https://dev.pyvista.org/core/
 \caption{Controlling Camera Rotation \label{CameraRotationFigure}}
 \end{figure}
 \note{
-In addition to directly controlling the camera position by setting it via the pyvista
-\href{https://dev.pyvista.org/core/camera.html}{Camera.position}
-property
-
 さらに、pyvistaの\href{https://dev.pyvista.org/core/camera.html}{Camera.position}
 プロパティを使用してカメラ位置を設定することにより、カメラ位置を直接制御することもできます。
-
-You can also directly control the
-\href{https://dev.pyvista.org/core/camera.html}{pyvista.Camera.roll},
-\href{https://dev.pyvista.org/core/camera.html}{pyvista.Camera.elevation}, and
-\href{https://dev.pyvista.org/core/camera.html}{pyvista.Camera.azimuth}
-of the camera.
-(Code list \ref{CameraRotationCode} ,Figure \ref{CameraRotationFigure}).
-
 カメラの
 \href{https://dev.pyvista.org/core/camera.html}{pyvista.Camera.roll},
 \href{https://dev.pyvista.org/core/camera.html}{pyvista.Camera.elevation},
 および\href{https://dev.pyvista.org/core/camera.html}{pyvista.Camera.azimuth}
 を直接制御することもできます。
 (コードリスト\ref{CameraRotationCode}、図\ref{CameraRotationFigure})
-
 }
 \end{textblock*}
 \end{frame}
@@ -816,17 +551,8 @@ of the camera.
 \end{textblock*}
 \end{frame}
 \note{
-We can also set the condition of the light.
-Lights come in three types:
-
 光の状態を設定することもできます。
 光源には3つのタイプがあります。
-
-First type is headlight.
-The axis of which always coincides with the view of the camera,
-For headlights the position and focal\_point properties are meaningless. 
-No matter where you move the camera, the light always emanates from the view point:
-
 1つ目はヘッドライトです。
 軸は常にカメラのビューと一致します。
 ヘッドライトの場合、positionプロパティとfocal\_pointプロパティは意味がありません。
@@ -845,11 +571,6 @@ No matter where you move the camera, the light always emanates from the view poi
 \end{textblock*}
 \end{frame}
 \note{
-Second is camera light.
-Camera lights define their position and focal\_point properties in a coordinate system that is local to the camera.
-The coordinates in the scene’s coordinate system can be accessed through the world\_position and world\_focal\_point read-only properties, respectively.
-For specifics of the local coordinate system used for the coordinates please see the documentation of pyvista.Light.set\_camera\_light().
-
 2つ目はカメラライトです。カメラライトは、カメラに対してローカルな座標系で位置とfocal\_pointプロパティを定義します。
 シーンの座標系の座標には、それぞれworld\_positionおよびworld\_focal\_point読み取り専用プロパティからアクセスできます。
 座標に使用されるローカル座標系の詳細については、pyvistaLight.set\_camera\_light()のドキュメントを参照してください。
@@ -867,10 +588,6 @@ For specifics of the local coordinate system used for the coordinates please see
 \end{textblock*}
 \end{frame}
 \note{
-Third is scene light.
-Scene lights are attached to the scene, their position and focal point are
-interpreted as global coordinates:
-
 3つ目はシーンライトです。
 シーンライトはシーンにアタッチされ、その位置と焦点はグローバル座標として解釈されます。
 }
@@ -887,10 +604,6 @@ interpreted as global coordinates:
 \end{textblock*}
 \end{frame}
 \note{
-When using lights shading is also important.
-PyVista supports two types of shading, flat and smooth shading.
-This is a plot with the default flat shading and smooth shading.
-
 ライトを使用する場合は、シェーディングも重要です。
 PyVistaでは、フラットシェーディングとスムーズシェーディングの2種類のシェーディングがサポートされています。
 これは、既定のフラットシェーディングとスムーズシェーディングを使用したプロットです。
@@ -908,10 +621,6 @@ PyVistaでは、フラットシェーディングとスムーズシェーディ�
 \end{textblock*}
 \end{frame}
 \note{
-Eye-Dome Lighting (EDL) is a non-photorealistic, image-based shading technique designed to improve depth perception in scientific visualization images.
-Eye-Dome Lighting can dramatically improve depth perception when plotting incredibly sophisticated meshes like the creative commons Queen Nefertiti statue:
-Here we will compare a EDL shading side by side with normal shading
-
 アイドームライティング (EDL) は、科学的可視化イメージの奥行き知覚を改善するために設計された、非フォトリアリスティックなイメージベースのシェーディングテクニックです。
 アイドームライティングは、クリエイティブ・コモンズのネフェルティティ女王の像のような非常に洗練されたメッシュを描画するときに、奥行きの知覚を劇的に改善します。
 ここでは、EDLシェーディングと通常のシェーディングを並べて比較します。
@@ -929,10 +638,6 @@ Here we will compare a EDL shading side by side with normal shading
 \end{textblock*}
 \end{frame}
 \note{
-When plotting a simple point cloud, it can be difficult to perceive depth.
-Take this Lidar point cloud for example.
-And now plot this point cloud as-is.
-
 単純な点群を印刷する場合、奥行きを認識するのが難しいことがあります
 たとえば、このライダー点群を考えてみましょう。
 次に、この点群をそのまま描画します。
@@ -950,10 +655,6 @@ And now plot this point cloud as-is.
 \end{textblock*}
 \end{frame}
 \note{
-We can also plot a mesh with an image projected onto it as a texture.
-Texture mapping is easily implemented using PyVista.
-Many of the geometric objects come preloaded with texture coordinates, so quickly creating a surface and displaying an image is simple.
-
 また、イメージをテクスチャとして投影したメッシュをプロットすることもできます。
 テクスチャマッピングは、PyVistaを使用して簡単に実装できます。
 ジオメトリックオブジェクトの多くにはテクスチャ座標があらかじめロードされているため、サーフェスをすばやく作成してイメージを表示するには、次の操作を実行します。
@@ -971,13 +672,6 @@ Many of the geometric objects come preloaded with texture coordinates, so quickl
 \end{textblock*}
 \end{frame}
 \note{
-
-VTK 9 introduced Physically Based Rendering (PBR) and we have exposed that functionality in PyVista.
-PBR is only supported for pyvista.PolyData and can be triggered via the pbr keyword argument of add\_mesh.
-Also use the metallic and roughness arguments for further control.
-Let’s show off this functionality by rendering a high quality mesh of a statue as though it were metallic.
-Let’s render the mesh with a base color of “linen” to give it a metal looking finish.
-
 VTK 9はPhysically Based Rendering (PBR) を導入し、その機能をPyVistaで公開しました。
 PBRは、pyvistaでのみサポートされています。PolyDataであり、add\_meshのpbrキーワード引数を介してトリガできます。
 さらにコントロールするには、metallic引数とroughness引数も使用します。
@@ -997,13 +691,8 @@ PBRは、pyvistaでのみサポートされています。PolyDataであり、ad
 \end{textblock*}
 \end{frame}
 \note{
-
-This figure show the variation of the metallic and roughness parameters.
-Plot with metallic increasing from left to right and roughness increasing from bottom to top.
-
 この図は金属と粗さのパラメータの変化を示しています。
 左から右に向かって金属の属性が増加し、下から上に向かって粗さが増加するようにプロットしています。
-
 }
 
 \begin{frame}[fragile]
@@ -1017,106 +706,19 @@ Plot with metallic increasing from left to right and roughness increasing from b
 \end{textblock*}
 \end{frame}
 \note{
-PyVista has several widgets that can be added to the rendering scene to control filters like clipping, slicing, and thresholding.
-The box widget can be enabled and disabled by the pyvista.WidgetHelper.add\_box\_widget() and pyvista.WidgetHelper.clear\_box\_widgets() methods respectively.
-When enabling the box widget, you must provide a custom callback function otherwise the box would appear and do nothing - the callback functions are what allow us to leverage the widget to perform a task like clipping/cropping.
-Considering that using a box to clip/crop a mesh is one of the most common use cases, we have included a helper method that will allow you to add a mesh to a scene with a box widget that controls its extent, the pyvista.WidgetHelper.add\_mesh\_clip\_box() method.
-
 PyVistaには、クリッピング、スライス、しきい値などのフィルタを制御するためにレンダリングシーンに追加できるウィジェットがいくつかあります。
 ボックスウィジェットは、ピビスタで有効または無効にできます。WidgetHelper.add\_box\_widget () およびpyvista。それぞれWidgetHelper.clear\_box\_widgets () メソッド。
 ボックスウィジェットを有効にするときは、カスタムコールバック関数を提供する必要があります。
 そうしないと、ボックスが表示されて何も実行されません。
 コールバック関数を使用すると、ウィジェットを利用してクリッピングやクロップなどのタスクを実行できます。
-
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Plane Widget}
-\lstinputlisting[caption=Plane Widget, label=PlaneWidgetList, firstline=23, lastline=25]{plane-widget.py}
-\end{block}
-\begin{figure}
-\movie[width=5cm,height=5cm]{}{plane-clip.gif}
-\end{figure}
-\end{textblock*}
-\end{frame}
-\note{
-The plane widget can be enabled and disabled by the pyvista.WidgetHelper.add\_plane\_widget() and pyvista.WidgetHelper.clear\_plane\_widgets() methods respectively.
-As with all widgets, you must provide a custom callback method to utilize that plane.
-Considering that planes are most commonly used for clipping and slicing meshes, we have included two helper methods for doing those tasks!
-
-プレーンウィジェットは、pyvista.WidgetHelper.add\_plane\_widget()とpyvista.WidgetHelper.clear\_plane\_widgets()で有効または無効にできます。
-すべてのウィジェットと同様に、そのプレーンを利用するカスタムコールバックメソッドを提供する必要があります。
-平面はメッシュのクリッピングとスライスに最も一般的に使用されることを考慮して、これらのタスクを実行する2つのヘルパーメソッドを用意しました。
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Slider Widget}
-\lstinputlisting[caption=Slider Widget, label=SliderWidgetList, firstline=26, lastline=28]{slider-bar-widget.py}
-\end{block}
-\begin{figure}
-\movie[width=5cm,height=5cm]{}{plane-clip.gif}
-\end{figure}
-\end{textblock*}
-\end{frame}
-\note{
-The slider widget can be enabled and disabled by the pyvista.WidgetHelper.add\_slider\_widget() and pyvista.WidgetHelper.clear\_slider\_widgets() methods respectively.
-This is one of the most versatile widgets as it can control a value that can be used for just about anything.
-
-スライダウィジェットは、pyvistaでWidgetHelper.add\_slider\_widget ()および有効または無効にできます。
-これは、ほぼすべての目的に使用できる値を制御できるため、最も用途の広いウィジェットの1つです。
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Sphere Widget}
-\lstinputlisting[caption=Single Sphere Widget, label=SphereWidgetList, firstline=37, lastline=39]{sphere-widget.py}
-\end{block}
-\begin{figure}
-\movie[width=5cm,height=5cm]{}{sphere-widget-a.gif}
-\end{figure}
-\end{textblock*}
-\end{frame}
-\note{
-The sphere widget can be enabled and disabled by the pyvista.WidgetHelper.add\_sphere\_widget() and pyvista.WidgetHelper.clear\_sphere\_widgets() methods respectively.
-This is a very versatile widget as it can control vertex location that can be used to control or update the location of just about anything.
-We don’t have any convenient helper methods that utilize this widget out of the box, but we have added a lot of ways to use this widget so that you can easily add several widgets to a scene.
-Let’s look at a few use cases that all update a surface mesh.
-This example Use a single sphere widget
-
-球ウィジェットは、 pyvista.WidgetHelper.add\_sphere\_widget() と  pyvista.WidgetHelper.clear\_sphere\_widgets() で有効または無効にできます。
-これは頂点の位置を制御できるため、非常に用途の広いウィジェットで、ほぼすべての位置の制御や更新に使用できます。
-このウィジェットをそのまま使用する便利なヘルパーメソッドはありませんが、シーンに複数のウィジェットを簡単に追加できるように、このウィジェットを使用する方法が多数追加されています。
-サーフェスメッシュを更新するいくつかの使用例を見てみましょう。
-これは単体の球ウィジェットの例です。
-}
-
-\begin{frame}[fragile]
-\begin{textblock*}{350pt}(50pt, 10pt)
-\begin{block}{Sphere Widget}
-\lstinputlisting[caption=Several Sphere Widget, label=SeveralSphereWidgetList, firstline=69, lastline=71]{sphere-widget.py}
-\end{block}
-\begin{figure}
-\movie[width=5cm,height=5cm]{}{sphere-widget-b.gif}
-\end{figure}
-\end{textblock*}
-\end{frame}
-\note{
-Use several sphere widgets at once.
-Check that callback function is different.
-
-1度に複数の球ウィジェットを使用します。
-コールバック関数が異なることに注意してください。
 }
 
 \begin{frame}[fragile]
 \begin{textblock*}{800pt}(50pt, 10pt)
 \begin{block}{Conclusion}
 \note{
-If you want to visualize 3D data in a Pythonic way like matplotlib, this slides is for you.
-This slides is the introduction of \href{https://pypi.org/project/pyvista/}{PyVista}. It is
-
+matplotlibのようにPythonicな方法で3Dデータを可視化したいなら、このスライドはあなたのためのものです。
+このスライドは、 \href{https://pypi.org/project/pyvista/}{PyVista} の紹介です。これは
 }
 \begin{itemize}
 \item "VTK for humans"\: a high-level API to the Visualization Toolkit (VTK)
@@ -1125,12 +727,11 @@ This slides is the introduction of \href{https://pypi.org/project/pyvista/}{PyVi
 }
 \item 3D plotting made simple and built for large/complex data geometries
 \note[item]{
-3D plotting made simple and built for large/complex data geometries
+大規模／複雑なデータ形状に対応した、シンプルな3Dプロッティング機能があります
 }
 \item mesh data structures and filtering methods for spatial datasets
 \note[item]{
-mesh data structures and filtering methods for spatial datasets
-
+メッシュデータ構造と空間データのフィルタリング方法があります。
 }
 \end{itemize}
 \end{block}
@@ -1157,15 +758,16 @@ We introduce the PyVista's
 \end{textblock*}
 \end{frame}
 \note{
-In this presentation, you can learn more about how PyVista wraps different VTK mesh types and how you can leverage powerful 3D plotting and mesh analysis tools. Highlights of the API include:
+このプレゼンテーションでは、PyVistaが異なるVTKメッシュタイプをどのようにラップするか、そして強力な3Dプロットとメッシュ解析ツールをどのように活用するかについて詳しく説明しました。
+このAPIのハイライトは以下の通りです。
 
-Pythonic interface to VTK’s Python bindings
+VTKのPythonバインディングへのPythonicインターフェース
 
-Filtering/plotting tools built for interactivity (see Widgets)
+インタラクティブ性を重視したフィルタリング/プロットツール(ウィジェットを参照)
 
-Direct access to common VTK filters (see Filters)
+一般的なVTKフィルタへの直接アクセス (フィルタを参照)
 
-Intuitive plotting routines with matplotlib similar syntax (see Plotting)
+matplotlibに似た構文を持つ直感的なプロットルーチン (プロットを参照)
 
 }
 
@@ -1186,19 +788,9 @@ If you want to know and discuss pyvista more, join \href{http://github.com/pyvis
 \end{textblock*}
 \end{frame}
 \note{
-I would like to thank PyVista developer team for developing useful library.
-
 役に立つライブラリを開発してくれたPyVista開発チームに感謝します。
-
-This presentation is reference the "PyVista: 3D plotting and mesh analysis through a streamlined interface for the Visualization Toolkit (VTK). Journal of Open Source Software."
-
 このプレゼンテーションは"PyVista: 3D plotting and mesh analysis through a streamlined interface for the Visualization Toolkit (VTK). Journal of Open Source Software."を参考文献としました。
-
-
-If you want to know and discuss pyvista more, join \href{http://github.com/pyvista/pyvista/discussions}{GitHub Discussion}.
-
 pyvistaについてもっと知りたいなら、\href{http://github.com/pyvista/pyvista/discussions}{GitHub Discussion}に参加してください。
-
 }
 
 \end{document}
