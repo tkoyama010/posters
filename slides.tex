@@ -105,6 +105,63 @@ colorlinks=true,
 \end{frame}
 
 \begin{frame}[fragile]
+\begin{textblock*}{800pt}(50pt, 10pt)
+\begin{block}{What we want to do is using VTK like matplotlib in PyVista.}
+\begin{itemize}
+\item "VTK for humans"\: a high-level API to the Visualization Toolkit (VTK)
+\note[item]{
+"VTK for humans"\: a high-level API to the Visualization Toolkit (VTK).
+}
+\item 3D plotting made simple and built for large/complex data geometries
+\note[item]{
+3D plotting made simple and built for large/complex data geometries
+}
+\item mesh data structures and filtering methods for spatial datasets
+\note[item]{
+matplotlibのようにPythonicな方法で3Dデータを視覚化したいと思ったことはありませんか？
+このスライドはそんなあなたのためのものです。
+このスライドでは、\href{https://pypi.org/project/pyvista/}{PyVista}と呼ばれるライブラリを紹介します。
+このライブラリには3つの特徴があります。
+1つ目は"人間のためのVTK"\: 可視化ツールキット（VTK）の高レベルAPIです。
+2つ目は大規模／複雑なデータ形状に対応した、シンプルな3Dプロッティング機能です。
+3つ目はメッシュデータと空間データのフィルタリングメソッドです。
+}
+\end{itemize}
+\end{block}
+\end{textblock*}
+\begin{textblock*}{800pt}(50pt, 150pt)
+\includegraphics[width=0.50\linewidth]{pyvista_banner_small.png}
+\end{textblock*}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{textblock*}{800pt}(50pt, 10pt)
+\begin{block}{In this slides you can learn.. }
+\begin{itemize}
+\item Pythonic interface to VTK’s Python bindings
+\item Filtering/plotting tools built for interactivity
+\item Direct access to common VTK filters
+\item Intuitive plotting routines with matplotlib similar syntax
+\end{itemize}
+\end{block}
+\end{textblock*}
+\begin{textblock*}{800pt}(50pt, 150pt)
+\includegraphics[width=0.50\linewidth]{pyvista_banner_small.png}
+\end{textblock*}
+\end{frame}
+\note{
+このプレゼンテーションでは、PyVistaが異なるVTKメッシュタイプをどのようにラップするか、また、強力な3Dプロットやメッシュ解析ツールをどのように活用するかについて詳しく説明します。このAPIのハイライトは以下の通りです。
+
+VTKのPythonバインディングへのPythonicインターフェース
+
+インタラクティブ性を重視したフィルタリング/プロッティングツール
+
+一般的なVTKフィルタへの直接アクセス
+
+matplotlibに似た構文による直感的なプロットルーチン
+}
+
+\begin{frame}[fragile]
 \begin{textblock*}{350pt}(50pt, 10pt)
 \begin{block}{Hello World!}
 \lstinputlisting[caption=Hello World!, label=hello_world_code, firstline=1, lastline=100]{hello_world.py}
