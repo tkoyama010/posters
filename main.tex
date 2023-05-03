@@ -19,6 +19,16 @@
 ]{doclicense}
 \usepackage[hiragino-pron]{luatexja-preset}
 
+%% Load the markdown package
+\usepackage[citations,footnotes,definitionLists,hashEnumerators,smartEllipses,tightLists=false,pipeTables,tableCaptions,hybrid]{markdown}
+%%begin novalidate
+\markdownSetup{rendererPrototypes={
+ link = {\href{#2}{#1}},
+ headingFour = {\begin{block}{#1}},
+ horizontalRule = {\end{block}}
+}}
+%%end novalidate
+
 \lstset{
 language = Python,
 breaklines = true,
