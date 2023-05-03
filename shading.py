@@ -13,7 +13,7 @@ pyvista.set_plot_theme("document")
 # VTK's Phong shading algorithm.
 #
 # This is a plot with the default flat shading:
-sphere = pyvista.Sphere()
+sphere = pyvista.Sphere(off_screen=True)
 p = pyvista.Plotter(shape=(1, 2), window_size=[1000, 300])
 p.subplot(0, 0)
 p.add_text("Flat Shading")
@@ -21,4 +21,4 @@ p.add_mesh(sphere, color="w", smooth_shading=False)
 p.subplot(0, 1)
 p.add_text("Smooth Shading")
 p.add_mesh(sphere, color="w", smooth_shading=True)
-p.show(screenshot="shading.png")
+p.screenshot("shading.png")

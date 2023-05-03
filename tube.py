@@ -3,7 +3,7 @@ import numpy as np
 
 pv.set_plot_theme("document")
 
-p = pv.Plotter(shape=(1, 2), window_size=[1000, 300])
+p = pv.Plotter(shape=(1, 2), window_size=[1000, 300], off_screen=True)
 
 p.subplot(0, 0)
 p.add_text("Line")
@@ -14,5 +14,5 @@ p.subplot(0, 1)
 p.add_text("Tube")
 tube = pv.Tube((0, 0, 0), (10, 0, 0))
 p.add_mesh(tube, show_edges=True)
-
-p.show(cpos="xz", screenshot="tube.png")
+p.camera_position="xy"
+p.screenshot("tube.png")

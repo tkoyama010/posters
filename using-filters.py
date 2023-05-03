@@ -47,7 +47,7 @@ outline = dataset.outline()
 # We can now plot this filtered dataset along side an outline of the original
 # dataset
 
-p = pv.Plotter(shape=(1, 2), window_size=[1000, 300])
+p = pv.Plotter(shape=(1, 2), window_size=[1000, 300], off_screen=True)
 p.subplot(0, 0)
 p.add_text("Before thresholded")
 p.add_mesh(outline, color="k", show_scalar_bar=False)
@@ -58,12 +58,12 @@ p.add_mesh(outline, color="k", show_scalar_bar=False)
 p.add_mesh(threshed)
 p.link_views()
 p.camera_position = [-2, 5, 3]
-p.show(screenshot="using-filters1.png")
+p.screenshot("using-filters1.png")
 
 
 ###############################################################################
 # What about other filters? Let's collect a few filter results and compare them:
-p = pv.Plotter(shape=(2, 2), window_size=[600, 600])
+p = pv.Plotter(shape=(2, 2), window_size=[600, 600], off_screen=True)
 
 geom = pv.Sphere()
 contours = dataset.contour()
@@ -88,7 +88,7 @@ p.add_mesh(outline, color="k")
 p.add_mesh(glyphs, show_scalar_bar=False)
 
 p.link_views()
-p.show(screenshot="using-filters2.png")
+p.screenshot("using-filters2.png")
 
 ###############################################################################
 # Filter Pipeline
@@ -110,8 +110,8 @@ result = result.elevation()
 result = result.clip(normal="z")
 result = result.slice_orthogonal()
 
-p = pv.Plotter()
+p = pv.Plotter(off_screen=True)
 p.add_mesh(outline, color="k")
 p.add_mesh(result, scalars="Elevation")
 p.view_isometric()
-p.show(screenshot="using-filters3.png")
+p.screenshot("using-filters3.png")

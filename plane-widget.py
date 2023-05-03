@@ -21,7 +21,7 @@ vol = examples.download_brain()
 
 p = pv.Plotter()
 p.add_mesh_clip_plane(vol)
-p.show()
+# p.show()
 p.plane_clipped_meshes
 
 ###############################################################################
@@ -34,7 +34,7 @@ p.plane_clipped_meshes
 
 p = pv.Plotter()
 p.add_mesh_slice(vol)
-p.show()
+# p.show()
 ###############################################################################
 # After interacting with the scene, the slice is available as:
 p.plane_sliced_meshes
@@ -64,9 +64,9 @@ def my_plane_func(normal, origin):
     p.add_mesh(arrows, name='arrows')
 
 p.add_plane_widget(my_plane_func)
-p.show_grid()
+# p.show_grid()
 p.add_axes()
-p.show()
+# p.show()
 
 ###############################################################################
 # And here is a screen capture of a user interacting with this
@@ -82,11 +82,11 @@ p.show()
 
 p = pv.Plotter()
 p.add_mesh_slice(vol, normal=(1,1,1), normal_rotation=False)
-p.show()
+# p.show()
 
 ###############################################################################
 # The vector is also forcibly disabled anytime the ``assign_to_axis`` argument
 # is set.
 p = pv.Plotter()
 p.add_mesh_slice(vol, assign_to_axis='z')
-p.show()
+# p.show()

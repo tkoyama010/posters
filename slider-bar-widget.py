@@ -24,7 +24,7 @@ mesh = examples.download_knee_full()
 
 p = pv.Plotter()
 p.add_mesh_threshold(mesh)
-p.show()
+# p.show()
 p.threshold_meshes
 
 ##############################################################################
@@ -49,7 +49,7 @@ def create_mesh(value):
     return
 
 p.add_slider_widget(create_mesh, [5, 100], title='Resolution')
-p.show()
+# p.show()
 
 ##############################################################################
 # And here is a screen capture of a user interacting with this

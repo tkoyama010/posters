@@ -20,7 +20,7 @@ mesh.plot_over_circular_arc_normal(
     center, resolution, normal, polar, angle, fname="elevation.png"
 )
 
-p = pv.Plotter(window_size=[1000, 500])
+p = pv.Plotter(window_size=[1000, 500], off_screen=True)
 p.add_mesh(mesh)
 p.add_mesh(arc, color="white", line_width=10)
 a = arc.points[0]
@@ -29,4 +29,4 @@ p.add_point_labels(
     [a, b], ["A", "B"], font_size=48, point_color="red", text_color="red"
 )
 p.show_grid()
-p.show(screenshot="kitchen.png")
+p.screenshot("kitchen.png")

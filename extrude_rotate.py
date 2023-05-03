@@ -8,7 +8,7 @@ resolution = 10
 line = pv.Line(pointa=(0, 0, 0), pointb=(1, 0, 0), resolution=2)
 poly = line.extrude_rotate(resolution=resolution)
 
-plotter = pv.Plotter(shape=(1, 2), window_size=[1000, 300])
+plotter = pv.Plotter(shape=(1, 2), window_size=[1000, 300], off_screen=True)
 plotter.subplot(0, 0)
 plotter.add_text("Line", font_size=24)
 plotter.add_mesh(line, color="tan", show_edges=True)

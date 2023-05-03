@@ -32,7 +32,7 @@ nefertiti.plot(eye_dome_lighting=True, cpos=[-1, -1, 0.2], color=True)
 ###############################################################################
 # Here we will compare a EDL shading side by side with normal shading
 
-p = pv.Plotter(shape=(1, 2), window_size=[1000, 300])
+p = pv.Plotter(shape=(1, 2), window_size=[1000, 300], off_screen=True)
 
 # With eye-dome lighting
 p.subplot(0, 0)
@@ -47,7 +47,7 @@ p.add_mesh(nefertiti, color=True)
 p.add_text("No Eye-Dome Lighting")
 p.camera_position = [-1, -1, 0.2]
 
-p.show(screenshot="edl1.png")
+p.screenshot("edl1.png")
 
 ###############################################################################
 # Point Cloud
@@ -63,7 +63,7 @@ point_cloud = examples.download_lidar()
 # And now plot this point cloud as-is:
 
 # Plot a typical point cloud with no EDL
-p = pv.Plotter(shape=(1, 2), window_size=[1000, 300])
+p = pv.Plotter(shape=(1, 2), window_size=[1000, 300], off_screen=True)
 p.subplot(0, 0)
 p.add_mesh(point_cloud, color="tan", point_size=5)
 p.enable_eye_dome_lighting()
@@ -71,14 +71,5 @@ p.add_text("Eye-Dome Lighting")
 p.subplot(0, 1)
 p.add_mesh(point_cloud, color="tan", point_size=5)
 p.add_text("No Eye-Dome Lighting")
-p.show(screenshot="edl2.png")
+p.screenshot("edl2.png")
 
-
-###############################################################################
-# The eye dome lighting mode can also handle plotting scalar arrays:
-
-# Plot with EDL and scalar data
-p = pv.Plotter()
-p.add_mesh(point_cloud, scalars="Elevation", point_size=5)
-p.enable_eye_dome_lighting()
-p.show()

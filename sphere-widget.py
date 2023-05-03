@@ -39,7 +39,7 @@ def callback(point):
 p.add_sphere_widget(callback)
 p.add_mesh(surf, color=True)
 p.show_grid()
-p.show()
+# p.show()
 
 ##############################################################################
 # And here is a screen capture of a user interacting with this
@@ -72,7 +72,7 @@ p.add_sphere_widget(callback, center=surf.points)
 p.add_mesh(surf, color=True)
 
 p.show_grid()
-p.show()
+# p.show()
 
 ##############################################################################
 # And here is a screen capture of a user interacting with this
@@ -147,7 +147,7 @@ p.add_sphere_widget(update_surface, center=points,
 p.show_grid()
 
 # Show it!
-p.show()
+# p.show()
 
 ##############################################################################
 # And here is a screen capture of a user interacting with this

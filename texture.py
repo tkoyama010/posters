@@ -18,7 +18,7 @@ pv.set_plot_theme("document")
 # objects come preloaded with texture coordinates, so quickly creating a
 # surface and displaying an image is simply:
 
-p = pv.Plotter(shape=(1, 2), window_size=[1000, 300])
+p = pv.Plotter(shape=(1, 2), window_size=[1000, 300], off_screen=True)
 
 # create a surface to host this texture
 surf = pv.Cylinder()
@@ -32,7 +32,7 @@ p.subplot(0, 1)
 p.add_mesh(surf)
 p.add_text("No Texture Mapping")
 
-p.show(screenshot="texture1.png")
+p.screenshot("texture1.png")
 
 
 ###############################################################################
@@ -52,7 +52,7 @@ curvsurf = pv.StructuredGrid(x, y, z)
 # Map the curved surface to a plane - use best fitting plane
 curvsurf.texture_map_to_plane(inplace=True)
 
-curvsurf.plot(texture=tex)
+# curvsurf.plot(texture=tex)
 
 ###############################################################################
 # Display scalar data along with a texture by ensuring the
@@ -61,10 +61,10 @@ curvsurf.plot(texture=tex)
 
 elevated = curvsurf.elevation()
 
-elevated.plot(scalars='Elevation',
-              cmap='terrain',
-              texture=tex,
-              interpolate_before_map=False)
+# elevated.plot(scalars='Elevation',
+#               cmap='terrain',
+#               texture=tex,
+#               interpolate_before_map=False)
 
 
 ###############################################################################
@@ -175,7 +175,7 @@ rgba.n_components
 ###############################################################################
 
 # Render it!
-curvsurf.plot(texture=rgba, show_grid=True)
+# curvsurf.plot(texture=rgba, show_grid=True)
 
 
 ###############################################################################
@@ -210,7 +210,7 @@ curvsurf.active_t_coords = puppy_coords
 
 # use the puppy image
 tex = examples.download_puppy_texture()
-curvsurf.plot(texture=tex, cpos="xy")
+# curvsurf.plot(texture=tex, cpos="xy")
 
 
 ###############################################################################
@@ -222,7 +222,7 @@ mesh = pv.Sphere()
 tex = examples.download_masonry_texture()
 
 mesh.texture_map_to_sphere(inplace=True)
-mesh.plot(texture=tex)
+# mesh.plot(texture=tex)
 
 
 
@@ -252,4 +252,4 @@ for i in range(sphere.points.shape[0]):
 
 # And let's display it with a world map
 tex = examples.load_globe_texture()
-sphere.plot(texture=tex)
+# sphere.plot(texture=tex)

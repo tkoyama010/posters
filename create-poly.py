@@ -29,4 +29,4 @@ faces = np.hstack([[4, 0, 1, 2, 3],
 surf = pv.PolyData(vertices, faces)
 
 # plot each face with a different color
-surf.plot(cpos=[-1, 1, 0.5], screenshot="create-poly.png", show_edges=True)
+surf.plot(cpos=[-1, 1, 0.5], screenshot="create-poly.png", show_edges=True, off_screen=True)
