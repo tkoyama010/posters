@@ -34,7 +34,7 @@ light = pv.Light(light_type='headlight')
 light.position = (1, 2, 3)
 light.focal_point = (4, 5, 6)
 plotter.add_light(light)
-p.screenshot("light_types1.png")
+plotter.screenshot("light_types1.png")
 
 
 ###############################################################################
