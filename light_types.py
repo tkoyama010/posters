@@ -68,4 +68,4 @@ plotter.add_mesh(mesh, color='tan', smooth_shading=True)
 # a light that always shines on the left side of the bunny
 light = pv.Light(position=(0, 1, 0), light_type='scene light')
 plotter.add_light(light)
-p.screenshot("light_types3.png")
+plotter.screenshot("light_types3.png")
