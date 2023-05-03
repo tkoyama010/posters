@@ -53,7 +53,7 @@ plotter.add_mesh(mesh, color='tan', smooth_shading=True)
 # a light that always shines from the right of the camera
 light = pv.Light(position=(1, 0, 0), light_type='camera light')
 plotter.add_light(light)
-p.screenshot("light_types2.png")
+plotter.screenshot("light_types2.png")
 
 
 ###############################################################################
