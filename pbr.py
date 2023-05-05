@@ -31,17 +31,17 @@ cubemap = examples.download_sky_box_cube_map()
 ###############################################################################
 # Let's render the mesh with a base color of "linen" to give it a metal looking
 # finish.
-p = pv.Plotter(window_size=[1000, 300])
+p = pv.Plotter(window_size=[1000, 300], off_screen=True)
 p.add_actor(cubemap.to_skybox())
 p.set_environment_texture(cubemap)
 p.add_mesh(mesh,color='linen',pbr=True,metallic=0.8,roughness=0.1,diffuse=1)
 
 # Define a nice camera perspective
-cpos = [(-313.40, 66.09, 1000.61),
+p.camera_position = [(-313.40, 66.09, 1000.61),
         (0.0, 0.0, 0.0),
         (0.018, 0.99, -0.06)]
 
-p.show(cpos=cpos, screenshot="pbr1.png")
+p.screenshot("pbr1.png")
 
 
 ###############################################################################
@@ -51,7 +51,7 @@ p.show(cpos=cpos, screenshot="pbr1.png")
 # increasing from bottom to top.
 
 colors = ['red', 'teal', 'black', 'orange', 'silver']
-p = pv.Plotter(window_size=[1000, 300])
+p = pv.Plotter(window_size=[1000, 300], off_screen=True)
 p.set_environment_texture(cubemap)
 for i in range(5):
     for j in range(6):
@@ -59,36 +59,5 @@ for i in range(5):
         p.add_mesh(sphere, color=colors[i],
                    pbr=True, metallic=i/4, roughness=j/5)
 p.view_vector((-1, 0, 0), (0, 1, 0))
-p.show(screenshot="pbr2.png")
+p.screenshot("pbr2.png")
 
-
-###############################################################################
-# Combine custom lighting and physically based rendering.
-
-# download louis model
-mesh = examples.download_louis_louvre()
-mesh.rotate_z(140)
-
-
-plotter = pv.Plotter(lighting=None)
-plotter.set_background('black')
-plotter.add_mesh(mesh, color='linen', pbr=True,
-                 metallic=0.5, roughness=0.5, diffuse=1)
-
-
-# setup lighting
-light = pv.Light((-2, 2, 0), (0, 0, 0), 'white')
-plotter.add_light(light)
-
-light = pv.Light((2, 0, 0), (0, 0, 0), (0.7, 0.0862, 0.0549))
-plotter.add_light(light)
-
-light = pv.Light((0, 0, 10), (0, 0, 0), 'white')
-plotter.add_light(light)
-
-
-# plot with a good camera position
-plotter.camera_position = [(9.51, 13.92, 15.81),
-                           (-2.836, -0.93, 10.2),
-                           (-0.22, -0.18, 0.959)]
-cpos = plotter.show()

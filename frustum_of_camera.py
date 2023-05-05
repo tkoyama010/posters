@@ -23,7 +23,7 @@ unit_vector = np.array(camera.direction) / np.linalg.norm(
 xyz = camera.position + unit_vector * 0.6 - np.mean(bunny.points, axis=0)
 bunny.translate(xyz)
 
-p = pv.Plotter(window_size=[1000, 700])
+p = pv.Plotter(window_size=[1000, 700], off_screen=True)
 p.add_mesh(bunny)
 p.add_mesh(frustum, style="wireframe")
 p.add_mesh(bunny)
@@ -48,4 +48,4 @@ p.camera.focal_point = (0.2, 0.3, 0.3)
 p.camera.up = (0.0, 1.0, 0.0)
 p.camera.zoom(1.1)
 
-p.show(screenshot="frustum_of_camera.png")
+p.screenshot("frustum_of_camera.png")

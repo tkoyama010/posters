@@ -35,14 +35,14 @@ axes.origin = (3.0, 3.0, 3.0)
 #
 # Plot original mesh. Add axes actor to Plotter.
 
-p = pv.Plotter()
+p = pv.Plotter(off_screen=True)
 
 p.add_text("Mesh", font_size=24)
 p.add_actor(axes.actor)
 p.camera = camera
 p.add_mesh(mesh)
 
-p.show(screenshot="rotate_mesh.png")
+p.screenshot("rotate_mesh.png")
 
 ###############################################################################
 # Rotation about the x axis
@@ -51,7 +51,7 @@ p.show(screenshot="rotate_mesh.png")
 # Plot the mesh rotated about the x axis every 60 degrees.
 # Add the axes actor to the Plotter and set the axes origin to the point of rotation.
 
-p = pv.Plotter(shape=(1, 2), window_size=[1000, 300])
+p = pv.Plotter(shape=(1, 2), window_size=[1000, 300], off_screen=True)
 p.subplot(0, 0)
 p.add_text("Before Rotation", font_size=24)
 p.add_actor(axes.actor)
@@ -68,7 +68,7 @@ for i in range(6):
     rot.rotate_x(60*i, point=axes.origin)
     p.add_mesh(rot)
 
-p.show(screenshot="rotate_x.png")
+p.screenshot("rotate_x.png")
 
 ###############################################################################
 # Rotation about the y axis
@@ -77,7 +77,7 @@ p.show(screenshot="rotate_x.png")
 # Plot the mesh rotated about the y axis every 60 degrees.
 # Add the axes actor to the Plotter and set the axes origin to the point of rotation.
 
-p = pv.Plotter(shape=(1, 2), window_size=[1000, 300])
+p = pv.Plotter(shape=(1, 2), window_size=[1000, 300], off_screen=True)
 p.subplot(0, 0)
 p.add_text("Before Rotation", font_size=24)
 p.add_actor(axes.actor)
@@ -94,7 +94,7 @@ for i in range(6):
     rot.rotate_y(60*i, point=axes.origin)
     p.add_mesh(rot)
 
-p.show(screenshot="rotate_y.png")
+p.screenshot("rotate_y.png")
 
 ###############################################################################
 # Rotation about the z axis
@@ -103,7 +103,7 @@ p.show(screenshot="rotate_y.png")
 # Plot the mesh rotated about the z axis every 60 degrees.
 # Add axes actor to the Plotter and set the axes origin to the point of rotation.
 
-p = pv.Plotter(shape=(1, 2), window_size=[1000, 300])
+p = pv.Plotter(shape=(1, 2), window_size=[1000, 300], off_screen=True)
 p.subplot(0, 0)
 p.add_text("Before Rotation", font_size=24)
 p.add_actor(axes.actor)
@@ -120,7 +120,7 @@ for i in range(6):
     rot.rotate_z(60*i, point=axes.origin)
     p.add_mesh(rot)
 
-p.show(screenshot="rotate_z.png")
+p.screenshot("rotate_z.png")
 
 ###############################################################################
 # Rotation about a custom vector
@@ -129,7 +129,7 @@ p.show(screenshot="rotate_z.png")
 # Plot the mesh rotated about a custom vector every 60 degrees.
 # Add the axes actor to the Plotter and set axes origin to the point of rotation.
 
-p = pv.Plotter(shape=(1, 2), window_size=[1000, 300])
+p = pv.Plotter(shape=(1, 2), window_size=[1000, 300], off_screen=True)
 p.subplot(0, 0)
 p.add_text("Before Rotation", font_size=24)
 p.add_actor(axes.actor)
@@ -145,4 +145,4 @@ for i in range(6):
     rot.rotate_vector(vector=(1, 1, 1), angle=60*i, point=axes.origin)
     p.add_mesh(rot)
 
-p.show(screenshot="rotate_custom.png")
+p.screenshot("rotate_custom.png")
