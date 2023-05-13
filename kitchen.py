@@ -16,9 +16,9 @@ resolution = 10000
 # Preview how this circular arc intersects this mesh
 arc = pv.CircularArcFromNormal(center, resolution, normal, polar, angle)
 
-mesh.plot_over_circular_arc_normal(
-    center, resolution, normal, polar, angle, fname="elevation.png"
-)
+# mesh.plot_over_circular_arc_normal(
+#     center, resolution, normal, polar, angle, fname="elevation.png"
+# )
 
 p = pv.Plotter(window_size=[1000, 500], off_screen=True)
 p.add_mesh(mesh)
